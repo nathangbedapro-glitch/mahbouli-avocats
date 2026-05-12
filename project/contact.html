@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1440" />
+<title>Contact — Cabinet MAHBOULI</title>
+<link rel="stylesheet" href="shared.css" />
+<style>
+  .page-title {
+    background: var(--white);
+    padding: 80px var(--pad) 60px;
+  }
+  .page-title .container { max-width: var(--container); margin: 0 auto; }
+  .page-title h1 {
+    font-size: 56px;
+    color: var(--navy);
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .page-title .sub {
+    color: var(--text-secondary);
+    font-size: 16px;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  .contact-main {
+    background: var(--bg);
+    padding: 60px var(--pad) 120px;
+  }
+  .contact-grid {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 40fr 60fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* Left column */
+  .info {
+    background: var(--white);
+    padding: 48px 44px;
+    border-top: 2px solid var(--gold);
+  }
+  .info h2 {
+    font-size: 28px;
+    margin-bottom: 22px;
+  }
+  .info .map {
+    aspect-ratio: 4/3;
+    background:
+      repeating-linear-gradient(135deg, rgba(27,42,74,0.04) 0 1px, transparent 1px 14px),
+      linear-gradient(135deg, #f4f1ea, #ece6d8);
+    position: relative;
+    margin-bottom: 30px;
+    border: 1px solid var(--border);
+  }
+  .info .map .pin {
+    position: absolute;
+    top: 48%; left: 52%;
+    transform: translate(-50%, -50%);
+    width: 38px; height: 38px;
+    background: var(--gold);
+    border-radius: 50% 50% 50% 0;
+    transform: translate(-50%, -100%) rotate(-45deg);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 20px rgba(27,42,74,0.18);
+  }
+  .info .map .pin::before {
+    content: '';
+    width: 12px; height: 12px;
+    background: var(--white);
+    border-radius: 50%;
+  }
+  .info .map .label {
+    position: absolute;
+    bottom: 12px; left: 12px;
+    background: var(--white);
+    padding: 8px 12px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-family: ui-monospace, monospace;
+  }
+  .info-block {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .info-block:last-of-type { border-bottom: none; }
+  .info-block svg { width: 18px; height: 18px; color: var(--gold); margin-top: 4px; }
+  .info-block .label {
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+  .info-block .value {
+    font-size: 15px;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+  .info-block .value a { color: var(--navy); }
+  .info-block .value a:hover { color: var(--gold); }
+
+  .hours-table { width: 100%; margin-top: 2px; }
+  .hours-table tr td {
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--navy);
+  }
+  .hours-table tr td:last-child { color: var(--text-secondary); text-align: right; }
+
+  .visio-tag {
+    margin-top: 28px;
+    padding: 14px 18px;
+    background: rgba(201,168,76,0.08);
+    border-left: 2px solid var(--gold);
+    font-size: 13.5px;
+    color: var(--navy);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .visio-tag svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+
+  /* Form column */
+  .form-card {
+    background: var(--white);
+    padding: 56px 56px 48px;
+    box-shadow: var(--shadow-md);
+    border-top: 2px solid var(--gold);
+  }
+  .form-card h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .form-card .form-sub {
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    margin-bottom: 36px;
+  }
+  .field { margin-bottom: 22px; position: relative; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field label {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--navy);
+    transition: border-color 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus { border-bottom-color: var(--gold); }
+  .field textarea { resize: vertical; min-height: 140px; }
+  .field select { appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%231B2A4A' stroke-width='1.4' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 4px center; padding-right: 24px; }
+
+  .check {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin: 24px 0 28px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .check input { display: none; }
+  .check .box {
+    width: 18px; height: 18px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    flex-shrink: 0;
+    position: relative;
+    margin-top: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .check input:checked + .box { background: var(--gold); border-color: var(--gold); }
+  .check input:checked + .box::after {
+    content: '';
+    position: absolute;
+    left: 5px; top: 1px;
+    width: 5px; height: 10px;
+    border: solid var(--white);
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+  .check a { color: var(--navy); text-decoration: underline; }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--gold);
+    color: var(--white);
+    padding: 18px;
+    border: none;
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .submit-btn:hover { background: var(--gold-hover); }
+
+  .confidentiality {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-align: center;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .confidentiality svg { width: 12px; height: 12px; }
+
+  .form-success {
+    display: none;
+    padding: 22px;
+    background: rgba(39,174,96,0.08);
+    color: #1b6f3e;
+    border-left: 2px solid #27AE60;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .form-success.show { display: block; }
+
+  /* FAQ */
+  .faq {
+    background: var(--white);
+    padding: 120px var(--pad);
+    border-top: 1px solid var(--border);
+  }
+  .faq .container { max-width: 900px; margin: 0 auto; }
+  .faq h2 { font-size: 40px; margin-bottom: 12px; text-align: center; }
+  .faq > .container > p {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 56px;
+    font-size: 14.5px;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-q {
+    padding: 26px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    transition: color 0.2s ease;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-q .q-text {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--navy);
+    line-height: 1.4;
+    flex: 1;
+    transition: color 0.2s ease;
+  }
+  .faq-q:hover .q-text { color: var(--gold); }
+  .faq-q .ico {
+    width: 28px; height: 28px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    font-size: 14px;
+  }
+  .faq-item.open .faq-q .ico { transform: rotate(45deg); border-color: var(--gold); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.75;
+    padding: 0 60px 0 0;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding-bottom: 28px;
+  }
+</style>
+</head>
+<body data-page="contact">
+
+<div data-shared="topnav"></div>
+
+<section class="page-title" data-screen-label="01 Titre">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="sep">/</span>
+      <span style="color: var(--gold);">Contact</span>
+    </div>
+    <div class="eyebrow">Prendre contact</div>
+    <h1>Nous contacter</h1>
+    <div class="sub">Une question, une urgence, un dossier à confier ? Le cabinet vous répond dans les meilleurs délais. Consultation possible en présentiel ou en visioconférence.</div>
+  </div>
+</section>
+
+<section class="contact-main" data-screen-label="02 Formulaire">
+  <div class="contact-grid">
+    <!-- Info -->
+    <aside class="info">
+      <h2>Coordonnées</h2>
+      <div class="map">
+        <div class="label">11 Rue Rousselet · 75007</div>
+        <div class="pin"></div>
+      </div>
+
+      <div class="info-block">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <div class="label">Adresse</div>
+          <div class="value">11 Rue Rousselet<br/>75007 Paris</div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 012 4.18 2 2 0 014 2h3a2 2 0 012 1.72c.1.78.27 1.55.52 2.29a2 2 0 01-.45 2.11L7.91 9.5a16 16 0 006.59 6.59l1.38-1.38a2 2 0 012.11-.45c.74.25 1.51.42 2.29.52A2 2 0 0122 16.92z"/></svg>
+        <div>
+          <div class="label">Téléphone</div>
+          <div class="value"><a href="tel:0148781959">01.48.78.19.59</a><br/><a href="tel:0184166918">01.84.16.69.18</a></div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <div>
+          <div class="label">Email</div>
+          <div class="value"><a href="mailto:contact@avocat-mahbouli.com">contact@avocat-mahbouli.com</a></div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div>
+          <div class="label">Horaires</div>
+          <table class="hours-table">
+            <tr><td>Lundi — Vendredi</td><td>9h30 — 20h00</td></tr>
+            <tr><td>Samedi</td><td>9h30 — 20h00</td></tr>
+            <tr><td>Dimanche</td><td>Fermé</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        <div>
+          <div class="label">Langues</div>
+          <div class="value">Français · Anglais · Arabe · Italien</div>
+        </div>
+      </div>
+
+      <div class="visio-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        Consultation possible en visioconférence.
+      </div>
+    </aside>
+
+    <!-- Form -->
+    <div class="form-card">
+      <h2>Demande de consultation</h2>
+      <p class="form-sub">Décrivez votre situation. Le cabinet vous recontacte sous 24 heures ouvrées.</p>
+
+      <div class="form-success" id="formSuccess">
+        Votre demande a bien été envoyée. Le cabinet vous recontactera dans les meilleurs délais.
+      </div>
+
+      <form id="contactForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" required />
+          </div>
+          <div class="field">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" required />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="field">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" required />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="dom">Domaine juridique</label>
+            <select id="dom" required>
+              <option value="">Sélectionner...</option>
+              <option>Droit des Étrangers</option>
+              <option>Droit Pénal</option>
+              <option>Droit de la Famille</option>
+              <option>Aménagement de Peine</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="type">Type de consultation</label>
+            <select id="type" required>
+              <option value="">Sélectionner...</option>
+              <option>Présentiel</option>
+              <option>Visioconférence</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="msg">Décrivez votre situation</label>
+          <textarea id="msg" rows="6" required></textarea>
+        </div>
+        <label class="check">
+          <input type="checkbox" id="rgpd" required />
+          <span class="box"></span>
+          <span>J'accepte que mes données soient traitées conformément à la <a href="#">politique de confidentialité</a> du cabinet. Vos informations restent strictement confidentielles.</span>
+        </label>
+        <button type="submit" class="submit-btn">Envoyer ma demande</button>
+        <div class="confidentiality">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Vos données sont confidentielles et protégées
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" data-screen-label="03 FAQ">
+  <div class="container">
+    <div class="eyebrow" style="text-align:center; justify-content:center; display:flex;">Questions fréquentes</div>
+    <h2>Vos questions, nos réponses.</h2>
+    <p>Les questions les plus fréquemment posées avant une première consultation.</p>
+
+    <div class="faq-item open">
+      <div class="faq-q">
+        <span class="q-text">Comment se déroule une première consultation ?</span>
+        <div class="ico">+</div>
+      </div>
+      <div class="faq-a">La première consultation dure entre 45 minutes et 1 heure. Maître MAHBOULI vous écoute, analyse les pièces que vous avez préparées, et vous présente les options juridiques disponibles, leurs chances de succès, et une estimation des honoraires. Aucun engagement n'est pris à l'issue de ce premier rendez-vous.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-text">Quel est le tarif d'une première consultation ?</span>
+        <div class="ico">+</div>
+      </div>
+      <div class="faq-a">La consultation initiale est facturée à un tarif fixe communiqué lors de la prise de rendez-vous. En cas de prise en charge du dossier, ce montant peut être déduit du forfait global d'honoraires. Le cabinet pratique également la convention d'honoraires écrite, conformément aux règles déontologiques.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-text">Puis-je bénéficier de l'aide juridictionnelle ?</span>
+        <div class="ico">+</div>
+      </div>
+      <div class="faq-a">Oui, sous conditions de ressources. Le cabinet accepte les dossiers à l'aide juridictionnelle totale ou partielle. Lors de la prise de rendez-vous, indiquez votre intention de solliciter cette aide ; nous vous accompagnerons dans la constitution du dossier auprès du bureau d'aide juridictionnelle.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-text">Quels documents apporter au premier rendez-vous ?</span>
+        <div class="ico">+</div>
+      </div>
+      <div class="faq-a">Apportez l'ensemble des pièces relatives à votre dossier : pièce d'identité, convocations, décisions, contrats, échanges écrits, justificatifs de domicile, etc. En cas de doute, scannez et envoyez les documents à contact@avocat-mahbouli.com avant le rendez-vous.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="q-text">La consultation en visioconférence est-elle aussi efficace ?</span>
+        <div class="ico">+</div>
+      </div>
+      <div class="faq-a">Absolument. Pour de nombreux dossiers, la visioconférence permet un échange aussi complet qu'en présentiel, avec l'avantage de la souplesse géographique. Les documents sont échangés sécurisé en amont, et un compte-rendu écrit vous est systématiquement envoyé à l'issue du rendez-vous.</div>
+    </div>
+  </div>
+</section>
+
+<div data-shared="footer"></div>
+<script src="shared.js"></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+  // Form
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('formSuccess').classList.add('show');
+    e.target.reset();
+    setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 6000);
+  });
+</script>
+</body>
+</html>
