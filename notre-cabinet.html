@@ -300,6 +300,61 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .presentation-grid { grid-template-columns: 360px 1fr; gap: 56px; }
+    .philo-grid { grid-template-columns: repeat(2, 1fr); }
+    .creds-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: 1fr; }
+    .member { grid-template-columns: 200px 1fr; }
+    .inner-hero h1 { font-size: 44px; }
+    .bio h2 { font-size: 36px; }
+  }
+
+  @media (max-width: 768px) {
+    .inner-hero { height: auto; padding: 48px var(--pad-x); }
+    .inner-hero h1 { font-size: 32px; }
+
+    .presentation { padding: 48px var(--pad-x); }
+    .presentation-grid { grid-template-columns: 1fr; gap: 0; }
+    .portrait { height: 300px; }
+    .portrait .nameplate {
+      position: relative;
+      bottom: auto; left: auto;
+      display: block;
+      margin: -24px auto 0;
+      width: fit-content;
+      text-align: center;
+    }
+    .bio { padding-top: 48px; }
+    .bio h2 { font-size: 28px; }
+
+    .philo { padding: 48px var(--pad-x); }
+    .philo h2 { font-size: 28px; }
+    .philo-grid { grid-template-columns: 1fr; }
+    .philo-card { padding: 32px 24px; }
+
+    .creds { padding: 48px var(--pad-x); }
+    .creds h2 { font-size: 28px; max-width: 100%; }
+    .creds-grid { grid-template-columns: 1fr 1fr; }
+    .cred-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 28px 0; }
+    .cred-item:last-child { border-bottom: none; }
+    .cred-item:first-child { padding-left: 0; }
+
+    .team { padding: 48px var(--pad-x); }
+    .team-head h2 { font-size: 28px; }
+    .team-grid { grid-template-columns: 1fr; }
+    .member { grid-template-columns: 1fr; }
+    .member .m-photo { height: 200px; }
+    .member .m-body { padding: 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .inner-hero h1 { font-size: 28px; }
+    .bio h2, .philo h2, .creds h2, .team-head h2 { font-size: 24px; }
+    .creds-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body data-page="cabinet">

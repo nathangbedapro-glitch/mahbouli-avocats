@@ -14,7 +14,7 @@
     background: linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
     height: 400px;
     display: flex; align-items: center;
-    padding: 0 80px;
+    padding: 0 var(--pad-x);
     position: relative; overflow: hidden;
   }
   .exp-page-hero::before {
@@ -84,6 +84,26 @@
   /* ── Process section ── */
   .process-section { padding: var(--py-md) var(--pad-x); background: var(--white); }
   .process-section .inner { max-width: var(--container); margin: 0 auto; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .domains-9 { grid-template-columns: repeat(2, 1fr); }
+    .calc-3 { grid-template-columns: repeat(2, 1fr); }
+    .exp-page-hero h1 { font-size: 44px; }
+  }
+
+  @media (max-width: 768px) {
+    .exp-page-hero { height: auto; padding: 48px var(--pad-x); }
+    .exp-page-hero h1 { font-size: 32px; }
+    .exp-page-hero p { font-size: 14px; }
+    .domains-9 { grid-template-columns: 1fr; }
+    .dcard9 .ghost { font-size: 64px; }
+    .calc-3 { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .exp-page-hero h1 { font-size: 28px; }
+  }
 </style>
 </head>
 <body data-page="expertise">

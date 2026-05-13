@@ -414,6 +414,88 @@
     transition: gap 0.2s ease;
   }
   .art:hover .read { gap: 12px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 55fr 45fr; }
+    .hero-left { padding: var(--py-md) var(--pad-x) 60px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat + .stat::before { display: none; }
+    .domaines-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { gap: 48px; }
+    .dist-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { gap: 40px; }
+    .art-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    /* Hero */
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 48px 24px 40px; order: 1; }
+    .hero h1 { font-size: 40px; margin: 20px 0 24px; }
+    .hero p.lede { font-size: 15px; max-width: 100%; }
+    .hero-cta { flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .hero-cta .btn { width: 100%; justify-content: center; text-align: center; }
+    .hero-meta { flex-direction: column; gap: 8px; flex-wrap: nowrap; }
+    .hero-right { order: 2; min-height: 280px; }
+    .floating-card {
+      position: relative;
+      bottom: auto; left: auto;
+      margin: -40px auto 0;
+      width: calc(100% - 48px);
+      z-index: 10;
+    }
+
+    /* Stats */
+    .stats { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; }
+    .stat + .stat::before { display: none; }
+    .stat .num { font-size: 32px; }
+
+    /* Domaines */
+    .domaines-head h2 { font-size: 32px; }
+    .domaines-grid { grid-template-columns: 1fr; }
+
+    /* About */
+    .about { padding: var(--py-sm) 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 0; }
+    .about-photo { aspect-ratio: auto; height: 300px; width: 100%; }
+    .about-photo .badge {
+      position: relative;
+      bottom: auto; right: auto;
+      display: block;
+      margin: -24px auto 0;
+      width: fit-content;
+      max-width: calc(100% - 48px);
+      text-align: center;
+    }
+    .about-grid > div:last-child { padding: 40px 24px; }
+    .about h2 { font-size: 32px; }
+
+    /* Distinguish */
+    .distinguish h2 { font-size: 32px; margin-bottom: 40px; }
+    .dist-grid { grid-template-columns: 1fr; gap: 0; }
+    .dist-item { padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .dist-item:last-child { border-bottom: none; }
+    .dist-num { font-size: 80px; }
+
+    /* Contact section */
+    .contact-sec { padding: var(--py-sm) var(--pad-x); }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-left h2 { font-size: 32px; }
+    .form-card { padding: 24px; }
+
+    /* Articles */
+    .articles-head { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .articles-head h2 { font-size: 32px; }
+    .art-grid { grid-template-columns: 1fr; }
+    .art h3 { min-height: auto; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 32px; }
+    .stat .num { font-size: 28px; }
+    .domaines-head h2, .about h2, .distinguish h2 { font-size: 26px; }
+  }
 </style>
 </head>
 <body data-page="home">

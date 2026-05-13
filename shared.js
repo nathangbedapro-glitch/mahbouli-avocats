@@ -35,7 +35,11 @@
     <span class="logo-name">MAHBOULI</span>
     <span class="logo-tag">AVOCATS</span>
   </a>
-  <div class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+  <button class="nav-close" id="navClose" aria-label="Fermer le menu">×</button>
     <a href="index.html" data-nav="home">Accueil</a>
     <div class="dropdown">
       <a href="notre-expertise.html" data-nav="expertise">Notre expertise</a>
@@ -139,4 +143,29 @@
     sel.addEventListener('change', setHasValue);
     setHasValue();
   });
+
+  // Mobile hamburger menu
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  const navClose = document.getElementById('navClose');
+
+  function openMenu() {
+    navLinks.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', openMenu);
+    if (navClose) navClose.addEventListener('click', closeMenu);
+    navLinks.querySelectorAll('a[href]:not([href="#"])').forEach(a => {
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  }
 })();
