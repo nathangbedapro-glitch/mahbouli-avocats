@@ -438,7 +438,7 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; color: var(--navy)
 }
 
 @media (max-width: 768px) {
-  :root { --pad-x: 24px; --pad: 24px; }
+  :root { --pad-x: 24px; --pad: 24px; --py-sm: 48px; --py-md: 64px; --py-lg: 80px; }
 
   .topbar { display: none; }
 
@@ -476,4 +476,8 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; color: var(--navy)
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   .footer-bottom .links { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 }
