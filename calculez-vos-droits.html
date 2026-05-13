@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculez vos droits — Cabinet MAHBOULI Paris</title>
+<meta name="description" content="Estimez gratuitement vos droits juridiques grâce aux simulateurs du Cabinet MAHBOULI : indemnité de licenciement, pension alimentaire, prestation compensatoire.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="expertise.css">
+<style>
+  .calc-hub-hero {
+    background: linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
+    min-height: 420px;
+    display: flex; align-items: center;
+    padding: 0 80px;
+    position: relative; overflow: hidden;
+  }
+  .calc-hub-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(201,168,76,0.3) 0 1px, transparent 1px 14px);
+    opacity: 0.03;
+  }
+  .calc-hub-hero .c { max-width: var(--container); margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+  .calc-hub-hero h1 { font-family: var(--serif); font-size: 54px; color: var(--white); line-height: 1.1; margin: 14px 0 18px; max-width: 680px; }
+  .calc-hub-hero p { font-size: 16px; color: rgba(255,255,255,0.72); max-width: 540px; line-height: 1.65; }
+
+  .calc-cards-row {
+    background: var(--navy-deep);
+    padding: 0 80px;
+    display: flex;
+    gap: 0;
+    border-top: 2px solid var(--gold);
+  }
+  .calc-card-nav {
+    flex: 1;
+    padding: 28px 32px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: flex-start; gap: 16px;
+    cursor: pointer; text-decoration: none; color: inherit;
+    transition: background 0.2s ease;
+  }
+  .calc-card-nav:last-child { border-right: none; }
+  .calc-card-nav:hover { background: rgba(201,168,76,0.06); }
+  .calc-card-nav .cc-icon {
+    width: 36px; height: 36px;
+    background: rgba(201,168,76,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .calc-card-nav .cc-icon svg { width: 16px; height: 16px; color: var(--gold); }
+  .calc-card-nav h3 {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  .calc-section-page {
+    padding: var(--py-md) 80px;
+    max-width: 100%;
+    scroll-margin-top: 80px;
+  }
+  .calc-section-page:nth-child(odd) { background: var(--white); }
+  .calc-section-page:nth-child(even) { background: var(--bg); }
+  .calc-sec-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .calc-sec-left .num {
+    font-family: var(--serif);
+    font-size: 80px;
+    color: rgba(232,224,213,0.8);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .calc-sec-left h2 { font-size: 38px; margin-bottom: 16px; line-height: 1.15; }
+  .calc-sec-left p { color: var(--text-secondary); font-size: 15px; line-height: 1.75; margin-bottom: 20px; }
+  .calc-sec-left .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .calc-sec-left .tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background: var(--gold-light);
+    color: var(--navy);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .calc-sec-right { position: sticky; top: 24px; }
+
+  .calc-preview {
+    background: var(--navy);
+    border-top: 2px solid var(--gold);
+    padding: 36px;
+  }
+  .calc-preview .prev-label {
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .calc-preview .prev-formula {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    padding: 16px 18px;
+    background: rgba(255,255,255,0.04);
+    border-left: 2px solid rgba(201,168,76,0.4);
+  }
+  .calc-preview .prev-fields { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+  .calc-preview .prev-field {
+    display: flex; justify-content: space-between;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .calc-preview .prev-field span:last-child { color: rgba(255,255,255,0.35); font-style: italic; }
+
+  .steps-list { display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
+  .step-item { display: flex; gap: 16px; align-items: flex-start; }
+  .step-dot {
+    width: 28px; height: 28px;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .calc-section-page:nth-child(even) .step-dot { background: var(--bg); }
+  .step-item h4 { font-family: var(--serif); font-size: 16px; margin-bottom: 3px; }
+  .step-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+  @media (max-width: 768px) {
+    .calc-hub-hero { padding: 60px 24px; }
+    .calc-hub-hero h1 { font-size: 34px; }
+    .calc-cards-row { flex-direction: column; padding: 0 24px; }
+    .calc-card-nav { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .calc-section-page { padding: 60px 24px; }
+    .calc-sec-inner { grid-template-columns: 1fr; gap: 40px; }
+    .calc-sec-right { position: static; }
+  }
+</style>
+</head>
+<body data-page="droits">
+<div data-shared="topnav"></div>
+
+<div class="bc-bar">
+  <div class="bc-inner">
+    <a href="index.html">Accueil</a><span class="bc-sep">/</span>
+    <span class="bc-current">Calculez vos droits</span>
+  </div>
+</div>
+
+<section class="calc-hub-hero">
+  <div class="c">
+    <div class="eyebrow">SIMULATEURS JURIDIQUES GRATUITS</div>
+    <h1>Calculez vos droits en quelques secondes</h1>
+    <p>Trois simulateurs interactifs pour estimer rapidement vos droits juridiques — indemnité de licenciement, pension alimentaire, prestation compensatoire.</p>
+  </div>
+</section>
+
+<div class="calc-cards-row">
+  <a href="#licenciement" class="calc-card-nav">
+    <div class="cc-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+    </div>
+    <h3>Indemnité de<br>licenciement</h3>
+  </a>
+  <a href="#pension" class="calc-card-nav">
+    <div class="cc-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    </div>
+    <h3>Pension alimentaire pour l'entretien et l'éducation des enfants</h3>
+  </a>
+  <a href="#prestation" class="calc-card-nav">
+    <div class="cc-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    </div>
+    <h3>Prestation<br>compensatoire</h3>
+  </a>
+</div>
+
+<section class="calc-section-page" id="licenciement">
+  <div class="calc-sec-inner">
+    <div class="calc-sec-left">
+      <div class="num">01</div>
+      <div class="eyebrow">DROIT DU TRAVAIL</div>
+      <h2>Indemnité légale de licenciement</h2>
+      <p>Vous venez d'être licencié ou vous anticipez une rupture de contrat ? Calculez rapidement le montant de votre indemnité légale selon les barèmes 2024 en vigueur.</p>
+      <div class="tags">
+        <span class="tag">CDI / CDD</span>
+        <span class="tag">Barèmes 2024</span>
+        <span class="tag">Résultat immédiat</span>
+      </div>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-dot">1</div>
+          <div><h4>Renseignez votre salaire brut mensuel</h4><p>Le salaire pris en compte est la moyenne des 12 derniers mois ou des 3 derniers mois, selon le calcul le plus favorable.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot">2</div>
+          <div><h4>Indiquez votre ancienneté</h4><p>Comptée en années complètes depuis votre entrée dans l'entreprise jusqu'à la fin du préavis.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot">3</div>
+          <div><h4>Obtenez votre estimation</h4><p>Le résultat est calculé automatiquement. Un avocat peut vérifier si votre convention collective prévoit des droits plus favorables.</p></div>
+        </div>
+      </div>
+      <a href="calcul-licenciement.html" class="btn btn-primary" style="margin-top:32px;">Accéder au simulateur →</a>
+    </div>
+    <div class="calc-sec-right">
+      <div class="calc-preview">
+        <div class="prev-label">Formule de calcul légale 2024</div>
+        <div class="prev-formula">
+          Moins de 10 ans : ¼ salaire × années<br><br>
+          Plus de 10 ans : ¼ × 10 + ⅓ × (années – 10)
+        </div>
+        <div class="prev-fields">
+          <div class="prev-field"><span>Salaire brut mensuel</span><span>Ex : 2 500 €</span></div>
+          <div class="prev-field"><span>Ancienneté</span><span>Ex : 7 ans</span></div>
+          <div class="prev-field"><span>Type de contrat</span><span>CDI / CDD</span></div>
+        </div>
+        <a href="calcul-licenciement.html" class="btn btn-primary btn-full">Calculer mon indemnité</a>
+        <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.4);font-style:italic;text-align:center;">Calcul indicatif — consultez un avocat pour votre situation précise</div>
+      </div>
+      <div style="margin-top:20px;padding:20px 24px;background:var(--bg);border-left:2px solid var(--gold);">
+        <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Bon à savoir</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Si votre licenciement semble injustifié, vous disposez de <strong>12 mois</strong> pour saisir le Conseil de Prud'hommes. Maître MAHBOULI analyse votre dossier.</p>
+        <a href="droit-travail.html" style="font-size:12px;color:var(--gold);margin-top:10px;display:inline-block;">En savoir plus →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="calc-section-page" id="pension">
+  <div class="calc-sec-inner">
+    <div class="calc-sec-left">
+      <div class="num">02</div>
+      <div class="eyebrow">DROIT DE LA FAMILLE</div>
+      <h2>Pension alimentaire pour l'entretien et l'éducation des enfants</h2>
+      <p>Lors d'une séparation ou d'un divorce, le juge aux affaires familiales fixe la pension alimentaire. Estimez le montant probable selon les barèmes habituellement retenus par les juridictions parisiennes.</p>
+      <div class="tags">
+        <span class="tag">Résidence alternée</span>
+        <span class="tag">Garde principale</span>
+        <span class="tag">1 à 4 enfants</span>
+      </div>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-dot">1</div>
+          <div><h4>Revenus des deux parents</h4><p>Renseignez les revenus nets mensuels du parent débiteur (qui paye) et du parent créancier (qui reçoit).</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot">2</div>
+          <div><h4>Mode de garde et nombre d'enfants</h4><p>Le mode de résidence (principale, alternée, exclusive) et le nombre d'enfants influencent fortement le montant.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot">3</div>
+          <div><h4>Obtenez une fourchette indicative</h4><p>Le résultat vous donne une fourchette min–max correspondant aux pratiques judiciaires habituelles.</p></div>
+        </div>
+      </div>
+      <a href="calcul-pension.html" class="btn btn-primary" style="margin-top:32px;">Accéder au simulateur →</a>
+    </div>
+    <div class="calc-sec-right">
+      <div class="calc-preview">
+        <div class="prev-label">Critères pris en compte</div>
+        <div class="prev-formula">
+          Le juge examine les ressources de chaque parent, les besoins de l'enfant, et le mode de résidence pour fixer la pension.
+        </div>
+        <div class="prev-fields">
+          <div class="prev-field"><span>Revenus débiteur</span><span>€ / mois</span></div>
+          <div class="prev-field"><span>Revenus créancier</span><span>€ / mois</span></div>
+          <div class="prev-field"><span>Nombre d'enfants</span><span>1 – 4+</span></div>
+          <div class="prev-field"><span>Mode de garde</span><span>Principale / Alternée</span></div>
+        </div>
+        <a href="calcul-pension.html" class="btn btn-primary btn-full">Estimer la pension</a>
+        <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.4);font-style:italic;text-align:center;">Estimation indicative basée sur les pratiques judiciaires à Paris</div>
+      </div>
+      <div style="margin-top:20px;padding:20px 24px;background:var(--bg);border-left:2px solid var(--gold);">
+        <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Révision possible</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">La pension peut être révisée à tout moment en cas de changement de situation (chômage, augmentation, déménagement).</p>
+        <a href="droit-famille.html" style="font-size:12px;color:var(--gold);margin-top:10px;display:inline-block;">Droit de la famille →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="calc-section-page" id="prestation">
+  <div class="calc-sec-inner">
+    <div class="calc-sec-left">
+      <div class="num">03</div>
+      <div class="eyebrow">DIVORCE</div>
+      <h2>Prestation compensatoire</h2>
+      <p>La prestation compensatoire vise à compenser la disparité de niveau de vie créée par le divorce. Estimez le capital ou la rente auxquels vous pourriez prétendre selon les critères de l'article 271 du Code civil.</p>
+      <div class="tags">
+        <span class="tag">Capital</span>
+        <span class="tag">Rente</span>
+        <span class="tag">Formule mixte</span>
+      </div>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-dot">1</div>
+          <div><h4>Revenus et patrimoine des époux</h4><p>Renseignez les revenus des deux époux et le patrimoine estimé du débiteur après liquidation du régime matrimonial.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot">2</div>
+          <div><h4>Durée du mariage et âge</h4><p>Ces critères déterminent l'ampleur de la disparité et le nombre d'années de vie active restantes du créancier.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-dot">3</div>
+          <div><h4>Capital, rente ou formule mixte</h4><p>Obtenez une estimation selon le mode de versement que vous souhaitez simuler.</p></div>
+        </div>
+      </div>
+      <a href="calcul-prestation.html" class="btn btn-primary" style="margin-top:32px;">Accéder au simulateur →</a>
+    </div>
+    <div class="calc-sec-right">
+      <div class="calc-preview">
+        <div class="prev-label">Critères article 271 C. civil</div>
+        <div class="prev-formula">
+          Durée du mariage · Âge et santé · Qualification professionnelle · Patrimoine des époux · Droits à la retraite
+        </div>
+        <div class="prev-fields">
+          <div class="prev-field"><span>Revenus débiteur</span><span>€ / mois</span></div>
+          <div class="prev-field"><span>Revenus créancier</span><span>€ / mois</span></div>
+          <div class="prev-field"><span>Durée du mariage</span><span>Années</span></div>
+          <div class="prev-field"><span>Patrimoine débiteur</span><span>€</span></div>
+        </div>
+        <a href="calcul-prestation.html" class="btn btn-primary btn-full">Calculer ma prestation</a>
+        <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,0.4);font-style:italic;text-align:center;">Estimation indicative — le juge apprécie souverainement</div>
+      </div>
+      <div style="margin-top:20px;padding:20px 24px;background:var(--bg);border-left:2px solid var(--gold);">
+        <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Pas automatique</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">La prestation compensatoire n'est pas systématique. Elle doit être demandée et justifiée. Le cabinet vous aide à constituer le dossier.</p>
+        <a href="divorce.html" style="font-size:12px;color:var(--gold);margin-top:10px;display:inline-block;">Notre expertise divorce →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner-bottom">
+  <h2>Un résultat qui vous interpelle ?</h2>
+  <div class="cta-banner-btns">
+    <a href="tel:0148781959" class="btn-white">📞 01.48.78.19.59</a>
+    <a href="contact.html" class="btn btn-primary">Consulter Maître MAHBOULI</a>
+  </div>
+</section>
+
+<div data-shared="footer"></div>
+<script src="shared.js"></script>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        const y = target.getBoundingClientRect().top + window.scrollY - 60;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

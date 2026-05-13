@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculez votre Indemnité de Licenciement — Cabinet MAHBOULI Paris</title>
+<meta name="description" content="Calculez votre indemnité légale de licenciement en quelques secondes. Outil gratuit du Cabinet MAHBOULI, avocat en droit du travail à Paris.">
+<meta property="og:title" content="Calculateur Indemnité de Licenciement — Cabinet MAHBOULI">
+<meta property="og:url" content="https://mahbouli-avocats.vercel.app/calcul-licenciement.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="expertise.css">
+</head>
+<body data-page="droits">
+<div data-shared="topnav"></div>
+
+<div class="bc-bar">
+  <div class="bc-inner">
+    <a href="index.html">Accueil</a><span class="bc-sep">/</span>
+    <a href="calculez-vos-droits.html">Calculez vos droits</a><span class="bc-sep">/</span>
+    <span class="bc-current">Indemnité de licenciement</span>
+  </div>
+</div>
+
+<section class="calc-hero">
+  <div class="calc-hero-inner">
+    <div class="eyebrow">CALCULEZ VOS DROITS</div>
+    <h1>Calculez votre Indemnité de Licenciement</h1>
+    <p class="exp-sub">Estimez rapidement le montant de votre indemnité légale de licenciement selon les barèmes 2024.</p>
+  </div>
+</section>
+
+<div class="calc-body">
+  <div class="calc-intro">
+    <h2>Comment est calculée l'indemnité ?</h2>
+    <p>L'indemnité légale de licenciement est calculée en fonction de votre salaire brut et de votre ancienneté dans l'entreprise. Depuis 2017, le calcul est le suivant :</p>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:28px;">
+      <li style="display:flex;gap:12px;align-items:flex-start;">
+        <span style="background:var(--gold);color:white;font-family:var(--serif);font-size:16px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">1</span>
+        <div><strong style="color:var(--navy);font-size:14px;">Moins de 10 ans d'ancienneté</strong><br><span style="font-size:13px;color:var(--text-secondary);">1/4 de mois de salaire × nombre d'années</span></div>
+      </li>
+      <li style="display:flex;gap:12px;align-items:flex-start;">
+        <span style="background:var(--gold);color:white;font-family:var(--serif);font-size:16px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">2</span>
+        <div><strong style="color:var(--navy);font-size:14px;">Plus de 10 ans d'ancienneté</strong><br><span style="font-size:13px;color:var(--text-secondary);">1/4 × 10 + 1/3 × (années – 10)</span></div>
+      </li>
+    </ul>
+    <div style="background:var(--bg);border-left:2px solid var(--gold);padding:16px 20px;font-size:13px;color:var(--text-secondary);line-height:1.6;">
+      <strong style="color:var(--navy);display:block;margin-bottom:6px;">Important :</strong>
+      Cette indemnité est versée en cas de licenciement pour motif personnel ou économique. Elle n'est pas due en cas de faute grave ou lourde. Des conventions collectives peuvent prévoir des montants plus favorables.
+    </div>
+  </div>
+
+  <div>
+    <div class="calc-form">
+      <h3>Votre simulation</h3>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="salaire">Salaire brut mensuel (€)</label>
+        <input type="number" id="salaire" class="calc-inp" placeholder="Ex : 2 500" min="0" step="100">
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="anciennete">Ancienneté (années complètes)</label>
+        <input type="number" id="anciennete" class="calc-inp" placeholder="Ex : 5" min="1" max="50" step="1">
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl">Type de contrat</label>
+        <div class="calc-radio-row">
+          <label class="calc-radio"><input type="radio" name="contrat" value="CDI" checked> CDI</label>
+          <label class="calc-radio"><input type="radio" name="contrat" value="CDD"> CDD</label>
+        </div>
+      </div>
+
+      <button onclick="calculerLicenciement()" class="btn btn-primary btn-full" style="margin-top:8px;">Calculer mon indemnité</button>
+
+      <div class="calc-result" id="result">
+        <div class="calc-result-lbl">Votre indemnité estimée</div>
+        <div class="calc-result-amount" id="montant">0 €</div>
+        <div class="calc-result-sub" id="detail"></div>
+      </div>
+
+      <p class="calc-disclaimer" id="disclaimer" style="display:none;">
+        Ce calcul est indicatif et basé sur les barèmes légaux 2024. Consultez un avocat pour une évaluation précise de votre situation, notamment si votre convention collective prévoit des règles plus favorables.
+      </p>
+      <div class="calc-cta" id="ctaBtn" style="display:none;">
+        <a href="contact.html" class="btn btn-primary btn-full">Consulter Maître MAHBOULI</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="calc-info-sec">
+  <div class="container">
+    <div class="eyebrow">Pour aller plus loin</div>
+    <h2>Comprendre votre licenciement</h2>
+    <div class="calc-info-grid">
+      <div class="calc-info-card">
+        <h3>Quand avez-vous droit à l'indemnité ?</h3>
+        <p>L'indemnité légale est due dès 8 mois d'ancienneté, en cas de licenciement pour motif personnel (hors faute grave) ou économique. La convention collective peut prévoir des conditions plus favorables.</p>
+        <a href="droit-travail.html">En savoir plus sur le droit du travail →</a>
+      </div>
+      <div class="calc-info-card">
+        <h3>Comment est calculée l'ancienneté ?</h3>
+        <p>L'ancienneté est calculée à partir de la date d'entrée dans l'entreprise jusqu'à la fin du préavis. Les périodes de suspension (arrêt maladie, congé parental) sont généralement prises en compte.</p>
+        <a href="droit-travail.html">Voir nos services en droit du travail →</a>
+      </div>
+      <div class="calc-info-card">
+        <h3>Peut-on contester son licenciement ?</h3>
+        <p>Si votre licenciement est abusif (absence de cause réelle et sérieuse), vous pouvez saisir le Conseil de Prud'hommes dans un délai de 12 mois. Maître MAHBOULI analyse votre dossier et vous défend.</p>
+        <a href="droit-travail.html">Consulter un avocat →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner-bottom">
+  <h2>Votre licenciement vous semble injuste ?</h2>
+  <div class="cta-banner-btns">
+    <a href="tel:0148781959" class="btn-white">📞 01.48.78.19.59</a>
+    <a href="contact.html" class="btn btn-primary">Prendre rendez-vous</a>
+  </div>
+</section>
+
+<div data-shared="footer"></div>
+<script src="shared.js"></script>
+<script>
+function calculerLicenciement() {
+  const salaire = parseFloat(document.getElementById('salaire').value);
+  const anciennete = parseInt(document.getElementById('anciennete').value);
+  const contrat = document.querySelector('input[name="contrat"]:checked').value;
+
+  if (!salaire || salaire <= 0 || !anciennete || anciennete < 1) {
+    alert('Veuillez renseigner votre salaire et votre ancienneté.');
+    return;
+  }
+
+  let indemnite = 0;
+  if (contrat === 'CDI') {
+    if (anciennete <= 10) {
+      indemnite = (salaire / 4) * anciennete;
+    } else {
+      indemnite = (salaire / 4) * 10 + (salaire / 3) * (anciennete - 10);
+    }
+  } else {
+    indemnite = salaire * 0.1 * (anciennete * 12) / 12;
+  }
+
+  const fmt = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  document.getElementById('montant').textContent = fmt.format(indemnite);
+  document.getElementById('detail').textContent = `Pour ${anciennete} an${anciennete > 1 ? 's' : ''} d'ancienneté avec un salaire de ${fmt.format(salaire)}/mois`;
+  document.getElementById('result').classList.add('visible');
+  document.getElementById('disclaimer').style.display = 'block';
+  document.getElementById('ctaBtn').style.display = 'block';
+  document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+document.getElementById('salaire').addEventListener('keydown', e => e.key === 'Enter' && calculerLicenciement());
+document.getElementById('anciennete').addEventListener('keydown', e => e.key === 'Enter' && calculerLicenciement());
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estimez votre Prestation Compensatoire — Cabinet MAHBOULI Paris</title>
+<meta name="description" content="Calculez une estimation de la prestation compensatoire en cas de divorce. Outil gratuit du Cabinet MAHBOULI, avocat spécialisé en divorce à Paris.">
+<meta property="og:title" content="Calculateur Prestation Compensatoire — Cabinet MAHBOULI">
+<meta property="og:url" content="https://mahbouli-avocats.vercel.app/calcul-prestation.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="expertise.css">
+</head>
+<body data-page="droits">
+<div data-shared="topnav"></div>
+
+<div class="bc-bar">
+  <div class="bc-inner">
+    <a href="index.html">Accueil</a><span class="bc-sep">/</span>
+    <a href="calculez-vos-droits.html">Calculez vos droits</a><span class="bc-sep">/</span>
+    <span class="bc-current">Prestation compensatoire</span>
+  </div>
+</div>
+
+<section class="calc-hero">
+  <div class="calc-hero-inner">
+    <div class="eyebrow">CALCULEZ VOS DROITS</div>
+    <h1>Estimez votre Prestation Compensatoire</h1>
+    <p class="exp-sub">Calculez une estimation de la prestation compensatoire en cas de divorce — capital ou rente.</p>
+  </div>
+</section>
+
+<div class="calc-body">
+  <div class="calc-intro">
+    <h2>Qu'est-ce que la prestation compensatoire ?</h2>
+    <p>La prestation compensatoire a pour objectif de compenser la disparité que le divorce crée dans les conditions de vie des époux. Elle est fixée par le juge en prenant en compte de nombreux critères définis par l'article 271 du Code civil :</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin:20px 0 28px;">
+      <div style="padding:12px 16px;background:var(--bg);border-left:2px solid var(--gold);font-size:13px;color:var(--text-secondary);display:flex;gap:10px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Durée du mariage et conditions de vie pendant le mariage</span>
+      </div>
+      <div style="padding:12px 16px;background:var(--bg);border-left:2px solid var(--gold);font-size:13px;color:var(--text-secondary);display:flex;gap:10px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Âge et état de santé des époux</span>
+      </div>
+      <div style="padding:12px 16px;background:var(--bg);border-left:2px solid var(--gold);font-size:13px;color:var(--text-secondary);display:flex;gap:10px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Qualification et situation professionnelle respective</span>
+      </div>
+      <div style="padding:12px 16px;background:var(--bg);border-left:2px solid var(--gold);font-size:13px;color:var(--text-secondary);display:flex;gap:10px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Patrimoine estimé des époux après liquidation du régime matrimonial</span>
+      </div>
+      <div style="padding:12px 16px;background:var(--bg);border-left:2px solid var(--gold);font-size:13px;color:var(--text-secondary);display:flex;gap:10px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Droits existants et prévisibles à la retraite</span>
+      </div>
+    </div>
+    <div style="background:rgba(27,42,74,0.04);border:1px solid var(--border);padding:16px 20px;font-size:13px;color:var(--text-secondary);">
+      <strong style="color:var(--navy);display:block;margin-bottom:4px;">Formes possibles</strong>
+      La prestation compensatoire peut être versée en capital (versement unique ou échelonné sur 8 ans max), en rente viagère dans des cas exceptionnels, ou sous forme mixte capital + rente.
+    </div>
+  </div>
+
+  <div>
+    <div class="calc-form">
+      <h3>Votre simulation</h3>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="rev-deb-pc">Revenus du débiteur (€/mois)</label>
+        <input type="number" id="rev-deb-pc" class="calc-inp" placeholder="Ex : 4 000" min="0" step="100">
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="rev-crea-pc">Revenus du créancier (€/mois)</label>
+        <input type="number" id="rev-crea-pc" class="calc-inp" placeholder="Ex : 1 200" min="0" step="100">
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="duree-mariage">Durée du mariage (années)</label>
+        <input type="number" id="duree-mariage" class="calc-inp" placeholder="Ex : 12" min="1" max="60" step="1">
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="age-creancier">Âge du créancier (années)</label>
+        <input type="number" id="age-creancier" class="calc-inp" placeholder="Ex : 45" min="18" max="90" step="1">
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="patrimoine">Patrimoine estimé du débiteur (€)</label>
+        <input type="number" id="patrimoine" class="calc-inp" placeholder="Ex : 150 000" min="0" step="10000">
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl">Mode de calcul</label>
+        <div class="calc-radio-row">
+          <label class="calc-radio"><input type="radio" name="mode-pc" value="capital" checked> Capital</label>
+          <label class="calc-radio"><input type="radio" name="mode-pc" value="rente"> Rente</label>
+          <label class="calc-radio"><input type="radio" name="mode-pc" value="mixte"> Mixte</label>
+        </div>
+      </div>
+
+      <button onclick="calculerPrestation()" class="btn btn-primary btn-full" style="margin-top:8px;">Calculer ma prestation</button>
+
+      <div class="calc-result" id="result-pc">
+        <div class="calc-result-lbl" id="pc-lbl">Capital estimé</div>
+        <div class="calc-result-amount" id="pc-montant">0 €</div>
+        <div class="calc-result-sub" id="pc-detail"></div>
+      </div>
+
+      <p class="calc-disclaimer" id="disc-pc" style="display:none;">
+        Ce calcul est indicatif. La prestation compensatoire est appréciée souverainement par le juge au cas par cas. Consultez un avocat pour une évaluation précise.
+      </p>
+      <div id="cta-pc" style="display:none;margin-top:16px;">
+        <a href="contact.html" class="btn btn-primary btn-full">Consulter Maître MAHBOULI</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="calc-info-sec">
+  <div class="container">
+    <div class="eyebrow">Pour aller plus loin</div>
+    <h2>Comprendre la prestation compensatoire</h2>
+    <div class="calc-info-grid">
+      <div class="calc-info-card">
+        <h3>Qu'est-ce que la prestation compensatoire ?</h3>
+        <p>La prestation compensatoire est une somme d'argent versée par l'époux le plus aisé pour compenser la disparité de niveau de vie créée par le divorce. Elle n'est pas automatique et doit être demandée au juge lors de la procédure de divorce.</p>
+        <a href="divorce.html">En savoir plus sur le divorce →</a>
+      </div>
+      <div class="calc-info-card">
+        <h3>Comment est-elle calculée par le juge ?</h3>
+        <p>Le juge se réfère à l'article 271 du Code civil qui liste les critères à examiner. Il apprécie librement chaque situation. Une expertise patrimoniale peut être ordonnée pour évaluer avec précision le patrimoine des époux.</p>
+        <a href="divorce.html">Consultez notre expertise →</a>
+      </div>
+      <div class="calc-info-card">
+        <h3>Peut-on la contester ou la réviser ?</h3>
+        <p>Une prestation compensatoire en capital est en principe définitive. Une révision est possible si le débiteur subit un changement important de situation. La rente, elle, peut être révisée plus facilement. Le cabinet analyse vos possibilités de recours.</p>
+        <a href="contact.html">Demander une consultation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner-bottom">
+  <h2>Vous traversez une procédure de divorce ?</h2>
+  <div class="cta-banner-btns">
+    <a href="tel:0148781959" class="btn-white">📞 01.48.78.19.59</a>
+    <a href="contact.html" class="btn btn-primary">Prendre rendez-vous</a>
+  </div>
+</section>
+
+<div data-shared="footer"></div>
+<script src="shared.js"></script>
+<script>
+function calculerPrestation() {
+  const revD = parseFloat(document.getElementById('rev-deb-pc').value) || 0;
+  const revC = parseFloat(document.getElementById('rev-crea-pc').value) || 0;
+  const duree = parseInt(document.getElementById('duree-mariage').value) || 0;
+  const age = parseInt(document.getElementById('age-creancier').value) || 0;
+  const patrim = parseFloat(document.getElementById('patrimoine').value) || 0;
+  const mode = document.querySelector('input[name="mode-pc"]:checked').value;
+
+  if (!revD || !duree || !age) { alert('Veuillez renseigner au minimum les revenus du débiteur, la durée du mariage et l\'âge du créancier.'); return; }
+
+  const disparite = Math.max(0, revD - revC);
+  if (disparite <= 0) {
+    document.getElementById('pc-montant').textContent = '0 €';
+    document.getElementById('pc-detail').textContent = 'Pas de disparité significative entre les revenus — la prestation compensatoire peut ne pas être due.';
+    document.getElementById('result-pc').classList.add('visible');
+    document.getElementById('disc-pc').style.display = 'block';
+    document.getElementById('cta-pc').style.display = 'block';
+    return;
+  }
+
+  const anneesRestantes = Math.max(0, 67 - age);
+  const dureeCoeff = Math.min(1, duree / 20);
+  const ageCoeff = Math.min(1, anneesRestantes / 30);
+  const patrimCoeff = Math.min(1.3, 1 + patrim / 500000 * 0.3);
+
+  const baseCapital = disparite * 12 * Math.max(2, Math.min(8, duree * 0.4)) * dureeCoeff * (0.7 + ageCoeff * 0.5) * patrimCoeff;
+  const renteBase = disparite * 0.25;
+
+  const fmt = (v, dec=0) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: dec }).format(v);
+
+  let lbl, montant, detail;
+  if (mode === 'capital') {
+    lbl = 'Capital estimé';
+    montant = fmt(Math.round(baseCapital / 500) * 500);
+    detail = `Versement unique ou échelonné sur 8 ans maximum — basé sur ${duree} ans de mariage, écart de revenus de ${fmt(disparite)}/mois`;
+  } else if (mode === 'rente') {
+    lbl = 'Rente mensuelle estimée';
+    montant = `${fmt(Math.round(renteBase / 50) * 50)}/mois`;
+    detail = `La rente viagère est exceptionnelle. Elle représente environ 20-30% de la disparité de revenus. Durée variable selon l'âge du créancier.`;
+  } else {
+    const capMixte = Math.round(baseCapital * 0.6 / 500) * 500;
+    const renteMixte = Math.round(renteBase * 0.5 / 10) * 10;
+    lbl = 'Formule mixte estimée';
+    montant = `${fmt(capMixte)} + ${fmt(renteMixte)}/mois`;
+    detail = `Capital (60%) : ${fmt(capMixte)} + Rente (40%) : ${fmt(renteMixte)}/mois`;
+  }
+
+  document.getElementById('pc-lbl').textContent = lbl;
+  document.getElementById('pc-montant').textContent = montant;
+  document.getElementById('pc-detail').textContent = detail;
+  document.getElementById('result-pc').classList.add('visible');
+  document.getElementById('disc-pc').style.display = 'block';
+  document.getElementById('cta-pc').style.display = 'block';
+}
+</script>
+</body>
+</html>

@@ -3,265 +3,315 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Contactez le Cabinet MAHBOULI à Paris 7e. Prise de rendez-vous en présentiel ou visioconférence. Tél : 01.48.78.19.59 — Lun–Sam 9h30–20h." />
 <title>Contact — Cabinet MAHBOULI</title>
 <link rel="stylesheet" href="shared.css" />
 <style>
-/* ── Page title ── */
-.page-title { background: var(--white); padding: 80px var(--pad) 60px; }
-.page-title .container { max-width: var(--container); margin: 0 auto; }
-.page-title h1 { font-size: 56px; color: var(--navy); line-height: 1.05; margin-bottom: 16px; }
-.page-title .sub { color: var(--text-secondary); font-size: 16px; max-width: 560px; line-height: 1.6; }
+  .page-title {
+    background: var(--white);
+    padding: 80px var(--pad) 60px;
+  }
+  .page-title .container { max-width: var(--container); margin: 0 auto; }
+  .page-title h1 {
+    font-size: 56px;
+    color: var(--navy);
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .page-title .sub {
+    color: var(--text-secondary);
+    font-size: 16px;
+    max-width: 560px;
+    line-height: 1.6;
+  }
 
-/* ── Contact main ── */
-.contact-main { background: var(--bg); padding: 60px var(--pad) 120px; }
-.contact-grid {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 48px;
-  align-items: start;
-}
+  .contact-main {
+    background: var(--bg);
+    padding: 60px var(--pad) 120px;
+  }
+  .contact-grid {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 40fr 60fr;
+    gap: 48px;
+    align-items: start;
+  }
 
-/* ── Info column ── */
-.info { background: var(--white); padding: 48px 44px; border-top: 2px solid var(--gold); }
-.info h2 { font-size: 28px; margin-bottom: 22px; }
-.info .map {
-  aspect-ratio: 4/3;
-  background:
-    repeating-linear-gradient(135deg, rgba(27,42,74,0.04) 0 1px, transparent 1px 14px),
-    linear-gradient(135deg, #f4f1ea, #ece6d8);
-  position: relative;
-  margin-bottom: 30px;
-  border: 1px solid var(--border);
-}
-.info .map .pin {
-  position: absolute;
-  top: 48%; left: 52%;
-  width: 38px; height: 38px;
-  background: var(--gold);
-  border-radius: 50% 50% 50% 0;
-  transform: translate(-50%, -100%) rotate(-45deg);
-  box-shadow: 0 8px 20px rgba(27,42,74,0.18);
-  display: flex; align-items: center; justify-content: center;
-}
-.info .map .pin::before { content: ''; width: 12px; height: 12px; background: var(--white); border-radius: 50%; }
-.info .map .map-label {
-  position: absolute;
-  bottom: 12px; left: 12px;
-  background: var(--white);
-  padding: 8px 12px;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--navy);
-  font-family: ui-monospace, monospace;
-}
-.info-block {
-  padding: 22px 0;
-  border-bottom: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 16px;
-  align-items: start;
-}
-.info-block:last-of-type { border-bottom: none; }
-.info-block svg { width: 18px; height: 18px; color: var(--gold); margin-top: 4px; }
-.info-block .lbl {
-  font-size: 10.5px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  margin-bottom: 6px;
-}
-.info-block .val { font-size: 15px; color: var(--navy); line-height: 1.6; }
-.info-block .val a { color: var(--navy); }
-.info-block .val a:hover { color: var(--gold); }
-.hours-table { width: 100%; margin-top: 2px; }
-.hours-table td { padding: 4px 0; font-size: 14px; color: var(--navy); }
-.hours-table td:last-child { color: var(--text-secondary); text-align: right; }
-.visio-tag {
-  margin-top: 28px;
-  padding: 14px 18px;
-  background: rgba(201,168,76,0.08);
-  border-left: 2px solid var(--gold);
-  font-size: 13.5px;
-  color: var(--navy);
-  display: flex; align-items: center; gap: 12px;
-}
-.visio-tag svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+  /* Left column */
+  .info {
+    background: var(--white);
+    padding: 48px 44px;
+    border-top: 2px solid var(--gold);
+  }
+  .info h2 {
+    font-size: 28px;
+    margin-bottom: 22px;
+  }
+  .info .map {
+    aspect-ratio: 4/3;
+    background:
+      repeating-linear-gradient(135deg, rgba(27,42,74,0.04) 0 1px, transparent 1px 14px),
+      linear-gradient(135deg, #f4f1ea, #ece6d8);
+    position: relative;
+    margin-bottom: 30px;
+    border: 1px solid var(--border);
+  }
+  .info .map .pin {
+    position: absolute;
+    top: 48%; left: 52%;
+    transform: translate(-50%, -100%) rotate(-45deg);
+    width: 38px; height: 38px;
+    background: var(--gold);
+    border-radius: 50% 50% 50% 0;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 20px rgba(27,42,74,0.18);
+  }
+  .info .map .pin::before {
+    content: '';
+    width: 12px; height: 12px;
+    background: var(--white);
+    border-radius: 50%;
+  }
+  .info .map .label {
+    position: absolute;
+    bottom: 12px; left: 12px;
+    background: var(--white);
+    padding: 8px 12px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-family: ui-monospace, monospace;
+  }
+  .info-block {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .info-block:last-of-type { border-bottom: none; }
+  .info-block svg { width: 18px; height: 18px; color: var(--gold); margin-top: 4px; }
+  .info-block .label {
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+  .info-block .value {
+    font-size: 15px;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+  .info-block .value a { color: var(--navy); }
+  .info-block .value a:hover { color: var(--gold); }
 
-/* ── Form column ── */
-.form-card { background: var(--white); padding: 56px 56px 48px; box-shadow: var(--shadow-md); border-top: 2px solid var(--gold); }
-.form-card h2 { font-size: 32px; margin-bottom: 8px; }
-.form-card .form-sub { color: var(--text-secondary); font-size: 14.5px; margin-bottom: 36px; }
-.field { margin-bottom: 22px; position: relative; }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.field label {
-  display: block;
-  font-size: 10.5px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  margin-bottom: 8px;
-}
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-  padding: 12px 0;
-  border: none;
-  border-bottom: 1px solid var(--border);
-  background: transparent;
-  font-family: var(--sans);
-  font-size: 15px;
-  color: var(--navy);
-  transition: border-color 0.2s ease;
-  outline: none;
-}
-.field input:focus,
-.field select:focus,
-.field textarea:focus { border-bottom-color: var(--gold); }
-.field textarea { resize: vertical; min-height: 140px; }
-.field select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%231B2A4A' stroke-width='1.4' fill='none'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 4px center;
-  padding-right: 24px;
-  cursor: pointer;
-}
+  .hours-table { width: 100%; margin-top: 2px; }
+  .hours-table tr td {
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--navy);
+  }
+  .hours-table tr td:last-child { color: var(--text-secondary); text-align: right; }
 
-.check {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  margin: 24px 0 28px;
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  cursor: pointer;
-}
-.check input { display: none; }
-.check .box {
-  width: 18px; height: 18px;
-  border: 1px solid var(--border);
-  background: var(--white);
-  flex-shrink: 0;
-  position: relative;
-  margin-top: 1px;
-  transition: all 0.2s ease;
-}
-.check input:checked + .box { background: var(--gold); border-color: var(--gold); }
-.check input:checked + .box::after {
-  content: '';
-  position: absolute;
-  left: 5px; top: 1px;
-  width: 5px; height: 10px;
-  border: solid var(--white);
-  border-width: 0 1.5px 1.5px 0;
-  transform: rotate(45deg);
-}
-.check a { color: var(--navy); text-decoration: underline; }
+  .visio-tag {
+    margin-top: 28px;
+    padding: 14px 18px;
+    background: rgba(201,168,76,0.08);
+    border-left: 2px solid var(--gold);
+    font-size: 13.5px;
+    color: var(--navy);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .visio-tag svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
 
-.submit-btn {
-  width: 100%;
-  background: var(--gold);
-  color: var(--white);
-  padding: 18px;
-  border: none;
-  font-family: var(--sans);
-  font-size: 13px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.submit-btn:hover { background: var(--gold-hover); }
+  /* Form column */
+  .form-card {
+    background: var(--white);
+    padding: 56px 56px 48px;
+    box-shadow: var(--shadow-md);
+    border-top: 2px solid var(--gold);
+  }
+  .form-card h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .form-card .form-sub {
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    margin-bottom: 36px;
+  }
+  .field { margin-bottom: 22px; position: relative; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field label {
+    display: block;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--navy);
+    transition: border-color 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus { border-bottom-color: var(--gold); }
+  .field textarea { resize: vertical; min-height: 140px; }
+  .field select { appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%231B2A4A' stroke-width='1.4' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 4px center; padding-right: 24px; }
 
-.confidentiality {
-  margin-top: 18px;
-  font-size: 12px;
-  color: var(--text-tertiary);
-  text-align: center;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-}
-.confidentiality svg { width: 12px; height: 12px; }
+  .check {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin: 24px 0 28px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .check input { display: none; }
+  .check .box {
+    width: 18px; height: 18px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    flex-shrink: 0;
+    position: relative;
+    margin-top: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .check input:checked + .box { background: var(--gold); border-color: var(--gold); }
+  .check input:checked + .box::after {
+    content: '';
+    position: absolute;
+    left: 5px; top: 1px;
+    width: 5px; height: 10px;
+    border: solid var(--white);
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+  .check a { color: var(--navy); text-decoration: underline; }
 
-.form-success {
-  display: none;
-  padding: 22px;
-  background: rgba(39,174,96,0.08);
-  color: #1b6f3e;
-  border-left: 2px solid #27AE60;
-  margin-bottom: 24px;
-  font-size: 14px;
-}
-.form-success.show { display: block; }
+  .submit-btn {
+    width: 100%;
+    background: var(--gold);
+    color: var(--white);
+    padding: 18px;
+    border: none;
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .submit-btn:hover { background: var(--gold-hover); }
 
-/* ── FAQ ── */
-.faq { background: var(--white); padding: 120px var(--pad); border-top: 1px solid var(--border); }
-.faq .container { max-width: 900px; margin: 0 auto; }
-.faq h2 { font-size: 40px; margin-bottom: 12px; text-align: center; }
-.faq > .container > p { text-align: center; color: var(--text-secondary); margin-bottom: 56px; font-size: 14.5px; }
-.faq-item { border-bottom: 1px solid var(--border); }
-.faq-q {
-  padding: 26px 0;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-}
-.faq-q .q-text { font-family: var(--serif); font-size: 20px; color: var(--navy); line-height: 1.4; flex: 1; transition: color 0.2s ease; }
-.faq-q:hover .q-text { color: var(--gold); }
-.faq-q .ico {
-  width: 28px; height: 28px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gold);
-  flex-shrink: 0;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-  font-size: 14px;
-}
-.faq-item.open .faq-q .ico { transform: rotate(45deg); border-color: var(--gold); }
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  color: var(--text-secondary);
-  font-size: 15px;
-  line-height: 1.75;
-  padding: 0 60px 0 0;
-}
-.faq-item.open .faq-a { max-height: 400px; padding-bottom: 28px; }
+  .confidentiality {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-align: center;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .confidentiality svg { width: 12px; height: 12px; }
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .contact-grid { grid-template-columns: 1fr; }
-  .info { order: 2; }
-  .form-card { padding: 40px 36px; }
-}
-@media (max-width: 768px) {
-  .page-title h1 { font-size: 38px; }
-  .form-card { padding: 28px 20px; }
-  .field-row { grid-template-columns: 1fr; }
-  .faq-a { padding-right: 0; }
-}
+  .form-success {
+    display: none;
+    padding: 22px;
+    background: rgba(39,174,96,0.08);
+    color: #1b6f3e;
+    border-left: 2px solid #27AE60;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .form-success.show { display: block; }
+
+  /* FAQ */
+  .faq {
+    background: var(--white);
+    padding: 120px var(--pad);
+    border-top: 1px solid var(--border);
+  }
+  .faq .container { max-width: 900px; margin: 0 auto; }
+  .faq h2 { font-size: 40px; margin-bottom: 12px; text-align: center; }
+  .faq > .container > p {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 56px;
+    font-size: 14.5px;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-q {
+    padding: 26px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    transition: color 0.2s ease;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-q .q-text {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--navy);
+    line-height: 1.4;
+    flex: 1;
+    transition: color 0.2s ease;
+  }
+  .faq-q:hover .q-text { color: var(--gold); }
+  .faq-q .ico {
+    width: 28px; height: 28px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    font-size: 14px;
+  }
+  .faq-item.open .faq-q .ico { transform: rotate(45deg); border-color: var(--gold); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.75;
+    padding: 0 60px 0 0;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding-bottom: 28px;
+  }
 </style>
 </head>
 <body data-page="contact">
 
 <div data-shared="topnav"></div>
 
-<!-- Page title -->
 <section class="page-title">
   <div class="container">
-    <div class="breadcrumb" style="color: var(--text-tertiary);">
-      <a href="index.html" style="color: var(--text-tertiary);">Accueil</a>
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
       <span class="sep">/</span>
       <span style="color: var(--gold);">Contact</span>
     </div>
@@ -271,49 +321,44 @@
   </div>
 </section>
 
-<!-- Formulaire + infos -->
 <section class="contact-main">
   <div class="contact-grid">
-
-    <!-- Coordonnées -->
+    <!-- Info -->
     <aside class="info">
       <h2>Coordonnées</h2>
       <div class="map">
-        <div class="map-label">11 Rue Rousselet · 75007</div>
+        <div class="label">11 Rue Rousselet · 75007</div>
         <div class="pin"></div>
       </div>
 
       <div class="info-block">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <div>
-          <div class="lbl">Adresse</div>
-          <div class="val">11 Rue Rousselet<br>75007 Paris</div>
+          <div class="label">Adresse</div>
+          <div class="value">11 Rue Rousselet<br/>75007 Paris</div>
         </div>
       </div>
 
       <div class="info-block">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 012 4.18 2 2 0 014 2h3a2 2 0 012 1.72c.1.78.27 1.55.52 2.29a2 2 0 01-.45 2.11L7.91 9.5a16 16 0 006.59 6.59l1.38-1.38a2 2 0 012.11-.45c.74.25 1.51.42 2.29.52A2 2 0 0122 16.92z"/></svg>
         <div>
-          <div class="lbl">Téléphone</div>
-          <div class="val">
-            <a href="tel:0148781959">01.48.78.19.59</a><br>
-            <a href="tel:0184166918">01.84.16.69.18</a>
-          </div>
+          <div class="label">Téléphone</div>
+          <div class="value"><a href="tel:0148781959">01.48.78.19.59</a><br/><a href="tel:0184166918">01.84.16.69.18</a></div>
         </div>
       </div>
 
       <div class="info-block">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
         <div>
-          <div class="lbl">Email</div>
-          <div class="val"><a href="mailto:contact@avocat-mahbouli.com">contact@avocat-mahbouli.com</a></div>
+          <div class="label">Email</div>
+          <div class="value"><a href="mailto:contact@avocat-mahbouli.com">contact@avocat-mahbouli.com</a></div>
         </div>
       </div>
 
       <div class="info-block">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <div>
-          <div class="lbl">Horaires</div>
+          <div class="label">Horaires</div>
           <table class="hours-table">
             <tr><td>Lundi — Vendredi</td><td>9h30 — 20h00</td></tr>
             <tr><td>Samedi</td><td>9h30 — 20h00</td></tr>
@@ -325,8 +370,8 @@
       <div class="info-block">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
         <div>
-          <div class="lbl">Langues</div>
-          <div class="val">Français · Anglais · Arabe · Italien</div>
+          <div class="label">Langues</div>
+          <div class="value">Français · Anglais · Arabe · Italien</div>
         </div>
       </div>
 
@@ -336,7 +381,7 @@
       </div>
     </aside>
 
-    <!-- Formulaire -->
+    <!-- Form -->
     <div class="form-card">
       <h2>Demande de consultation</h2>
       <p class="form-sub">Décrivez votre situation. Le cabinet vous recontacte sous 24 heures ouvrées.</p>
@@ -349,27 +394,27 @@
         <div class="field-row">
           <div class="field">
             <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" required autocomplete="family-name" />
+            <input type="text" id="nom" required />
           </div>
           <div class="field">
             <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" name="prenom" required autocomplete="given-name" />
+            <input type="text" id="prenom" required />
           </div>
         </div>
         <div class="field-row">
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email" />
+            <input type="email" id="email" required />
           </div>
           <div class="field">
             <label for="tel">Téléphone</label>
-            <input type="tel" id="tel" name="tel" required autocomplete="tel" />
+            <input type="tel" id="tel" required />
           </div>
         </div>
         <div class="field-row">
           <div class="field">
             <label for="dom">Domaine juridique</label>
-            <select id="dom" name="domaine" required>
+            <select id="dom" required>
               <option value="">Sélectionner...</option>
               <option>Droit des Étrangers</option>
               <option>Droit Pénal</option>
@@ -380,7 +425,7 @@
           </div>
           <div class="field">
             <label for="type">Type de consultation</label>
-            <select id="type" name="type" required>
+            <select id="type" required>
               <option value="">Sélectionner...</option>
               <option>Présentiel</option>
               <option>Visioconférence</option>
@@ -389,7 +434,7 @@
         </div>
         <div class="field">
           <label for="msg">Décrivez votre situation</label>
-          <textarea id="msg" name="message" rows="6" required></textarea>
+          <textarea id="msg" rows="6" required></textarea>
         </div>
         <label class="check">
           <input type="checkbox" id="rgpd" required />
@@ -409,7 +454,7 @@
 <!-- FAQ -->
 <section class="faq">
   <div class="container">
-    <div class="eyebrow" style="justify-content:center;">Questions fréquentes</div>
+    <div class="eyebrow" style="text-align:center; justify-content:center; display:flex;">Questions fréquentes</div>
     <h2>Vos questions, nos réponses.</h2>
     <p>Les questions les plus fréquemment posées avant une première consultation.</p>
 
@@ -450,7 +495,7 @@
         <span class="q-text">La consultation en visioconférence est-elle aussi efficace ?</span>
         <div class="ico">+</div>
       </div>
-      <div class="faq-a">Absolument. Pour de nombreux dossiers, la visioconférence permet un échange aussi complet qu'en présentiel, avec l'avantage de la souplesse géographique. Les documents sont échangés de façon sécurisée en amont, et un compte-rendu écrit vous est systématiquement envoyé à l'issue du rendez-vous.</div>
+      <div class="faq-a">Absolument. Pour de nombreux dossiers, la visioconférence permet un échange aussi complet qu'en présentiel, avec l'avantage de la souplesse géographique. Les documents sont échangés sécurisé en amont, et un compte-rendu écrit vous est systématiquement envoyé à l'issue du rendez-vous.</div>
     </div>
   </div>
 </section>

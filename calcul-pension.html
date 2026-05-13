@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculez la Pension Alimentaire — Cabinet MAHBOULI Paris</title>
+<meta name="description" content="Estimez le montant de la pension alimentaire pour vos enfants selon les barèmes en vigueur. Outil gratuit Cabinet MAHBOULI, avocat en droit de la famille à Paris.">
+<meta property="og:title" content="Calculateur Pension Alimentaire — Cabinet MAHBOULI">
+<meta property="og:url" content="https://mahbouli-avocats.vercel.app/calcul-pension.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="expertise.css">
+</head>
+<body data-page="droits">
+<div data-shared="topnav"></div>
+
+<div class="bc-bar">
+  <div class="bc-inner">
+    <a href="index.html">Accueil</a><span class="bc-sep">/</span>
+    <a href="calculez-vos-droits.html">Calculez vos droits</a><span class="bc-sep">/</span>
+    <span class="bc-current">Pension alimentaire</span>
+  </div>
+</div>
+
+<section class="calc-hero">
+  <div class="calc-hero-inner">
+    <div class="eyebrow">CALCULEZ VOS DROITS</div>
+    <h1>Calculez la Pension Alimentaire</h1>
+    <p class="exp-sub">Estimez le montant de la pension alimentaire pour vos enfants selon les barèmes en vigueur.</p>
+  </div>
+</section>
+
+<div class="calc-body">
+  <div class="calc-intro">
+    <h2>Comment est fixée la pension ?</h2>
+    <p>La pension alimentaire est fixée par le juge aux affaires familiales en tenant compte de plusieurs critères : les ressources de chaque parent, les besoins de l'enfant, et le mode de résidence. Voici les facteurs principaux :</p>
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div style="background:var(--navy);color:var(--gold);font-family:var(--serif);font-size:18px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-top:2px solid var(--gold);">→</div>
+        <div><strong style="color:var(--navy);font-size:14px;display:block;margin-bottom:3px;">Revenus du débiteur</strong><span style="font-size:13px;color:var(--text-secondary);">Salaires, revenus fonciers, allocations, rentes</span></div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div style="background:var(--navy);color:var(--gold);font-family:var(--serif);font-size:18px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-top:2px solid var(--gold);">→</div>
+        <div><strong style="color:var(--navy);font-size:14px;display:block;margin-bottom:3px;">Mode de garde</strong><span style="font-size:13px;color:var(--text-secondary);">Résidence principale, alternée ou exclusive</span></div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div style="background:var(--navy);color:var(--gold);font-family:var(--serif);font-size:18px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-top:2px solid var(--gold);">→</div>
+        <div><strong style="color:var(--navy);font-size:14px;display:block;margin-bottom:3px;">Nombre d'enfants</strong><span style="font-size:13px;color:var(--text-secondary);">Le montant est adapté selon le nombre d'enfants à charge</span></div>
+      </div>
+    </div>
+    <div style="background:rgba(201,168,76,0.08);border-left:2px solid var(--gold);padding:16px 20px;font-size:13px;color:var(--text-secondary);">
+      <strong style="color:var(--navy);display:block;margin-bottom:4px;">Note importante</strong>
+      Le juge n'est pas lié par un barème strict. Cette estimation est basée sur les pratiques judiciaires habituelles à Paris. Votre situation peut être différente selon les spécificités de votre dossier.
+    </div>
+  </div>
+
+  <div>
+    <div class="calc-form">
+      <h3>Votre simulation</h3>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="rev-debiteur">Revenus nets du parent débiteur (€/mois)</label>
+        <input type="number" id="rev-debiteur" class="calc-inp" placeholder="Ex : 3 000" min="0" step="100">
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="rev-creancier">Revenus nets du parent créancier (€/mois)</label>
+        <input type="number" id="rev-creancier" class="calc-inp" placeholder="Ex : 1 800" min="0" step="100">
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl" for="nb-enfants">Nombre d'enfants</label>
+        <select id="nb-enfants" class="calc-inp">
+          <option value="1">1 enfant</option>
+          <option value="2">2 enfants</option>
+          <option value="3">3 enfants</option>
+          <option value="4">4 enfants ou plus</option>
+        </select>
+      </div>
+
+      <div class="calc-field">
+        <label class="calc-lbl">Mode de garde</label>
+        <div class="calc-radio-row" style="flex-direction:column;gap:10px;">
+          <label class="calc-radio"><input type="radio" name="garde" value="principale" checked> Résidence principale chez le créancier</label>
+          <label class="calc-radio"><input type="radio" name="garde" value="alternee"> Résidence alternée</label>
+          <label class="calc-radio"><input type="radio" name="garde" value="exclusive"> Résidence exclusive chez le créancier</label>
+        </div>
+      </div>
+
+      <button onclick="calculerPension()" class="btn btn-primary btn-full" style="margin-top:8px;">Estimer la pension</button>
+
+      <div class="calc-result" id="result-pension">
+        <div class="calc-result-lbl">Estimation mensuelle</div>
+        <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+          <span style="font-family:var(--serif);font-size:24px;color:var(--gold);">entre</span>
+          <span class="calc-result-amount" id="pension-min" style="font-size:42px;">0 €</span>
+          <span style="font-family:var(--serif);font-size:24px;color:var(--gold);">et</span>
+          <span class="calc-result-amount" id="pension-max" style="font-size:42px;">0 €</span>
+          <span style="font-size:14px;color:rgba(255,255,255,0.6);">/ mois</span>
+        </div>
+        <div class="calc-result-sub" id="pension-detail"></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:10px;font-style:italic;">
+          Le juge aux affaires familiales tient compte de nombreux critères. Cette estimation est indicative.
+        </div>
+      </div>
+
+      <p class="calc-disclaimer" id="disclaimer-pension" style="display:none;">
+        Ce calcul est indicatif et basé sur les pratiques judiciaires habituelles. Consultez un avocat pour une évaluation précise adaptée à votre dossier.
+      </p>
+      <div id="cta-pension" style="display:none;margin-top:16px;">
+        <a href="contact.html" class="btn btn-primary btn-full">Consulter Maître MAHBOULI</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="calc-info-sec">
+  <div class="container">
+    <div class="eyebrow">Pour aller plus loin</div>
+    <h2>Tout savoir sur la pension alimentaire</h2>
+    <div class="calc-info-grid">
+      <div class="calc-info-card">
+        <h3>Comment le juge fixe-t-il la pension ?</h3>
+        <p>Le juge examine les ressources de chaque parent, les charges, les besoins de l'enfant et son niveau de vie habituel. Il peut également tenir compte du coût des activités extrascolaires, des frais de santé non remboursés et du temps passé avec chaque parent.</p>
+        <a href="droit-famille.html">En savoir plus →</a>
+      </div>
+      <div class="calc-info-card">
+        <h3>Peut-on modifier la pension alimentaire ?</h3>
+        <p>Oui, dès qu'un changement notable de situation survient (perte d'emploi, augmentation de salaire, remariage, majorité de l'enfant…), une révision peut être demandée au tribunal. Le cabinet vous aide à préparer la demande de modification.</p>
+        <a href="droit-famille.html">Demander une révision →</a>
+      </div>
+      <div class="calc-info-card">
+        <h3>Que faire en cas de non-paiement ?</h3>
+        <p>L'abandon de famille est un délit pénal. Plusieurs recours existent : saisie sur salaire, paiement direct, recouvrement par la CAF (ARIPA), et plainte pénale pour abandon de famille. Le cabinet vous accompagne dans toutes ces démarches.</p>
+        <a href="contact.html">Consulter un avocat →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner-bottom">
+  <h2>Un litige sur la pension alimentaire ?</h2>
+  <div class="cta-banner-btns">
+    <a href="tel:0148781959" class="btn-white">📞 01.48.78.19.59</a>
+    <a href="contact.html" class="btn btn-primary">Prendre rendez-vous</a>
+  </div>
+</section>
+
+<div data-shared="footer"></div>
+<script src="shared.js"></script>
+<script>
+const TABLE = {
+  principale: [0.16, 0.13, 0.11, 0.10],
+  alternee:   [0.09, 0.07, 0.06, 0.055],
+  exclusive:  [0.20, 0.165, 0.14, 0.125]
+};
+const VARIANCE = 0.15;
+
+function calculerPension() {
+  const revD = parseFloat(document.getElementById('rev-debiteur').value);
+  const revC = parseFloat(document.getElementById('rev-creancier').value);
+  const nb = parseInt(document.getElementById('nb-enfants').value);
+  const garde = document.querySelector('input[name="garde"]:checked').value;
+
+  if (!revD || revD <= 0) { alert('Veuillez renseigner les revenus du parent débiteur.'); return; }
+  const idx = Math.min(nb - 1, 3);
+  const rate = TABLE[garde][idx];
+  const base = revD * rate;
+  const correction = revC > 0 ? Math.min(0.15, (revD - revC) / (revD + revC) * 0.15) : 0;
+  const mid = base * (1 + correction);
+  const min = Math.max(0, Math.round(mid * (1 - VARIANCE) / 5) * 5);
+  const max = Math.round(mid * (1 + VARIANCE) / 5) * 5;
+
+  const fmt = v => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v);
+  document.getElementById('pension-min').textContent = fmt(min);
+  document.getElementById('pension-max').textContent = fmt(max);
+  document.getElementById('pension-detail').textContent = `Pour ${nb} enfant${nb>1?'s':''} — ${garde==='principale'?'résidence principale':garde==='alternee'?'résidence alternée':'résidence exclusive'} — revenus débiteur : ${fmt(revD)}/mois`;
+  document.getElementById('result-pension').classList.add('visible');
+  document.getElementById('disclaimer-pension').style.display = 'block';
+  document.getElementById('cta-pension').style.display = 'block';
+}
+</script>
+</body>
+</html>

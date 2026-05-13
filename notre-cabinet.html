@@ -3,231 +3,303 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Découvrez le Cabinet MAHBOULI : Maître Chawky MAHBOULI, avocat au Barreau de Paris depuis 2010, docteur en droit, enseignant universitaire. Cabinet à Paris 7e." />
 <title>Notre Cabinet — Cabinet MAHBOULI</title>
 <link rel="stylesheet" href="shared.css" />
 <style>
-/* ── Inner hero ── */
-.inner-hero {
-  background: linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
-  color: var(--white);
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 var(--pad);
-  position: relative;
-  overflow: hidden;
-}
-.inner-hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(45deg, rgba(201,168,76,0.3) 0 1px, transparent 1px 14px);
-  opacity: 0.03;
-}
-.inner-hero .container { max-width: var(--container); margin: 0 auto; width: 100%; position: relative; z-index: 1; }
-.inner-hero h1 { font-size: 56px; color: var(--white); line-height: 1.1; margin-bottom: 18px; }
-.inner-hero .sub { font-size: 16px; color: rgba(255,255,255,0.72); max-width: 540px; line-height: 1.6; }
+  /* Inner-hero */
+  .inner-hero {
+    background: linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
+    color: var(--white);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 var(--pad);
+    position: relative;
+    overflow: hidden;
+  }
+  .inner-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(201,168,76,0.3) 0 1px, transparent 1px 14px);
+    opacity: 0.03;
+  }
+  .inner-hero .container { max-width: var(--container); margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+  .inner-hero h1 { font-size: 56px; color: var(--white); line-height: 1.1; margin-bottom: 18px; }
+  .inner-hero .sub {
+    font-size: 16px; color: rgba(255,255,255,0.72);
+    max-width: 540px; line-height: 1.6;
+  }
 
-/* ── Presentation ── */
-.presentation { background: var(--white); padding: 120px var(--pad); }
-.presentation-grid {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 90px;
-  align-items: start;
-}
-.portrait { position: relative; height: 600px; }
-.portrait .ph { position: absolute; inset: 0; }
-.portrait .frame {
-  position: absolute; inset: 16px;
-  border: 1px solid rgba(201,168,76,0.4);
-  pointer-events: none; z-index: 2;
-}
-.portrait .ph-inner {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.4); gap: 12px;
-}
-.portrait .ph-inner svg { width: 40px; height: 40px; opacity: 0.5; }
-.portrait .ph-inner .txt { font-size: 12px; letter-spacing: 0.04em; }
-.portrait .nameplate {
-  position: absolute;
-  bottom: -22px; left: -16px;
-  background: var(--gold);
-  color: var(--white);
-  padding: 18px 22px;
-  font-family: var(--serif);
-  font-size: 18px;
-  z-index: 3;
-  line-height: 1.2;
-}
-.portrait .nameplate small {
-  display: block;
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  margin-top: 6px;
-  opacity: 0.9;
-}
+  /* Presentation */
+  .presentation {
+    background: var(--white);
+    padding: 120px var(--pad);
+  }
+  .presentation-grid {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    gap: 90px;
+    align-items: start;
+  }
+  .portrait {
+    position: relative;
+    height: 600px;
+  }
+  .portrait .ph {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 14px),
+      linear-gradient(135deg, #0F1F3D, #1B2A4A, #2D4A7A);
+  }
+  .portrait .frame {
+    position: absolute; inset: 16px;
+    border: 1px solid rgba(201,168,76,0.4);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .portrait .ph-inner {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4); gap: 12px;
+  }
+  .portrait .ph-inner svg { width: 40px; height: 40px; opacity: 0.5; }
+  .portrait .ph-inner .txt { font-size: 12px; letter-spacing: 0.04em; }
+  .portrait .nameplate {
+    position: absolute;
+    bottom: -22px; left: -16px;
+    background: var(--gold);
+    color: var(--white);
+    padding: 18px 22px;
+    font-family: var(--serif);
+    font-size: 18px;
+    z-index: 3;
+    line-height: 1.2;
+  }
+  .portrait .nameplate small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    margin-top: 6px;
+    opacity: 0.9;
+  }
 
-.bio h2 { font-size: 44px; line-height: 1.1; margin: 16px 0 26px; }
-.bio > p { font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; }
-.bio .quote {
-  border-left: 2px solid var(--gold);
-  padding: 12px 0 12px 20px;
-  margin: 30px 0;
-  font-family: var(--serif);
-  font-style: italic;
-  color: var(--navy);
-  font-size: 18px;
-  line-height: 1.5;
-}
+  .bio h2 {
+    font-size: 44px;
+    line-height: 1.1;
+    margin: 16px 0 26px;
+  }
+  .bio > p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .bio .quote {
+    border-left: 2px solid var(--gold);
+    padding: 12px 0 12px 20px;
+    margin: 30px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--navy);
+    font-size: 18px;
+    line-height: 1.5;
+  }
 
-/* ── Timeline ── */
-.timeline { margin-top: 40px; border-top: 1px solid var(--border); padding-top: 36px; }
-.timeline h3 {
-  font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 26px;
-}
-.timeline-list { position: relative; padding-left: 28px; }
-.timeline-list::before {
-  content: '';
-  position: absolute;
-  left: 4px; top: 6px; bottom: 6px;
-  width: 1px;
-  background: var(--border);
-}
-.tl-item { position: relative; margin-bottom: 26px; }
-.tl-item::before {
-  content: '';
-  position: absolute;
-  left: -28px; top: 6px;
-  width: 9px; height: 9px;
-  background: var(--gold);
-  border-radius: 50%;
-}
-.tl-year { font-family: var(--serif); font-size: 20px; color: var(--gold); line-height: 1; margin-bottom: 6px; }
-.tl-text { font-size: 14px; color: var(--navy); line-height: 1.5; }
-.tl-text small { display: block; color: var(--text-secondary); font-size: 13px; margin-top: 2px; }
+  /* Timeline */
+  .timeline {
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+    padding-top: 36px;
+  }
+  .timeline h3 {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 26px;
+  }
+  .timeline-list { position: relative; padding-left: 28px; }
+  .timeline-list::before {
+    content: '';
+    position: absolute;
+    left: 4px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: var(--border);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 26px;
+    padding-bottom: 0;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 6px;
+    width: 9px; height: 9px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .tl-year {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .tl-text { font-size: 14px; color: var(--navy); line-height: 1.5; }
+  .tl-text small { display: block; color: var(--text-secondary); font-size: 13px; margin-top: 2px; }
 
-/* ── Philosophy ── */
-.philo { background: var(--bg); padding: 120px var(--pad); }
-.philo .container { max-width: var(--container); margin: 0 auto; }
-.philo h2 { font-size: 40px; margin-bottom: 14px; max-width: 600px; }
-.philo > .container > p {
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin-bottom: 60px;
-  font-size: 14.5px;
-  line-height: 1.7;
-}
-.philo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.philo-card {
-  background: var(--white);
-  padding: 48px 36px 40px;
-  border-left: 2px solid var(--gold);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.philo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.philo-card .num { font-family: var(--serif); font-size: 14px; color: var(--gold); letter-spacing: 0.12em; margin-bottom: 18px; }
-.philo-card h3 { font-family: var(--serif); font-size: 30px; margin-bottom: 16px; }
-.philo-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+  /* Philosophy */
+  .philo {
+    background: var(--bg);
+    padding: 120px var(--pad);
+  }
+  .philo .container { max-width: var(--container); margin: 0 auto; }
+  .philo h2 { font-size: 40px; margin-bottom: 14px; max-width: 600px; }
+  .philo > .container > p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 60px;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  .philo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .philo-card {
+    background: var(--white);
+    padding: 48px 36px 40px;
+    position: relative;
+    border-left: 2px solid var(--gold);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .philo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .philo-card .num {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    margin-bottom: 18px;
+  }
+  .philo-card h3 {
+    font-family: var(--serif);
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+  .philo-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+  }
 
-/* ── Credentials ── */
-.creds { background: var(--navy); color: var(--white); padding: 120px var(--pad); }
-.creds .container { max-width: var(--container); margin: 0 auto; }
-.creds .eyebrow { color: var(--gold); }
-.creds h2 { color: var(--white); font-size: 40px; margin-bottom: 56px; max-width: 600px; }
-.creds-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-.cred-item {
-  padding: 36px 28px;
-  border-right: 1px solid rgba(255,255,255,0.08);
-}
-.cred-item:last-child { border-right: none; }
-.cred-item:first-child { padding-left: 0; }
-.cred-item svg { width: 22px; height: 22px; color: var(--gold); margin-bottom: 22px; display: block; }
-.cred-item h3 { font-family: var(--serif); font-size: 22px; color: var(--white); line-height: 1.3; margin-bottom: 10px; }
-.cred-item p { color: rgba(255,255,255,0.6); font-size: 13.5px; line-height: 1.6; }
+  /* Credentials */
+  .creds { background: var(--navy); color: var(--white); padding: 120px var(--pad); }
+  .creds .container { max-width: var(--container); margin: 0 auto; }
+  .creds .eyebrow { color: var(--gold); }
+  .creds h2 { color: var(--white); font-size: 40px; margin-bottom: 56px; max-width: 600px; }
+  .creds-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .cred-item {
+    padding: 36px 28px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    text-align: left;
+  }
+  .cred-item:last-child { border-right: none; }
+  .cred-item:first-child { padding-left: 0; }
+  .cred-item svg {
+    width: 22px; height: 22px;
+    color: var(--gold);
+    margin-bottom: 22px;
+  }
+  .cred-item h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .cred-item p {
+    color: rgba(255,255,255,0.6);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
 
-/* ── Team ── */
-.team { background: var(--white); padding: 120px var(--pad); }
-.team .container { max-width: var(--container); margin: 0 auto; }
-.team-head { margin-bottom: 56px; }
-.team-head h2 { font-size: 40px; margin-bottom: 12px; }
-.team-head p { color: var(--text-secondary); }
-.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-.member {
-  background: var(--bg);
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.member:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.member .m-photo {
-  background:
-    repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 14px),
-    linear-gradient(135deg, #0F1F3D, #1B2A4A, #2D4A7A);
-  position: relative;
-  min-height: 200px;
-}
-.member .m-photo::after {
-  content: '';
-  position: absolute; inset: 14px;
-  border: 1px solid rgba(201,168,76,0.3);
-}
-.member .m-photo svg {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 36px; height: 36px;
-  color: rgba(255,255,255,0.3);
-}
-.member .m-body { padding: 32px 30px; display: flex; flex-direction: column; justify-content: center; }
-.member h3 { font-family: var(--serif); font-size: 24px; margin-bottom: 4px; }
-.member .role { font-size: 11px; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; margin-bottom: 18px; }
-.member p { color: var(--text-secondary); font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
-.member .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.member .tag {
-  padding: 4px 10px;
-  background: rgba(201,168,76,0.12);
-  color: var(--gold-hover);
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .inner-hero { height: 320px; }
-  .inner-hero h1 { font-size: 42px; }
-  .presentation-grid { grid-template-columns: 1fr; gap: 60px; }
-  .portrait { height: 420px; max-width: 420px; }
-  .philo-grid { grid-template-columns: 1fr 1fr; }
-  .creds-grid { grid-template-columns: 1fr 1fr; gap: 0; }
-  .cred-item:nth-child(2) { border-right: none; }
-  .cred-item:nth-child(3) { padding-left: 0; border-top: 1px solid rgba(255,255,255,0.08); }
-  .cred-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.08); border-right: none; }
-}
-@media (max-width: 768px) {
-  .inner-hero { height: auto; padding: 60px 24px; }
-  .portrait { height: 320px; }
-  .portrait .nameplate { left: 0; }
-  .philo-grid { grid-template-columns: 1fr; }
-  .creds-grid { grid-template-columns: 1fr; }
-  .cred-item { border-right: none; border-top: 1px solid rgba(255,255,255,0.08); padding: 28px 0; }
-  .cred-item:first-child { border-top: none; }
-  .team-grid { grid-template-columns: 1fr; }
-  .member { grid-template-columns: 1fr; }
-  .member .m-photo { min-height: 160px; }
-}
+  /* Team */
+  .team { background: var(--white); padding: 120px var(--pad); }
+  .team .container { max-width: var(--container); margin: 0 auto; }
+  .team-head { margin-bottom: 56px; }
+  .team-head h2 { font-size: 40px; margin-bottom: 12px; }
+  .team-head p { color: var(--text-secondary); }
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .member {
+    background: var(--bg);
+    padding: 0;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+  }
+  .member:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .member .m-photo {
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 14px),
+      linear-gradient(135deg, #0F1F3D, #1B2A4A, #2D4A7A);
+    position: relative;
+  }
+  .member .m-photo::after {
+    content: '';
+    position: absolute; inset: 14px;
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+  .member .m-photo svg {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px; height: 36px;
+    color: rgba(255,255,255,0.3);
+  }
+  .member .m-body { padding: 32px 30px; display: flex; flex-direction: column; justify-content: center; }
+  .member h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  .member .role {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .member p {
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .member .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .member .tag {
+    padding: 4px 10px;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold-hover);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
 </style>
 </head>
 <body data-page="cabinet">
@@ -247,7 +319,7 @@
   </div>
 </section>
 
-<!-- Présentation -->
+<!-- Presentation -->
 <section class="presentation">
   <div class="presentation-grid">
     <div class="portrait">
@@ -264,10 +336,10 @@
     </div>
     <div class="bio">
       <div class="eyebrow">À propos</div>
-      <h2>Un avocat engagé,<br>pragmatique et attentif.</h2>
+      <h2>Un avocat engagé,<br/>pragmatique et attentif.</h2>
       <p>Fondateur du Cabinet MAHBOULI en 2011, Maître Chawky MAHBOULI est inscrit au Barreau de Paris depuis 2010. Docteur en droit de l'Université Paris 1 Panthéon-Sorbonne, il a fait de la pluridisciplinarité sa marque de fabrique.</p>
       <p>Au fil de ses douze années d'exercice, il a accompagné des centaines de particuliers et d'entreprises dans des situations souvent sensibles : régularisations, contentieux pénaux, séparations difficiles, demandes d'aménagement de peine. Chaque dossier est traité avec la même rigueur, la même discrétion et la même volonté d'obtenir le meilleur résultat possible.</p>
-      <blockquote class="quote">"La relation de confiance entre l'avocat et son client est primordiale. Chaque dossier est unique et nécessite une approche véritablement personnalisée."</blockquote>
+      <div class="quote">"La relation de confiance entre l'avocat et son client est primordiale. Chaque dossier est unique et nécessite une approche véritablement personnalisée."</div>
       <p>Maître MAHBOULI exerce en français, anglais, arabe et italien, et propose des consultations en présentiel ou en visioconférence pour s'adapter aux contraintes de chacun.</p>
 
       <div class="timeline">
@@ -299,7 +371,7 @@
   </div>
 </section>
 
-<!-- Philosophie -->
+<!-- Philosophy -->
 <section class="philo">
   <div class="container">
     <div class="eyebrow">Notre approche</div>
@@ -325,11 +397,11 @@
   </div>
 </section>
 
-<!-- Crédentiels -->
+<!-- Credentials -->
 <section class="creds">
   <div class="container">
     <div class="eyebrow">Crédentiels</div>
-    <h2>Une formation d'excellence,<br>une expérience confirmée.</h2>
+    <h2>Une formation d'excellence,<br/>une expérience confirmée.</h2>
     <div class="creds-grid">
       <div class="cred-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
@@ -355,7 +427,7 @@
   </div>
 </section>
 
-<!-- Équipe -->
+<!-- Team -->
 <section class="team">
   <div class="container">
     <div class="team-head">
@@ -370,7 +442,7 @@
         </div>
         <div class="m-body">
           <h3>Maître Chawky MAHBOULI</h3>
-          <div class="role">Avocat fondateur</div>
+          <div class="role">AVOCAT FONDATEUR</div>
           <p>Avocat au Barreau de Paris depuis 2010. Docteur en droit. Pluridisciplinarité confirmée en droit des étrangers, droit pénal et famille.</p>
           <div class="tags">
             <span class="tag">Droit pénal</span>
@@ -385,7 +457,7 @@
         </div>
         <div class="m-body">
           <h3>Mme Inès LAURENT</h3>
-          <div class="role">Assistante juridique</div>
+          <div class="role">ASSISTANTE JURIDIQUE</div>
           <p>Premier contact, suivi administratif des dossiers, prise de rendez-vous, lien avec les juridictions. Une présence rassurante du début à la fin.</p>
           <div class="tags">
             <span class="tag">Accueil</span>
