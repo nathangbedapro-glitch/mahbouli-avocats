@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Les domaines d'expertise du Cabinet MAHBOULI : droit des étrangers, droit pénal, droit de la famille, aménagement de peine. Avocat au Barreau de Paris depuis 2010." />
+<title>Notre Expertise — Cabinet MAHBOULI</title>
+<link rel="stylesheet" href="shared.css" />
+<style>
+/* ── Inner hero ── */
+.inner-hero {
+  background: linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
+  color: var(--white);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 var(--pad);
+  position: relative;
+  overflow: hidden;
+}
+.inner-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(45deg, rgba(201,168,76,0.3) 0 1px, transparent 1px 14px);
+  opacity: 0.03;
+}
+.inner-hero .container { max-width: var(--container); margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+.inner-hero h1 { font-size: 56px; color: var(--white); line-height: 1.1; margin-bottom: 18px; }
+.inner-hero .sub { font-size: 16px; color: rgba(255,255,255,0.72); max-width: 540px; line-height: 1.6; }
+.inner-hero .accent-sq {
+  position: absolute;
+  top: 50%; right: 120px;
+  width: 80px; height: 80px;
+  border: 1px solid rgba(201,168,76,0.25);
+  transform: translateY(-50%);
+}
+
+/* ── Domain sections ── */
+.domain {
+  padding: 110px var(--pad);
+  background: var(--white);
+}
+.domain:nth-of-type(even) { background: var(--bg); }
+.domain-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+.domain.reverse .domain-grid { direction: rtl; }
+.domain.reverse .domain-grid > * { direction: ltr; }
+
+.visual {
+  aspect-ratio: 5/6;
+  position: relative;
+}
+.visual .ph {
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 14px),
+    linear-gradient(135deg, #0F1F3D, #1B2A4A, #2D4A7A);
+}
+.visual .frame {
+  position: absolute; inset: 16px;
+  border: 1px solid rgba(201,168,76,0.4);
+  pointer-events: none;
+}
+.visual .ph-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px;
+  color: rgba(255,255,255,0.4);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-family: ui-monospace, 'SF Mono', monospace;
+  text-transform: uppercase;
+}
+.visual .corner-num {
+  position: absolute;
+  top: -28px; right: -10px;
+  font-family: var(--serif);
+  font-size: 200px;
+  color: rgba(201,168,76,0.1);
+  line-height: 0.9;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.domain-content { position: relative; }
+.domain-content .num-ghost {
+  font-family: var(--serif);
+  font-size: 96px;
+  color: rgba(201,168,76,0.18);
+  line-height: 1;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.domain-content h2 { font-size: 42px; line-height: 1.15; margin-bottom: 22px; }
+.domain-content > p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+.sublist {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 28px;
+  margin-bottom: 36px;
+}
+.sublist li {
+  font-size: 14px;
+  color: var(--navy);
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 4px 0;
+}
+.sublist li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* ── CTA banner ── */
+.cta-banner {
+  background: var(--navy);
+  color: var(--white);
+  padding: 80px var(--pad);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(45deg, rgba(201,168,76,0.3) 0 1px, transparent 1px 14px);
+  opacity: 0.04;
+}
+.cta-banner h2 { font-size: 36px; color: var(--white); margin-bottom: 14px; position: relative; }
+.cta-banner p { font-size: 16px; color: var(--gold); margin-bottom: 30px; letter-spacing: 0.02em; position: relative; }
+.cta-banner .btn { position: relative; background: var(--white); color: var(--navy); }
+.cta-banner .btn:hover { background: var(--gold); color: var(--white); }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .inner-hero { height: 320px; }
+  .inner-hero h1 { font-size: 42px; }
+  .domain-grid { gap: 56px; }
+  .visual .corner-num { font-size: 140px; }
+}
+@media (max-width: 768px) {
+  .inner-hero { height: auto; padding: 60px 24px; }
+  .inner-hero .accent-sq { display: none; }
+  .domain { padding: 72px var(--pad); }
+  .domain-grid { grid-template-columns: 1fr; gap: 40px; }
+  .domain.reverse .domain-grid { direction: ltr; }
+  .visual { aspect-ratio: 4/3; }
+  .visual .corner-num { display: none; }
+  .sublist { grid-template-columns: 1fr; }
+  .domain-content h2 { font-size: 32px; }
+}
+</style>
+</head>
+<body data-page="expertise">
+
+<div data-shared="topnav"></div>
+
+<!-- Inner hero -->
+<section class="inner-hero">
+  <div class="accent-sq"></div>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span class="sep">/</span>
+      <span style="color: var(--gold);">Notre Expertise</span>
+    </div>
+    <h1>Notre Expertise</h1>
+    <div class="sub">Une défense sur mesure dans chaque domaine du droit. Maître MAHBOULI vous accompagne avec rigueur et humanité.</div>
+  </div>
+</section>
+
+<!-- Droit des Étrangers -->
+<section class="domain" id="etrangers">
+  <div class="domain-grid">
+    <div class="visual">
+      <div class="corner-num">01</div>
+      <div class="ph"></div>
+      <div class="ph-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="32" height="32"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        <span>Droit des Étrangers</span>
+      </div>
+      <div class="frame"></div>
+    </div>
+    <div class="domain-content">
+      <div class="eyebrow">Domaine 01</div>
+      <div class="num-ghost">01</div>
+      <h2>Droit des Étrangers</h2>
+      <p>Le cabinet accompagne particuliers et familles dans l'ensemble de leurs démarches d'immigration et de séjour sur le territoire français. De la première demande de titre à la naturalisation, nous construisons avec vous une stratégie adaptée à votre situation personnelle.</p>
+      <ul class="sublist">
+        <li>Visas et titres de séjour</li>
+        <li>OQTF et recours contentieux</li>
+        <li>Regroupement familial</li>
+        <li>Naturalisation française</li>
+        <li>Droit d'asile et protection subsidiaire</li>
+        <li>Reconduite à la frontière</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+<!-- Droit Pénal -->
+<section class="domain reverse" id="penal">
+  <div class="domain-grid">
+    <div class="visual">
+      <div class="corner-num">02</div>
+      <div class="ph"></div>
+      <div class="ph-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="32" height="32"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Droit Pénal</span>
+      </div>
+      <div class="frame"></div>
+    </div>
+    <div class="domain-content">
+      <div class="eyebrow">Domaine 02</div>
+      <div class="num-ghost">02</div>
+      <h2>Droit Pénal</h2>
+      <p>Que vous soyez victime ou mis en cause, le cabinet assure une défense pénale immédiate et complète, de la garde à vue à la phase de jugement. Notre disponibilité garantit une intervention rapide dans les situations d'urgence.</p>
+      <ul class="sublist">
+        <li>Garde à vue et déferrement</li>
+        <li>Comparution immédiate</li>
+        <li>Défense pénale tous degrés</li>
+        <li>Indemnisation des victimes</li>
+        <li>Effacement du casier judiciaire</li>
+        <li>Délits routiers et infractions</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+<!-- Droit de la Famille -->
+<section class="domain" id="famille">
+  <div class="domain-grid">
+    <div class="visual">
+      <div class="corner-num">03</div>
+      <div class="ph"></div>
+      <div class="ph-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="32" height="32"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <span>Droit de la Famille</span>
+      </div>
+      <div class="frame"></div>
+    </div>
+    <div class="domain-content">
+      <div class="eyebrow">Domaine 03</div>
+      <div class="num-ghost">03</div>
+      <h2>Droit de la Famille</h2>
+      <p>Les contentieux familiaux exigent une approche à la fois technique et humaine. Le cabinet vous accompagne dans toutes les étapes : séparation, divorce, organisation de la vie après la rupture, protection des enfants et des intérêts patrimoniaux.</p>
+      <ul class="sublist">
+        <li>Divorce contentieux et amiable</li>
+        <li>Garde d'enfant et droit de visite</li>
+        <li>Pension alimentaire</li>
+        <li>Prestation compensatoire</li>
+        <li>Autorité parentale</li>
+        <li>Succession et partage</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+<!-- Aménagement de Peine -->
+<section class="domain reverse" id="peine">
+  <div class="domain-grid">
+    <div class="visual">
+      <div class="corner-num">04</div>
+      <div class="ph"></div>
+      <div class="ph-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="32" height="32"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span>Aménagement de Peine</span>
+      </div>
+      <div class="frame"></div>
+    </div>
+    <div class="domain-content">
+      <div class="eyebrow">Domaine 04</div>
+      <div class="num-ghost">04</div>
+      <h2>Aménagement de Peine</h2>
+      <p>L'aménagement de peine permet d'éviter ou de réduire l'incarcération, et favorise la réinsertion. Le cabinet constitue avec vous le dossier de demande, défend la mesure devant le juge d'application des peines et assure le suivi post-décision.</p>
+      <ul class="sublist">
+        <li>Réduction de peine</li>
+        <li>Bracelet électronique</li>
+        <li>Libération conditionnelle</li>
+        <li>Semi-liberté et placement extérieur</li>
+        <li>Permission de sortir</li>
+        <li>Sursis avec mise à l'épreuve</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <h2>Une situation urgente ?</h2>
+  <p>Contactez-nous au 01.48.78.19.59</p>
+  <a href="tel:0148781959" class="btn">Appeler maintenant</a>
+</section>
+
+<div data-shared="footer"></div>
+<script src="shared.js"></script>
+</body>
+</html>
