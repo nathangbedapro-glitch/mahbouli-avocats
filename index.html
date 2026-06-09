@@ -237,6 +237,7 @@
   }
   .about-photo .ph-inner svg { width: 32px; height: 32px; opacity: 0.5; }
   .about-photo .ph-inner .txt { font-size: 12px; letter-spacing: 0.04em; }
+  .about-photo .portrait-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; z-index: 1; }
   .about-photo .badge {
     position: absolute;
     bottom: -22px; right: -16px;
@@ -612,10 +613,7 @@
   <div class="about-grid">
     <div class="about-photo">
       <div class="ph"></div>
-      <div class="ph-inner">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
-        <div class="txt">Photo de Maître MAHBOULI</div>
-      </div>
+      <img src="images/Maitre-mahbouli.png" alt="Maître Chawky MAHBOULI, avocat au Barreau de Paris" class="portrait-img" />
       <div class="frame"></div>
       <div class="badge">Inscrit au Barreau de Paris depuis 2010</div>
     </div>
