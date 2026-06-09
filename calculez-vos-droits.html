@@ -8,12 +8,14 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="expertise.css">
+<link rel="stylesheet" href="responsive.css" />
 <style>
+  /* Hero */
   .calc-hub-hero {
     background: linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
     min-height: 420px;
     display: flex; align-items: center;
-    padding: 0 var(--pad-x);
+    padding: 0 80px;
     position: relative; overflow: hidden;
   }
   .calc-hub-hero::before {
@@ -25,9 +27,10 @@
   .calc-hub-hero h1 { font-family: var(--serif); font-size: 54px; color: var(--white); line-height: 1.1; margin: 14px 0 18px; max-width: 680px; }
   .calc-hub-hero p { font-size: 16px; color: rgba(255,255,255,0.72); max-width: 540px; line-height: 1.65; }
 
+  /* 3 calculator cards — hero row */
   .calc-cards-row {
     background: var(--navy-deep);
-    padding: 0 var(--pad-x);
+    padding: 0 80px;
     display: flex;
     gap: 0;
     border-top: 2px solid var(--gold);
@@ -60,8 +63,9 @@
     line-height: 1.4;
   }
 
+  /* Main sections */
   .calc-section-page {
-    padding: var(--py-md) var(--pad-x);
+    padding: var(--py-md) 80px;
     max-width: 100%;
     scroll-margin-top: 80px;
   }
@@ -97,6 +101,7 @@
   }
   .calc-sec-right { position: sticky; top: 24px; }
 
+  /* Calc preview card */
   .calc-preview {
     background: var(--navy);
     border-top: 2px solid var(--gold);
@@ -129,6 +134,7 @@
   }
   .calc-preview .prev-field span:last-child { color: rgba(255,255,255,0.35); font-style: italic; }
 
+  /* Steps list */
   .steps-list { display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
   .step-item { display: flex; gap: 16px; align-items: flex-start; }
   .step-dot {
@@ -146,34 +152,12 @@
   .calc-section-page:nth-child(even) .step-dot { background: var(--bg); }
   .step-item h4 { font-family: var(--serif); font-size: 16px; margin-bottom: 3px; }
   .step-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
-
-  @media (max-width: 1024px) {
-    .calc-sec-inner { gap: 48px; }
-    .calc-hub-hero h1 { font-size: 44px; }
-  }
-
-  @media (max-width: 768px) {
-    .calc-hub-hero { padding: 48px var(--pad-x); min-height: auto; }
-    .calc-hub-hero h1 { font-size: 32px; }
-    .calc-hub-hero p { font-size: 14px; }
-    .calc-cards-row { flex-direction: column; padding: 0; }
-    .calc-card-nav { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 24px; }
-    .calc-section-page { padding: 48px var(--pad-x); }
-    .calc-sec-inner { grid-template-columns: 1fr; gap: 40px; }
-    .calc-sec-right { position: static; }
-    .calc-sec-left h2 { font-size: 28px; }
-    .calc-sec-left .num { font-size: 56px; }
-  }
-
-  @media (max-width: 480px) {
-    .calc-hub-hero h1 { font-size: 28px; }
-    .calc-sec-left h2 { font-size: 24px; }
-  }
 </style>
 </head>
 <body data-page="droits">
 <div data-shared="topnav"></div>
 
+<!-- Breadcrumb -->
 <div class="bc-bar">
   <div class="bc-inner">
     <a href="index.html">Accueil</a><span class="bc-sep">/</span>
@@ -181,7 +165,8 @@
   </div>
 </div>
 
-<section class="calc-hub-hero">
+<!-- Hero -->
+<section class="calc-hub-hero" data-screen-label="01 Hero">
   <div class="c">
     <div class="eyebrow">SIMULATEURS JURIDIQUES GRATUITS</div>
     <h1>Calculez vos droits en quelques secondes</h1>
@@ -189,7 +174,8 @@
   </div>
 </section>
 
-<div class="calc-cards-row">
+<!-- Quick nav cards -->
+<div class="calc-cards-row" data-screen-label="02 Nav Calculateurs">
   <a href="#licenciement" class="calc-card-nav">
     <div class="cc-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
@@ -210,7 +196,8 @@
   </a>
 </div>
 
-<section class="calc-section-page" id="licenciement">
+<!-- Section 1 — Licenciement -->
+<section class="calc-section-page" id="licenciement" data-screen-label="03 Licenciement">
   <div class="calc-sec-inner">
     <div class="calc-sec-left">
       <div class="num">01</div>
@@ -262,7 +249,8 @@
   </div>
 </section>
 
-<section class="calc-section-page" id="pension">
+<!-- Section 2 — Pension alimentaire -->
+<section class="calc-section-page" id="pension" data-screen-label="04 Pension">
   <div class="calc-sec-inner">
     <div class="calc-sec-left">
       <div class="num">02</div>
@@ -314,7 +302,8 @@
   </div>
 </section>
 
-<section class="calc-section-page" id="prestation">
+<!-- Section 3 — Prestation compensatoire -->
+<section class="calc-section-page" id="prestation" data-screen-label="05 Prestation">
   <div class="calc-sec-inner">
     <div class="calc-sec-left">
       <div class="num">03</div>
@@ -366,7 +355,8 @@
   </div>
 </section>
 
-<section class="cta-banner-bottom">
+<!-- Bottom CTA -->
+<section class="cta-banner-bottom" data-screen-label="06 CTA">
   <h2>Un résultat qui vous interpelle ?</h2>
   <div class="cta-banner-btns">
     <a href="tel:0148781959" class="btn-white">📞 01.48.78.19.59</a>
@@ -377,6 +367,7 @@
 <div data-shared="footer"></div>
 <script src="shared.js"></script>
 <script>
+  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
@@ -388,5 +379,6 @@
     });
   });
 </script>
+<script src="mobile-menu.js"></script>
 </body>
 </html>

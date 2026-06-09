@@ -10,6 +10,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="expertise.css">
+<link rel="stylesheet" href="responsive.css" />
 </head>
 <body data-page="droits">
 <div data-shared="topnav"></div>
@@ -17,7 +18,7 @@
 <div class="bc-bar">
   <div class="bc-inner">
     <a href="index.html">Accueil</a><span class="bc-sep">/</span>
-    <a href="calculez-vos-droits.html">Calculez vos droits</a><span class="bc-sep">/</span>
+    <a href="calcul-licenciement.html">Calculez vos droits</a><span class="bc-sep">/</span>
     <span class="bc-current">Indemnité de licenciement</span>
   </div>
 </div>
@@ -31,6 +32,7 @@
 </section>
 
 <div class="calc-body">
+  <!-- Left: intro -->
   <div class="calc-intro">
     <h2>Comment est calculée l'indemnité ?</h2>
     <p>L'indemnité légale de licenciement est calculée en fonction de votre salaire brut et de votre ancienneté dans l'entreprise. Depuis 2017, le calcul est le suivant :</p>
@@ -50,6 +52,7 @@
     </div>
   </div>
 
+  <!-- Right: calculator -->
   <div>
     <div class="calc-form">
       <h3>Votre simulation</h3>
@@ -90,6 +93,7 @@
   </div>
 </div>
 
+<!-- Info cards -->
 <section class="calc-info-sec">
   <div class="container">
     <div class="eyebrow">Pour aller plus loin</div>
@@ -158,5 +162,6 @@ function calculerLicenciement() {
 document.getElementById('salaire').addEventListener('keydown', e => e.key === 'Enter' && calculerLicenciement());
 document.getElementById('anciennete').addEventListener('keydown', e => e.key === 'Enter' && calculerLicenciement());
 </script>
+<script src="mobile-menu.js"></script>
 </body>
 </html>

@@ -10,6 +10,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="expertise.css">
+<link rel="stylesheet" href="responsive.css" />
 </head>
 <body data-page="droits">
 <div data-shared="topnav"></div>
@@ -17,7 +18,7 @@
 <div class="bc-bar">
   <div class="bc-inner">
     <a href="index.html">Accueil</a><span class="bc-sep">/</span>
-    <a href="calculez-vos-droits.html">Calculez vos droits</a><span class="bc-sep">/</span>
+    <a href="calcul-pension.html">Calculez vos droits</a><span class="bc-sep">/</span>
     <span class="bc-current">Pension alimentaire</span>
   </div>
 </div>
@@ -149,12 +150,13 @@
 <div data-shared="footer"></div>
 <script src="shared.js"></script>
 <script>
+// Simplified table based on French judicial practice (% of débiteur net income per child per garde mode)
 const TABLE = {
   principale: [0.16, 0.13, 0.11, 0.10],
   alternee:   [0.09, 0.07, 0.06, 0.055],
   exclusive:  [0.20, 0.165, 0.14, 0.125]
 };
-const VARIANCE = 0.15;
+const VARIANCE = 0.15; // ±15%
 
 function calculerPension() {
   const revD = parseFloat(document.getElementById('rev-debiteur').value);
@@ -180,5 +182,6 @@ function calculerPension() {
   document.getElementById('cta-pension').style.display = 'block';
 }
 </script>
+<script src="mobile-menu.js"></script>
 </body>
 </html>

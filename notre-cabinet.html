@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notre Cabinet — Cabinet MAHBOULI</title>
 <link rel="stylesheet" href="shared.css" />
+<link rel="stylesheet" href="responsive.css" />
 <style>
   /* Inner-hero */
   .inner-hero {
@@ -300,61 +301,6 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    .presentation-grid { grid-template-columns: 360px 1fr; gap: 56px; }
-    .philo-grid { grid-template-columns: repeat(2, 1fr); }
-    .creds-grid { grid-template-columns: repeat(2, 1fr); }
-    .team-grid { grid-template-columns: 1fr; }
-    .member { grid-template-columns: 200px 1fr; }
-    .inner-hero h1 { font-size: 44px; }
-    .bio h2 { font-size: 36px; }
-  }
-
-  @media (max-width: 768px) {
-    .inner-hero { height: auto; padding: 48px var(--pad-x); }
-    .inner-hero h1 { font-size: 32px; }
-
-    .presentation { padding: 48px var(--pad-x); }
-    .presentation-grid { grid-template-columns: 1fr; gap: 0; }
-    .portrait { height: 300px; }
-    .portrait .nameplate {
-      position: relative;
-      bottom: auto; left: auto;
-      display: block;
-      margin: -24px auto 0;
-      width: fit-content;
-      text-align: center;
-    }
-    .bio { padding-top: 48px; }
-    .bio h2 { font-size: 28px; }
-
-    .philo { padding: 48px var(--pad-x); }
-    .philo h2 { font-size: 28px; }
-    .philo-grid { grid-template-columns: 1fr; }
-    .philo-card { padding: 32px 24px; }
-
-    .creds { padding: 48px var(--pad-x); }
-    .creds h2 { font-size: 28px; max-width: 100%; }
-    .creds-grid { grid-template-columns: 1fr 1fr; }
-    .cred-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 28px 0; }
-    .cred-item:last-child { border-bottom: none; }
-    .cred-item:first-child { padding-left: 0; }
-
-    .team { padding: 48px var(--pad-x); }
-    .team-head h2 { font-size: 28px; }
-    .team-grid { grid-template-columns: 1fr; }
-    .member { grid-template-columns: 1fr; }
-    .member .m-photo { height: 200px; }
-    .member .m-body { padding: 24px; }
-  }
-
-  @media (max-width: 480px) {
-    .inner-hero h1 { font-size: 28px; }
-    .bio h2, .philo h2, .creds h2, .team-head h2 { font-size: 24px; }
-    .creds-grid { grid-template-columns: 1fr; }
-  }
 </style>
 </head>
 <body data-page="cabinet">
@@ -362,7 +308,7 @@
 <div data-shared="topnav"></div>
 
 <!-- Inner hero -->
-<section class="inner-hero">
+<section class="inner-hero" data-screen-label="01 Hero">
   <div class="container">
     <div class="breadcrumb">
       <a href="index.html">Accueil</a>
@@ -375,7 +321,7 @@
 </section>
 
 <!-- Presentation -->
-<section class="presentation">
+<section class="presentation" data-screen-label="02 Présentation">
   <div class="presentation-grid">
     <div class="portrait">
       <div class="ph"></div>
@@ -427,7 +373,7 @@
 </section>
 
 <!-- Philosophy -->
-<section class="philo">
+<section class="philo" data-screen-label="03 Philosophie">
   <div class="container">
     <div class="eyebrow">Notre approche</div>
     <h2>Trois mots pour notre philosophie.</h2>
@@ -453,7 +399,7 @@
 </section>
 
 <!-- Credentials -->
-<section class="creds">
+<section class="creds" data-screen-label="04 Crédentiels">
   <div class="container">
     <div class="eyebrow">Crédentiels</div>
     <h2>Une formation d'excellence,<br/>une expérience confirmée.</h2>
@@ -483,7 +429,7 @@
 </section>
 
 <!-- Team -->
-<section class="team">
+<section class="team" data-screen-label="05 Équipe">
   <div class="container">
     <div class="team-head">
       <div class="eyebrow">L'équipe</div>
@@ -527,5 +473,6 @@
 
 <div data-shared="footer"></div>
 <script src="shared.js"></script>
+<script src="mobile-menu.js"></script>
 </body>
 </html>

@@ -8,13 +8,14 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
 <link rel="stylesheet" href="shared.css" />
 <link rel="stylesheet" href="expertise.css" />
+<link rel="stylesheet" href="responsive.css" />
 <style>
   /* ── Page hero ── */
   .exp-page-hero {
     background: linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
     height: 400px;
     display: flex; align-items: center;
-    padding: 0 var(--pad-x);
+    padding: 0 80px;
     position: relative; overflow: hidden;
   }
   .exp-page-hero::before {
@@ -84,26 +85,6 @@
   /* ── Process section ── */
   .process-section { padding: var(--py-md) var(--pad-x); background: var(--white); }
   .process-section .inner { max-width: var(--container); margin: 0 auto; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    .domains-9 { grid-template-columns: repeat(2, 1fr); }
-    .calc-3 { grid-template-columns: repeat(2, 1fr); }
-    .exp-page-hero h1 { font-size: 44px; }
-  }
-
-  @media (max-width: 768px) {
-    .exp-page-hero { height: auto; padding: 48px var(--pad-x); }
-    .exp-page-hero h1 { font-size: 32px; }
-    .exp-page-hero p { font-size: 14px; }
-    .domains-9 { grid-template-columns: 1fr; }
-    .dcard9 .ghost { font-size: 64px; }
-    .calc-3 { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 480px) {
-    .exp-page-hero h1 { font-size: 28px; }
-  }
 </style>
 </head>
 <body data-page="expertise">
@@ -118,7 +99,7 @@
 </div>
 
 <!-- Hero -->
-<section class="exp-page-hero">
+<section class="exp-page-hero" data-screen-label="01 Hero">
   <div class="c">
     <div class="eyebrow">NOS DOMAINES DE COMPÉTENCE</div>
     <h1>Notre Expertise</h1>
@@ -127,7 +108,7 @@
 </section>
 
 <!-- 9 Domain grid -->
-<section class="domain-section">
+<section class="domain-section" data-screen-label="02 Domaines">
   <div class="inner">
     <div class="eyebrow">9 DOMAINES</div>
     <h2 style="font-size:40px;margin-bottom:8px;">Nos domaines d'intervention</h2>
@@ -192,7 +173,7 @@
 </section>
 
 <!-- Process section -->
-<section class="process-section">
+<section class="process-section" data-screen-label="03 Méthode">
   <div class="inner">
     <div class="eyebrow">NOTRE MÉTHODE</div>
     <h2 style="font-size:40px;margin-bottom:48px;">Comment nous procédons</h2>
@@ -206,7 +187,7 @@
 </section>
 
 <!-- Calculators -->
-<section class="calc-section">
+<section class="calc-section" data-screen-label="04 Calculateurs">
   <div class="inner">
     <div class="eyebrow">OUTILS GRATUITS</div>
     <h2>Calculez vos droits</h2>
@@ -235,7 +216,7 @@
 </section>
 
 <!-- Bottom CTA -->
-<section class="cta-banner-bottom">
+<section class="cta-banner-bottom" data-screen-label="05 CTA">
   <h2>Votre situation nécessite un avocat ?</h2>
   <div class="cta-banner-btns">
     <a href="tel:0148781959" class="btn-white">📞 Appeler maintenant</a>
@@ -245,5 +226,6 @@
 
 <div data-shared="footer"></div>
 <script src="shared.js"></script>
+<script src="mobile-menu.js"></script>
 </body>
 </html>

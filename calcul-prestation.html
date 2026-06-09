@@ -10,6 +10,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="expertise.css">
+<link rel="stylesheet" href="responsive.css" />
 </head>
 <body data-page="droits">
 <div data-shared="topnav"></div>
@@ -17,7 +18,7 @@
 <div class="bc-bar">
   <div class="bc-inner">
     <a href="index.html">Accueil</a><span class="bc-sep">/</span>
-    <a href="calculez-vos-droits.html">Calculez vos droits</a><span class="bc-sep">/</span>
+    <a href="calcul-prestation.html">Calculez vos droits</a><span class="bc-sep">/</span>
     <span class="bc-current">Prestation compensatoire</span>
   </div>
 </div>
@@ -173,9 +174,10 @@ function calculerPrestation() {
     return;
   }
 
-  const anneesRestantes = Math.max(0, 67 - age);
-  const dureeCoeff = Math.min(1, duree / 20);
-  const ageCoeff = Math.min(1, anneesRestantes / 30);
+  // Estimation: base = disparité mensuelle × durée pondérée × facteur âge
+  const anneesRestantes = Math.max(0, 67 - age); // retraite estimée à 67 ans
+  const dureeCoeff = Math.min(1, duree / 20); // normalise sur 20 ans
+  const ageCoeff = Math.min(1, anneesRestantes / 30); // facteur d'espérance de carrière
   const patrimCoeff = Math.min(1.3, 1 + patrim / 500000 * 0.3);
 
   const baseCapital = disparite * 12 * Math.max(2, Math.min(8, duree * 0.4)) * dureeCoeff * (0.7 + ageCoeff * 0.5) * patrimCoeff;
@@ -208,5 +210,6 @@ function calculerPrestation() {
   document.getElementById('cta-pc').style.display = 'block';
 }
 </script>
+<script src="mobile-menu.js"></script>
 </body>
 </html>

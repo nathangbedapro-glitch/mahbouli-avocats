@@ -4,11 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cabinet MAHBOULI — Avocats Paris 7e</title>
-<meta name="description" content="Cabinet d'avocats à Paris 7e. Maître MAHBOULI, avocat inscrit au Barreau de Paris depuis 2010. Droit des étrangers, pénal, famille et plus.">
-<meta property="og:title" content="Cabinet MAHBOULI — Avocats Paris 7e">
-<meta property="og:description" content="Cabinet d'avocats à Paris 7e. Droit des étrangers, pénal, famille, affaires, travail et plus. Consultations vidéo disponibles.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"Cabinet MAHBOULI Avocats","address":{"@type":"PostalAddress","streetAddress":"11 Rue Rousselet","addressLocality":"Paris","postalCode":"75007"},"telephone":"+33148781959","openingHours":"Mo-Sa 09:30-20:00","priceRange":"€€"}</script>
 <link rel="stylesheet" href="shared.css" />
+<link rel="stylesheet" href="responsive.css" />
 <style>
   /* Hero */
   .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 640px; background: var(--white); }
@@ -42,6 +39,7 @@
       linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 50%, #2D4A7A 100%);
     overflow: hidden;
   }
+  /* Gold diagonal pattern overlay */
   .hero-right::before {
     content: '';
     position: absolute; inset: 0;
@@ -82,6 +80,7 @@
     color: var(--gold);
     margin-top: 12px;
   }
+  /* Faint squares */
   .hero-right .sq1 {
     position: absolute;
     top: 80px; right: 80px;
@@ -94,6 +93,7 @@
     width: 50px; height: 50px;
     border: 1px solid rgba(255,255,255,0.06);
   }
+  /* Floating card */
   .floating-card {
     position: absolute;
     bottom: 80px; left: 80px;
@@ -310,54 +310,163 @@
   }
 
   /* Contact section */
+  /* ── Contact section v2 ── */
   .contact-sec { background: var(--bg); padding: var(--py-lg) var(--pad-x); }
-  .contact-grid { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; }
-  .contact-left h2 { font-size: 40px; line-height: 1.15; margin-bottom: 22px; }
+  .contact-grid {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-left { padding-top: 14px; }
+  .contact-left h2 { font-size: 40px; line-height: 1.15; margin-bottom: 18px; letter-spacing: -0.01em; }
   .contact-left > p {
     color: var(--text-secondary);
     margin-bottom: 36px;
-    line-height: 1.7;
-    font-size: 14.5px;
-  }
-  .contact-info { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
-  .contact-info li {
-    list-style: none;
-    font-size: 14px;
-    color: var(--navy);
-    display: flex; gap: 12px; align-items: center;
-  }
-  .contact-info svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; }
-  .testimonial {
-    background: var(--navy);
-    color: var(--white);
-    padding: 26px 28px;
-    font-style: italic;
-    font-family: var(--serif);
+    line-height: 1.72;
     font-size: 15px;
-    line-height: 1.5;
+    max-width: 400px;
+  }
+  .contact-info { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+  .contact-info li { font-size: 14px; color: var(--navy); display: flex; gap: 12px; align-items: center; }
+  .contact-info svg { width: 15px; height: 15px; color: var(--gold); flex-shrink: 0; }
+  .contact-info a { transition: color .2s; }
+  .contact-info a:hover { color: var(--gold); }
+  .contact-divider { width: 40px; height: 1px; background: rgba(201,168,76,0.35); margin-bottom: 28px; }
+  .testimonial {
+    background: var(--navy-card);
+    padding: 28px 30px;
     border-left: 2px solid var(--gold);
+    position: relative;
   }
-  .testimonial .author {
-    font-family: var(--sans);
-    font-style: normal;
-    font-size: 11px;
-    color: var(--gold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-top: 14px;
-    display: block;
+  .testimonial .quote-mark {
+    font-family: var(--serif); font-size: 64px; line-height: 1;
+    color: var(--gold); opacity: 0.22;
+    position: absolute; top: 12px; left: 22px;
+    pointer-events: none; font-style: normal;
   }
+  .testimonial blockquote {
+    font-family: var(--serif); font-style: italic;
+    font-size: 16px; color: rgba(255,255,255,0.88);
+    line-height: 1.65; position: relative; z-index: 1; padding-top: 18px;
+  }
+  .testimonial cite {
+    display: block; font-family: var(--sans); font-style: normal;
+    font-size: 10.5px; letter-spacing: 0.18em; color: var(--gold);
+    text-transform: uppercase; font-weight: 500; margin-top: 16px;
+  }
+  /* Form card */
   .form-card {
     background: var(--white);
-    padding: 32px;
-    box-shadow: var(--shadow-md);
+    padding: 44px 40px 40px;
+    box-shadow: 0 8px 32px rgba(27,42,74,0.08);
     border-top: 2px solid var(--gold);
   }
   .form-card h3 {
     font-family: var(--serif);
-    font-size: 24px;
-    margin-bottom: 28px;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
   }
+  /* Bordered fields — scoped to form-card, preserves shared.css .field elsewhere */
+  .form-card .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+    position: static;
+  }
+  .form-card .field:last-of-type { margin-bottom: 0; }
+  .form-card .field label {
+    position: static;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    font-weight: 600;
+    pointer-events: auto;
+    transition: none;
+    top: auto;
+  }
+  .form-card .field input,
+  .form-card .field textarea {
+    width: 100%;
+    border: 1px solid #DDD6C8;
+    border-radius: 4px;
+    background: #FAFAF7;
+    padding: 13px 16px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--navy);
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    line-height: 1.5;
+    -webkit-appearance: none;
+  }
+  .form-card .field input::placeholder,
+  .form-card .field textarea::placeholder { color: #BDB5A6; font-style: italic; color: #BDB5A6; }
+  .form-card .field input:hover,
+  .form-card .field textarea:hover { border-color: #C4BAA8; }
+  .form-card .field input:focus,
+  .form-card .field textarea:focus {
+    border-color: var(--gold);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.10);
+  }
+  .form-card .field textarea { resize: vertical; min-height: 96px; }
+  /* Select */
+  .form-card .field-select { position: relative; }
+  .form-card .field-select select {
+    width: 100%;
+    border: 1px solid #DDD6C8;
+    border-radius: 4px;
+    background: #FAFAF7;
+    padding: 13px 44px 13px 16px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--navy);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color .2s ease, box-shadow .2s ease;
+    line-height: 1.5;
+  }
+  .form-card .field-select select:focus {
+    border-color: var(--gold);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.10);
+  }
+  .form-card .select-icon {
+    position: absolute; right: 14px; bottom: 14px;
+    pointer-events: none; color: var(--text-tertiary);
+    display: flex; align-items: center;
+  }
+  .form-card .select-icon svg { width: 13px; height: 13px; display: block; }
+  /* Submit CTA */
+  .form-actions { margin-top: 32px; }
+  .btn-submit {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; min-height: 52px; padding: 15px 28px;
+    background: var(--gold); color: #FFFFFF;
+    font-family: var(--sans); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    border: none; cursor: pointer; gap: 10px;
+    transition: background .2s ease, box-shadow .2s ease;
+  }
+  .btn-submit svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .btn-submit:hover { background: var(--gold-hover); box-shadow: 0 6px 20px rgba(201,168,76,0.28); }
+  /* GDPR notice */
+  .gdpr-notice {
+    display: flex; align-items: flex-start; gap: 8px;
+    margin-top: 14px; font-size: 12px; color: #6B6B6B;
+    line-height: 1.55; font-style: italic;
+  }
+  .gdpr-notice svg { width: 12px; height: 12px; flex-shrink: 0; margin-top: 1px; opacity: 0.65; }
 
   /* Articles */
   .articles { background: var(--white); padding: var(--py-md) var(--pad-x); }
@@ -414,88 +523,6 @@
     transition: gap 0.2s ease;
   }
   .art:hover .read { gap: 12px; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    .hero { grid-template-columns: 55fr 45fr; }
-    .hero-left { padding: var(--py-md) var(--pad-x) 60px; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .stat + .stat::before { display: none; }
-    .domaines-grid { grid-template-columns: repeat(2, 1fr); }
-    .about-grid { gap: 48px; }
-    .dist-grid { grid-template-columns: repeat(2, 1fr); }
-    .contact-grid { gap: 40px; }
-    .art-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 768px) {
-    /* Hero */
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 48px 24px 40px; order: 1; }
-    .hero h1 { font-size: 40px; margin: 20px 0 24px; }
-    .hero p.lede { font-size: 15px; max-width: 100%; }
-    .hero-cta { flex-direction: column; gap: 12px; margin-bottom: 28px; }
-    .hero-cta .btn { width: 100%; justify-content: center; text-align: center; }
-    .hero-meta { flex-direction: column; gap: 8px; flex-wrap: nowrap; }
-    .hero-right { order: 2; min-height: 280px; }
-    .floating-card {
-      position: relative;
-      bottom: auto; left: auto;
-      margin: -40px auto 0;
-      width: calc(100% - 48px);
-      z-index: 10;
-    }
-
-    /* Stats */
-    .stats { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; }
-    .stat + .stat::before { display: none; }
-    .stat .num { font-size: 32px; }
-
-    /* Domaines */
-    .domaines-head h2 { font-size: 32px; }
-    .domaines-grid { grid-template-columns: 1fr; }
-
-    /* About */
-    .about { padding: var(--py-sm) 0; }
-    .about-grid { grid-template-columns: 1fr; gap: 0; }
-    .about-photo { aspect-ratio: auto; height: 300px; width: 100%; }
-    .about-photo .badge {
-      position: relative;
-      bottom: auto; right: auto;
-      display: block;
-      margin: -24px auto 0;
-      width: fit-content;
-      max-width: calc(100% - 48px);
-      text-align: center;
-    }
-    .about-grid > div:last-child { padding: 40px 24px; }
-    .about h2 { font-size: 32px; }
-
-    /* Distinguish */
-    .distinguish h2 { font-size: 32px; margin-bottom: 40px; }
-    .dist-grid { grid-template-columns: 1fr; gap: 0; }
-    .dist-item { padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.15); }
-    .dist-item:last-child { border-bottom: none; }
-    .dist-num { font-size: 80px; }
-
-    /* Contact section */
-    .contact-sec { padding: var(--py-sm) var(--pad-x); }
-    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
-    .contact-left h2 { font-size: 32px; }
-    .form-card { padding: 24px; }
-
-    /* Articles */
-    .articles-head { flex-direction: column; gap: 12px; align-items: flex-start; }
-    .articles-head h2 { font-size: 32px; }
-    .art-grid { grid-template-columns: 1fr; }
-    .art h3 { min-height: auto; }
-  }
-
-  @media (max-width: 480px) {
-    .hero h1 { font-size: 32px; }
-    .stat .num { font-size: 28px; }
-    .domaines-head h2, .about h2, .distinguish h2 { font-size: 26px; }
-  }
 </style>
 </head>
 <body data-page="home">
@@ -503,14 +530,14 @@
 <div data-shared="topnav"></div>
 
 <!-- Hero -->
-<section class="hero">
+<section class="hero" data-screen-label="01 Hero">
   <div class="hero-left">
     <div class="eyebrow">Cabinet d'avocats · Paris 7e</div>
     <h1>Votre défense,<br/>notre engagement.</h1>
     <p class="lede">Maître Chawky MAHBOULI inscrit au Barreau de Paris depuis 2010, accompagne particuliers et entreprises en droit des étrangers, droit pénal et droit de la famille.</p>
     <div class="hero-cta">
       <a href="contact.html" class="btn btn-primary">Prendre rendez-vous</a>
-      <a href="https://consultation.avocat.fr/consultation-video/forms.php?hashid=b1ec912cce847dda3b84" target="_blank" rel="noopener" class="btn btn-secondary">Consultation vidéo</a>
+      <a href="#" class="btn btn-secondary">Consultation vidéo</a>
     </div>
     <div class="hero-meta">
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Barreau de Paris depuis 2010</span>
@@ -537,7 +564,7 @@
 <!-- Stats -->
 <section class="stats">
   <div class="stat"><div class="num">15+</div><div class="lbl">Années d'expérience</div></div>
-  <div class="stat"><div class="num">9</div><div class="lbl">Domaines de spécialisation</div></div>
+  <div class="stat"><div class="num">4</div><div class="lbl">Domaines de spécialisation</div></div>
   <div class="stat"><div class="num">4</div><div class="lbl">Langues parlées</div></div>
   <div class="stat"><div class="num">100%</div><div class="lbl">Confidentialité garantie</div></div>
 </section>
@@ -554,25 +581,25 @@
       <div class="dc-num">01</div>
       <div class="dc-title">Droit des Étrangers</div>
       <div class="dc-desc">Visa, titre de séjour, naturalisation, OQTF, regroupement familial. Maître MAHBOULI vous accompagne dans toutes vos démarches d'immigration.</div>
-      <a href="droit-etrangers.html" class="dc-link">Voir les services →</a>
+      <a href="notre-expertise.html#etrangers" class="dc-link">Voir les services →</a>
     </div>
     <div class="dcard dark">
       <div class="dc-num">02</div>
       <div class="dc-title">Droit Pénal</div>
       <div class="dc-desc">Garde à vue, comparution immédiate, défense pénale, indemnisation des victimes, effacement du casier judiciaire.</div>
-      <a href="droit-penal.html" class="dc-link">Voir les services →</a>
+      <a href="notre-expertise.html#penal" class="dc-link">Voir les services →</a>
     </div>
     <div class="dcard">
       <div class="dc-num">03</div>
       <div class="dc-title">Droit de la Famille</div>
       <div class="dc-desc">Divorce, garde d'enfant, pension alimentaire, prestation compensatoire, autorité parentale.</div>
-      <a href="droit-famille.html" class="dc-link">Voir les services →</a>
+      <a href="notre-expertise.html#famille" class="dc-link">Voir les services →</a>
     </div>
     <div class="dcard">
       <div class="dc-num">04</div>
       <div class="dc-title">Aménagement de Peine</div>
       <div class="dc-desc">Réduction de peine, bracelet électronique, libération conditionnelle, permission de sortir.</div>
-      <a href="droit-penal.html" class="dc-link">Voir les services →</a>
+      <a href="notre-expertise.html#peine" class="dc-link">Voir les services →</a>
     </div>
   </div>
   <div class="domaines-cta">
@@ -638,58 +665,98 @@
 <!-- Contact -->
 <section class="contact-sec" id="contact">
   <div class="contact-grid">
+
+    <!-- Colonne gauche -->
     <div class="contact-left">
       <div class="eyebrow">Prenez contact</div>
       <h2>Une question juridique ?</h2>
-      <p>Notre cabinet vous répond dans les meilleurs délais. Consultation possible en présentiel ou par visioconférence.</p>
+      <p>Notre cabinet vous répond dans les meilleurs délais. Consultation possible en présentiel ou par visioconférence, du lundi au samedi.</p>
       <ul class="contact-info">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>11 Rue Rousselet, 75007 Paris</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg><a href="tel:0148781959" style="color:inherit;">01.48.78.19.59</a></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><polyline points="22,6 12,13 2,6"/></svg>contact@avocat-mahbouli.com</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9h30 — 20h00, Lun—Sam</li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          11 Rue Rousselet, 75007 Paris
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:0148781959">01.48.78.19.59</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:0184166918">01.84.16.69.18</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact@avocat-mahbouli.com
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          9h30 — 20h00, Lun — Sam
+        </li>
       </ul>
+      <div class="contact-divider"></div>
       <div class="testimonial">
-        "Une réponse rapide à chaque question."
-        <span class="author">Maître Chawky MAHBOULI — Avocat au Barreau de Paris</span>
+        <span class="quote-mark" aria-hidden="true">"</span>
+        <blockquote>
+          La relation de confiance entre l'avocat et son client est primordiale. Chaque dossier est unique et nécessite une approche véritablement personnalisée.
+          <cite>Maître Chawky MAHBOULI &mdash; Avocat au Barreau de Paris</cite>
+        </blockquote>
       </div>
     </div>
-    <form class="form-card" onsubmit="event.preventDefault(); alert('Message envoyé');">
+
+    <!-- Colonne droite : formulaire -->
+    <form class="form-card" novalidate onsubmit="event.preventDefault(); this.querySelector('.btn-submit').textContent = 'Message envoyé ✓'; this.querySelector('.btn-submit').style.background = '#4A7A5A';">
       <h3>Message rapide</h3>
+
       <div class="field">
-        <input type="text" placeholder=" " required />
-        <label>Nom complet</label>
+        <label for="fc-name">Nom complet</label>
+        <input id="fc-name" type="text" placeholder="Jean Dupont" required />
       </div>
+
       <div class="field">
-        <input type="email" placeholder=" " required />
-        <label>Email</label>
+        <label for="fc-email">Adresse email</label>
+        <input id="fc-email" type="email" placeholder="jean@entreprise.fr" required />
       </div>
+
       <div class="field">
-        <input type="tel" placeholder=" " />
-        <label>Téléphone</label>
+        <label for="fc-phone">Téléphone</label>
+        <input id="fc-phone" type="tel" placeholder="06 00 00 00 00" />
       </div>
-      <div class="field">
-        <select>
-          <option value=""></option>
+
+      <div class="field field-select">
+        <label for="fc-domain">Domaine juridique</label>
+        <select id="fc-domain" required>
+          <option value="" disabled selected>Sélectionnez un domaine</option>
           <option>Droit des Étrangers</option>
           <option>Droit Pénal</option>
           <option>Droit de la Famille</option>
-          <option>Droit du Travail</option>
+          <option>Aménagement de Peine</option>
           <option>Droit des Affaires</option>
+          <option>Droit du Travail</option>
+          <option>Droit International</option>
           <option>Autre</option>
         </select>
-        <label>Domaine juridique</label>
-        <svg class="caret" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1.5 6 6.5 11 1.5"/></svg>
+        <span class="select-icon" aria-hidden="true">
+          <svg viewBox="0 0 13 8" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="1 1 6.5 7 12 1"/></svg>
+        </span>
       </div>
+
       <div class="field">
-        <textarea placeholder=" " rows="3"></textarea>
-        <label>Votre message</label>
+        <label for="fc-msg">Votre message</label>
+        <textarea id="fc-msg" rows="4" placeholder="Décrivez brièvement votre situation juridique…"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary btn-full">Envoyer ma demande</button>
-      <div class="confidential">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        Vos données sont confidentielles et protégées
+
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">
+          Envoyer ma demande
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <div class="gdpr-notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Vos données sont traitées de manière confidentielle, conformément au RGPD. Elles ne sont jamais transmises à des tiers.
+        </div>
       </div>
     </form>
+
   </div>
 </section>
 
@@ -700,7 +767,7 @@
       <div class="eyebrow">Ressources juridiques</div>
       <h2>Nos derniers articles</h2>
     </div>
-    <a href="#">Voir tous les articles →</a>
+    <a href="articles.html">Voir tous les articles →</a>
   </div>
   <div class="art-grid">
     <article class="art">
@@ -735,5 +802,6 @@
 
 <div data-shared="footer"></div>
 <script src="shared.js"></script>
+<script src="mobile-menu.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contact — Cabinet MAHBOULI</title>
 <link rel="stylesheet" href="shared.css" />
+<link rel="stylesheet" href="responsive.css" />
 <style>
   .page-title {
     background: var(--white);
@@ -59,10 +60,11 @@
   .info .map .pin {
     position: absolute;
     top: 48%; left: 52%;
-    transform: translate(-50%, -100%) rotate(-45deg);
+    transform: translate(-50%, -50%);
     width: 38px; height: 38px;
     background: var(--gold);
     border-radius: 50% 50% 50% 0;
+    transform: translate(-50%, -100%) rotate(-45deg);
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 8px 20px rgba(27,42,74,0.18);
   }
@@ -157,22 +159,39 @@
   .field select,
   .field textarea {
     width: 100%;
-    padding: 12px 0;
-    border: none;
-    border-bottom: 1px solid var(--border);
-    background: transparent;
+    padding: 13px 16px;
+    border: 1px solid #DDD6C8;
+    border-radius: 4px;
+    background: #FAFAF7;
     font-family: var(--sans);
-    font-size: 15px;
+    font-size: 14px;
     color: var(--navy);
-    transition: border-color 0.2s ease;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
     outline: none;
     box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
   }
+  .field input::placeholder,
+  .field textarea::placeholder { color: #BDB5A6; font-style: italic; }
+  .field input:hover,
+  .field select:hover,
+  .field textarea:hover { border-color: #C4BAA8; }
   .field input:focus,
   .field select:focus,
-  .field textarea:focus { border-bottom-color: var(--gold); }
+  .field textarea:focus {
+    border-color: var(--gold);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.10);
+  }
   .field textarea { resize: vertical; min-height: 140px; }
-  .field select { appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%231B2A4A' stroke-width='1.4' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 4px center; padding-right: 24px; }
+  .field select {
+    padding-right: 44px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='13' height='8' viewBox='0 0 13 8'><path d='M1 1l5.5 6 5.5-6' stroke='%236B6B6B' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+  }
 
   .check {
     display: flex;
@@ -209,27 +228,37 @@
   .submit-btn {
     width: 100%;
     background: var(--gold);
-    color: var(--white);
-    padding: 18px;
+    color: #FFFFFF;
+    padding: 18px 28px;
     border: none;
     font-family: var(--sans);
     font-size: 13px;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background .2s ease, box-shadow .2s ease;
   }
-  .submit-btn:hover { background: var(--gold-hover); }
+  .submit-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .submit-btn:hover { background: var(--gold-hover); box-shadow: 0 6px 20px rgba(201,168,76,0.28); }
 
   .confidentiality {
-    margin-top: 18px;
+    margin-top: 14px;
     font-size: 12px;
-    color: var(--text-tertiary);
-    text-align: center;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
+    color: #6B6B6B;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+    font-style: italic;
+    line-height: 1.55;
   }
-  .confidentiality svg { width: 12px; height: 12px; }
+  .confidentiality svg { width: 12px; height: 12px; flex-shrink: 0; margin-top: 1px; opacity: 0.65; }
 
   .form-success {
     display: none;
@@ -302,41 +331,13 @@
     max-height: 400px;
     padding-bottom: 28px;
   }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    .contact-grid { grid-template-columns: 1fr 1.2fr; gap: 32px; }
-    .form-card { padding: 40px 40px 36px; }
-    .page-title h1 { font-size: 44px; }
-  }
-
-  @media (max-width: 768px) {
-    .page-title { padding: 48px var(--pad-x) 36px; }
-    .page-title h1 { font-size: 32px; }
-    .contact-main { padding: 40px var(--pad-x) 64px; }
-    .contact-grid { grid-template-columns: 1fr; gap: 24px; }
-    .info { padding: 32px 24px; }
-    .form-card { padding: 28px 24px 24px; }
-    .form-card h2 { font-size: 26px; }
-    .field-row { grid-template-columns: 1fr; gap: 0; }
-    .faq { padding: 48px var(--pad-x); }
-    .faq h2 { font-size: 28px; }
-    .faq-q { padding: 20px 0; }
-    .faq-q .q-text { font-size: 17px; }
-  }
-
-  @media (max-width: 480px) {
-    .page-title h1 { font-size: 28px; }
-    .info { padding: 24px 16px; }
-    .form-card { padding: 24px 16px; }
-  }
 </style>
 </head>
 <body data-page="contact">
 
 <div data-shared="topnav"></div>
 
-<section class="page-title">
+<section class="page-title" data-screen-label="01 Titre">
   <div class="container">
     <div class="breadcrumb">
       <a href="index.html">Accueil</a>
@@ -349,7 +350,7 @@
   </div>
 </section>
 
-<section class="contact-main">
+<section class="contact-main" data-screen-label="02 Formulaire">
   <div class="contact-grid">
     <!-- Info -->
     <aside class="info">
@@ -469,10 +470,13 @@
           <span class="box"></span>
           <span>J'accepte que mes données soient traitées conformément à la <a href="#">politique de confidentialité</a> du cabinet. Vos informations restent strictement confidentielles.</span>
         </label>
-        <button type="submit" class="submit-btn">Envoyer ma demande</button>
+        <button type="submit" class="submit-btn">
+          Envoyer ma demande
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
         <div class="confidentiality">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-          Vos données sont confidentielles et protégées
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Vos données sont traitées de manière confidentielle, conformément au RGPD. Elles ne sont jamais transmises à des tiers.
         </div>
       </form>
     </div>
@@ -480,7 +484,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="faq">
+<section class="faq" data-screen-label="03 FAQ">
   <div class="container">
     <div class="eyebrow" style="text-align:center; justify-content:center; display:flex;">Questions fréquentes</div>
     <h2>Vos questions, nos réponses.</h2>
@@ -531,9 +535,14 @@
 <div data-shared="footer"></div>
 <script src="shared.js"></script>
 <script>
+  // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      item.classList.toggle('open');
+    });
   });
+  // Form
   document.getElementById('contactForm').addEventListener('submit', e => {
     e.preventDefault();
     document.getElementById('formSuccess').classList.add('show');
@@ -541,5 +550,6 @@
     setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 6000);
   });
 </script>
+<script src="mobile-menu.js"></script>
 </body>
 </html>
