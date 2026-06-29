@@ -260,17 +260,6 @@
   }
   .confidentiality svg { width: 12px; height: 12px; flex-shrink: 0; margin-top: 1px; opacity: 0.65; }
 
-  .form-success {
-    display: none;
-    padding: 22px;
-    background: rgba(39,174,96,0.08);
-    color: #1b6f3e;
-    border-left: 2px solid #27AE60;
-    margin-bottom: 24px;
-    font-size: 14px;
-  }
-  .form-success.show { display: block; }
-
   /* FAQ */
   .faq {
     background: var(--white);
@@ -415,35 +404,35 @@
       <h2>Demande de consultation</h2>
       <p class="form-sub">Décrivez votre situation. Le cabinet vous recontacte sous 24 heures ouvrées.</p>
 
-      <div class="form-success" id="formSuccess">
-        Votre demande a bien été envoyée. Le cabinet vous recontactera dans les meilleurs délais.
-      </div>
-
-      <form id="contactForm">
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="377ea519-63ca-4260-8651-cb0057f3b1ff" />
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="subject" value="Nouveau message depuis avocat-mahbouli.com" />
+        <input type="hidden" name="from_name" value="Cabinet Mahbouli" />
         <div class="field-row">
           <div class="field">
             <label for="nom">Nom</label>
-            <input type="text" id="nom" required />
+            <input type="text" id="nom" name="nom" required />
           </div>
           <div class="field">
             <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" required />
+            <input type="text" id="prenom" name="prenom" required />
           </div>
         </div>
         <div class="field-row">
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" required />
+            <input type="email" id="email" name="email" required />
           </div>
           <div class="field">
             <label for="tel">Téléphone</label>
-            <input type="tel" id="tel" required />
+            <input type="tel" id="tel" name="telephone" required />
           </div>
         </div>
         <div class="field-row">
           <div class="field">
             <label for="dom">Domaine juridique</label>
-            <select id="dom" required>
+            <select id="dom" name="domaine_juridique" required>
               <option value="">Sélectionner...</option>
               <option>Droit des Étrangers</option>
               <option>Droit Pénal</option>
@@ -454,7 +443,7 @@
           </div>
           <div class="field">
             <label for="type">Type de consultation</label>
-            <select id="type" required>
+            <select id="type" name="type_consultation" required>
               <option value="">Sélectionner...</option>
               <option>Présentiel</option>
               <option>Visioconférence</option>
@@ -463,7 +452,7 @@
         </div>
         <div class="field">
           <label for="msg">Décrivez votre situation</label>
-          <textarea id="msg" rows="6" required></textarea>
+          <textarea id="msg" name="message" rows="6" required></textarea>
         </div>
         <label class="check">
           <input type="checkbox" id="rgpd" required />
@@ -543,12 +532,7 @@
     });
   });
   // Form
-  document.getElementById('contactForm').addEventListener('submit', e => {
-    e.preventDefault();
-    document.getElementById('formSuccess').classList.add('show');
-    e.target.reset();
-    setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 6000);
-  });
+  attachWeb3Form(document.getElementById('contactForm'));
 </script>
 <script src="mobile-menu.js"></script>
 </body>

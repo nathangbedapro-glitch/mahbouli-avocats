@@ -182,3 +182,34 @@
     setHasValue();
   });
 })();
+
+// Web3Forms submission handler — shared across all contact forms
+window.attachWeb3Form = function(form) {
+  if (!form) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const btnLabel = btn ? btn.innerHTML : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
+    form.querySelectorAll('.w3f-error').forEach(el => el.remove());
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      const data = await res.json();
+      if (data.success) {
+        form.innerHTML = '<div class="w3f-success">✓ Votre message a bien été envoyé. Le cabinet vous répondra sous 24-48h.</div>';
+      } else {
+        throw new Error(data.message || 'Erreur');
+      }
+    } catch (err) {
+      const errBox = document.createElement('div');
+      errBox.className = 'w3f-error';
+      errBox.textContent = 'Une erreur est survenue. Merci de réessayer ou de contacter le cabinet par téléphone.';
+      form.prepend(errBox);
+      if (btn) { btn.disabled = false; btn.innerHTML = btnLabel; }
+    }
+  });
+};
