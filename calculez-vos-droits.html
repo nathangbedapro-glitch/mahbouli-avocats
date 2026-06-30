@@ -14,6 +14,58 @@
   });
   gtag('js', new Date());
 </script>
+<!-- Tarteaucitron.js - Gestion du consentement RGPD -->
+<script src="https://tarteaucitron.io/load.js?domain=mahbouli-avocats.vercel.app&uuid=mahbouli-rgpd"></script>
+<script>
+  tarteaucitron.init({
+    "privacyUrl": "/politique-confidentialite.html",
+    "hashtag": "#tarteaucitron",
+    "cookieName": "tarteaucitron-mahbouli",
+    "orientation": "bottom",
+    "groupServices": false,
+    "showAlertSmall": false,
+    "cookieslist": false,
+    "showIcon": true,
+    "iconPosition": "BottomRight",
+    "adblocker": false,
+    "DenyAllCta": true,
+    "AcceptAllCta": true,
+    "highPrivacy": true,
+    "handleBrowserDNTRequest": false,
+    "removeCredit": false,
+    "moreInfoLink": true,
+    "useExternalCss": false,
+    "useExternalJs": false,
+    "readmoreLink": "/politique-confidentialite.html",
+    "mandatory": true,
+    "mandatoryCta": true
+  });
+
+  tarteaucitron.lang.alertBig = "Le Cabinet Mahbouli utilise des outils de mesure d\'audience pour améliorer son site internet.";
+  tarteaucitron.lang.alertBigPrivacy = "Vous pouvez accepter ou refuser ces traceurs à tout moment.";
+  tarteaucitron.lang.allAllowed = "Tout accepter";
+  tarteaucitron.lang.allDenied = "Tout refuser";
+  tarteaucitron.lang.personalize = "Personnaliser";
+  tarteaucitron.lang.acceptAll = "Tout accepter";
+  tarteaucitron.lang.denyAll = "Tout refuser";
+  tarteaucitron.lang.title = "Préférences de confidentialité";
+
+  tarteaucitron.services.gtag = {
+    "key": "gtag",
+    "type": "analytic",
+    "name": "Google Analytics 4",
+    "uri": "https://policies.google.com/privacy",
+    "needConsent": true,
+    "cookies": ["_ga", "_gat", "_gid"],
+    "readmoreLink": "https://policies.google.com/privacy",
+    "js": function () { /* déjà géré par tarteaucitron.user.gtagUa */ }
+  };
+
+  // Configuration GA4 via Tarteaucitron
+  tarteaucitron.user.gtagUa = 'G-QT0XPX0PNE';
+  tarteaucitron.user.gtagMore = function () { /* rien */ };
+  (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calculez vos droits — Cabinet MAHBOULI Paris</title>
@@ -166,6 +218,7 @@
   .step-item h4 { font-family: var(--serif); font-size: 16px; margin-bottom: 3px; }
   .step-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 </style>
+<link rel="stylesheet" href="/css/tarteaucitron-custom.css">
 </head>
 <body data-page="droits">
 <div data-shared="topnav"></div>

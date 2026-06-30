@@ -1,0 +1,107 @@
+/* ===== TARTEAUCITRON - DA MAHBOULI ===== */
+/* Couleurs : navy #1B2A4A et or #C9A84C */
+
+/* Bandeau principal */
+#tarteaucitronAlertBig {
+  background: #1B2A4A !important;
+  color: #ffffff !important;
+  font-family: 'DM Sans', sans-serif !important;
+  padding: 20px 30px !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+  border-top: 3px solid #C9A84C !important;
+}
+
+#tarteaucitronAlertBig #tarteaucitronDisclaimerAlert {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* Boutons - Accepter (or) */
+#tarteaucitronPersonalize2,
+#tarteaucitronAllAllowed2 {
+  background: #C9A84C !important;
+  color: #1B2A4A !important;
+  border: 2px solid #C9A84C !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  border-radius: 4px !important;
+  transition: all 0.3s !important;
+}
+
+#tarteaucitronPersonalize2:hover,
+#tarteaucitronAllAllowed2:hover {
+  background: #B89740 !important;
+  border-color: #B89740 !important;
+}
+
+/* Boutons - Refuser/Personnaliser (transparent avec bordure) */
+#tarteaucitronAllDenied2,
+#tarteaucitronCloseAlert {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  padding: 12px 24px !important;
+  font-weight: 500 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  border-radius: 4px !important;
+  transition: all 0.3s !important;
+}
+
+#tarteaucitronAllDenied2:hover,
+#tarteaucitronCloseAlert:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Panneau de personnalisation */
+#tarteaucitron {
+  border: 1px solid #1B2A4A !important;
+  border-radius: 8px !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+#tarteaucitronServices .tarteaucitronTitle button {
+  background: #1B2A4A !important;
+  color: #ffffff !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 22px !important;
+}
+
+#tarteaucitronInfo {
+  background: #f8f8f5 !important;
+  color: #1B2A4A !important;
+  border: 1px solid #C9A84C !important;
+}
+
+/* Icône cookie en bas à droite */
+#tarteaucitronIcon {
+  background: #C9A84C !important;
+}
+
+#tarteaucitronIcon span {
+  color: #1B2A4A !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* Boutons "Autoriser" / "Interdire" dans le panel détaillé */
+.tarteaucitronAllow {
+  background-color: #1B2A4A !important;
+  color: #ffffff !important;
+}
+
+.tarteaucitronDeny {
+  background-color: #999999 !important;
+}
+
+/* Responsive mobile */
+@media screen and (max-width: 768px) {
+  #tarteaucitronAlertBig {
+    padding: 16px 20px !important;
+  }
+
+  #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert {
+    font-size: 13px !important;
+  }
+}

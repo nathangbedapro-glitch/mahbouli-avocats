@@ -139,6 +139,7 @@
     <div class="links">
       <a href="#">Mentions légales</a>
       <a href="#">Politique de confidentialité</a>
+      <a href="#" onclick="if(typeof tarteaucitron !== 'undefined'){ tarteaucitron.userInterface.openPanel(); } return false;" style="color:#C9A84C;text-decoration:underline;cursor:pointer;">Gérer mes cookies</a>
     </div>
   </div>
 </footer>`;
