@@ -183,8 +183,8 @@
   });
 })();
 
-// Web3Forms submission handler — shared across all contact forms
-window.attachWeb3Form = function(form) {
+// Contact form handler — sends JSON to /api/contact (Web3Forms + Brevo via serverless)
+window.attachContactForm = function(form) {
   if (!form) return;
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -192,17 +192,25 @@ window.attachWeb3Form = function(form) {
     const btnLabel = btn ? btn.innerHTML : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours…'; }
     form.querySelectorAll('.w3f-error').forEach(el => el.remove());
+
+    // Collect fields via FormData → plain object
+    const fd = new FormData(form);
+    const data = {};
+    for (const [key, value] of fd.entries()) data[key] = value;
+    // Honeypot: botcheck only appears in FormData when checked (bot)
+    data.botcheck = fd.has('botcheck') && fd.get('botcheck') === 'on';
+
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
       });
-      const data = await res.json();
-      if (data.success) {
+      const json = await res.json();
+      if (json.success) {
         form.innerHTML = '<div class="w3f-success">✓ Votre message a bien été envoyé. Le cabinet vous répondra sous 24-48h.</div>';
       } else {
-        throw new Error(data.message || 'Erreur');
+        throw new Error(json.error || 'Erreur');
       }
     } catch (err) {
       const errBox = document.createElement('div');

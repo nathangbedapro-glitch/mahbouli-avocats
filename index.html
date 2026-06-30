@@ -702,11 +702,8 @@
     </div>
 
     <!-- Colonne droite : formulaire -->
-    <form class="form-card" id="quickContactForm" novalidate action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="377ea519-63ca-4260-8651-cb0057f3b1ff" />
+    <form class="form-card" id="quickContactForm" novalidate action="/api/contact" method="POST">
       <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
-      <input type="hidden" name="subject" value="Nouveau message depuis avocat-mahbouli.com" />
-      <input type="hidden" name="from_name" value="Cabinet Mahbouli" />
       <h3>Message rapide</h3>
 
       <div class="field">
@@ -805,7 +802,7 @@
 <div data-shared="footer"></div>
 <script src="shared.js"></script>
 <script>
-  attachWeb3Form(document.getElementById('quickContactForm'));
+  attachContactForm(document.getElementById('quickContactForm'));
 </script>
 <script src="mobile-menu.js"></script>
 </body>

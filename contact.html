@@ -404,11 +404,8 @@
       <h2>Demande de consultation</h2>
       <p class="form-sub">Décrivez votre situation. Le cabinet vous recontacte sous 24 heures ouvrées.</p>
 
-      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="377ea519-63ca-4260-8651-cb0057f3b1ff" />
+      <form id="contactForm" action="/api/contact" method="POST">
         <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
-        <input type="hidden" name="subject" value="Nouveau message depuis avocat-mahbouli.com" />
-        <input type="hidden" name="from_name" value="Cabinet Mahbouli" />
         <div class="field-row">
           <div class="field">
             <label for="nom">Nom</label>
@@ -532,7 +529,7 @@
     });
   });
   // Form
-  attachWeb3Form(document.getElementById('contactForm'));
+  attachContactForm(document.getElementById('contactForm'));
 </script>
 <script src="mobile-menu.js"></script>
 </body>

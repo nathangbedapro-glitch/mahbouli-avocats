@@ -167,22 +167,53 @@
   document.querySelectorAll('.nl-chip').forEach(chip => {
     chip.addEventListener('click', () => chip.classList.toggle('active'));
   });
-  // Form submit → success state
+  // Form submit → /api/newsletter
   const form = document.getElementById('nl-form');
-  const success = document.getElementById('nl-success');
-  form.addEventListener('submit', (e) => {
+  const successEl = document.getElementById('nl-success');
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = document.getElementById('nl-email');
-    const consent = document.getElementById('nl-consent');
-    const prenom = document.getElementById('nl-prenom');
-    const nom = document.getElementById('nl-nom');
-    if (!prenom.value || !nom.value || !email.checkValidity() || !consent.checked) {
-      [prenom, nom, email].forEach(f => { if (!f.checkValidity()) f.reportValidity(); });
-      if (!consent.checked) consent.focus();
+    const emailEl = document.getElementById('nl-email');
+    const consentEl = document.getElementById('nl-consent');
+    const prenomEl = document.getElementById('nl-prenom');
+    const nomEl = document.getElementById('nl-nom');
+
+    if (!prenomEl.value.trim() || !nomEl.value.trim() || !emailEl.checkValidity() || !consentEl.checked) {
+      [prenomEl, nomEl, emailEl].forEach(f => { if (!f.checkValidity()) f.reportValidity(); });
+      if (!consentEl.checked) consentEl.focus();
       return;
     }
-    form.style.display = 'none';
-    success.classList.add('visible');
+
+    const btn = form.querySelector('.nl-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Inscription en cours…'; }
+    form.querySelectorAll('.nl-error').forEach(el => el.remove());
+
+    const centres_interet = [...document.querySelectorAll('.nl-chip.active')].map(c => c.textContent.trim());
+
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          email: emailEl.value.trim(),
+          prenom: prenomEl.value.trim(),
+          centres_interet,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        form.style.display = 'none';
+        successEl.classList.add('visible');
+      } else {
+        throw new Error(data.error || 'Erreur');
+      }
+    } catch (err) {
+      const errBox = document.createElement('p');
+      errBox.className = 'nl-error';
+      errBox.style.cssText = 'color:#C0392B;font-size:13px;margin-top:12px;';
+      errBox.textContent = 'Une erreur est survenue. Merci de réessayer.';
+      form.appendChild(errBox);
+      if (btn) { btn.disabled = false; btn.textContent = 'JE M\'ABONNE →'; }
+    }
   });
 })();
 </script>

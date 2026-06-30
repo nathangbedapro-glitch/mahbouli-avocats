@@ -1,2 +1,4 @@
 contact-section-v2.html
 index-print.html
+.env.local
+.env.*.local
