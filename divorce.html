@@ -17,45 +17,44 @@
 <!-- Tarteaucitron.js - Gestion du consentement RGPD -->
 <script src="https://cdn.jsdelivr.net/npm/tarteaucitron.js/tarteaucitron.js"></script>
 <script>
-  // Textes personnalisés (avant init)
-  tarteaucitron.lang = tarteaucitron.lang || {};
-  tarteaucitron.lang.alertBig = "Le Cabinet Mahbouli utilise des outils de mesure d\'audience pour améliorer son site internet.";
-  tarteaucitron.lang.alertBigPrivacy = "Vous pouvez accepter ou refuser ces traceurs à tout moment.";
-  tarteaucitron.lang.allAllowed = "Tout accepter";
-  tarteaucitron.lang.allDenied = "Tout refuser";
-  tarteaucitron.lang.personalize = "Personnaliser";
-  tarteaucitron.lang.acceptAll = "Tout accepter";
-  tarteaucitron.lang.denyAll = "Tout refuser";
-  tarteaucitron.lang.title = "Préférences de confidentialité";
+  document.addEventListener('DOMContentLoaded', function () {
+    tarteaucitron.lang.alertBig = "Le Cabinet Mahbouli utilise des outils de mesure d\'audience pour améliorer son site internet.";
+    tarteaucitron.lang.alertBigPrivacy = "Vous pouvez accepter ou refuser ces traceurs à tout moment.";
+    tarteaucitron.lang.allAllowed = "Tout accepter";
+    tarteaucitron.lang.allDenied = "Tout refuser";
+    tarteaucitron.lang.personalize = "Personnaliser";
+    tarteaucitron.lang.acceptAll = "Tout accepter";
+    tarteaucitron.lang.denyAll = "Tout refuser";
+    tarteaucitron.lang.title = "Préférences de confidentialité";
 
-  tarteaucitron.init({
-    "privacyUrl": "/politique-confidentialite.html",
-    "hashtag": "#tarteaucitron",
-    "cookieName": "tarteaucitron-mahbouli",
-    "orientation": "bottom",
-    "groupServices": false,
-    "showAlertSmall": false,
-    "cookieslist": false,
-    "showIcon": true,
-    "iconPosition": "BottomRight",
-    "adblocker": false,
-    "DenyAllCta": true,
-    "AcceptAllCta": true,
-    "highPrivacy": true,
-    "handleBrowserDNTRequest": false,
-    "removeCredit": false,
-    "moreInfoLink": true,
-    "useExternalCss": false,
-    "useExternalJs": false,
-    "readmoreLink": "/politique-confidentialite.html",
-    "mandatory": false,
-    "mandatoryCta": false
+    tarteaucitron.init({
+      "privacyUrl": "/politique-confidentialite.html",
+      "hashtag": "#tarteaucitron",
+      "cookieName": "tarteaucitron-mahbouli",
+      "orientation": "bottom",
+      "groupServices": false,
+      "showAlertSmall": false,
+      "cookieslist": false,
+      "showIcon": true,
+      "iconPosition": "BottomRight",
+      "adblocker": false,
+      "DenyAllCta": true,
+      "AcceptAllCta": true,
+      "highPrivacy": true,
+      "handleBrowserDNTRequest": false,
+      "removeCredit": false,
+      "moreInfoLink": true,
+      "useExternalCss": false,
+      "useExternalJs": false,
+      "readmoreLink": "/politique-confidentialite.html",
+      "mandatory": false,
+      "mandatoryCta": false
+    });
+
+    tarteaucitron.user.gtagUa = 'G-QT0XPX0PNE';
+    tarteaucitron.user.gtagMore = function () {};
+    (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
   });
-
-  // Configuration GA4 via le service gtag intégré de Tarteaucitron
-  tarteaucitron.user.gtagUa = 'G-QT0XPX0PNE';
-  tarteaucitron.user.gtagMore = function () {};
-  (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
