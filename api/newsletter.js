@@ -6,6 +6,15 @@
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function parseBody(req) {
+  // Vercel parses JSON bodies automatically, but fallback for raw string
+  if (req.body && typeof req.body === 'object') return req.body;
+  if (typeof req.body === 'string') {
+    try { return JSON.parse(req.body); } catch (e) { return {}; }
+  }
+  return {};
+}
+
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -16,7 +25,10 @@ module.exports = async (req, res) => {
     return res.status(405).json({ success: false, error: 'Method not allowed' });
   }
 
-  const { email, prenom, centres_interet } = req.body || {};
+  const body = parseBody(req);
+  const { email, prenom, centres_interet } = body;
+
+  console.log('[newsletter] Body received:', JSON.stringify(body));
 
   if (!email || !EMAIL_RE.test(email)) {
     console.log('[newsletter] Invalid email:', email);
@@ -37,6 +49,7 @@ module.exports = async (req, res) => {
   };
 
   console.log('[newsletter] Subscribing:', email, '| prenom:', prenom);
+  console.log('[newsletter] API key present:', !!process.env.BREVO_API_KEY);
 
   try {
     const brevoRes = await fetch('https://api.brevo.com/v3/contacts', {
@@ -49,13 +62,16 @@ module.exports = async (req, res) => {
       body: JSON.stringify(payload),
     });
 
-    // 201 = created, 204 = already exists (no body)
-    if (brevoRes.status === 201 || brevoRes.status === 204) {
-      console.log('[newsletter] Success:', email);
+    const responseText = await brevoRes.text();
+    console.log('[newsletter] Brevo status:', brevoRes.status, '| body:', responseText);
+
+    // 201 = created, 204 = no content (already exists), 200 = updated
+    if (brevoRes.ok || brevoRes.status === 201 || brevoRes.status === 204) {
       return res.status(200).json({ success: true });
     }
 
-    const errData = await brevoRes.json().catch(() => ({}));
+    let errData = {};
+    try { errData = JSON.parse(responseText); } catch (e) {}
     console.error('[newsletter] Brevo error:', brevoRes.status, errData);
     return res.status(500).json({ success: false, error: 'Erreur Brevo', details: errData });
 
