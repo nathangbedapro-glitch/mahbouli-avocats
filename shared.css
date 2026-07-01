@@ -513,6 +513,15 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; color: var(--navy)
   color: rgba(255,255,255,0.5);
 }
 .footer-bottom .links { display: flex; gap: 28px; }
+.footer-bottom .links a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+.footer-bottom .links a:hover { color: rgba(255,255,255,0.75); }
+.footer-bottom .links a.cookie-manage-link {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.footer-bottom .links a.cookie-manage-link:hover { color: #B89740; }
 
 /* Placeholder image */
 .ph {
