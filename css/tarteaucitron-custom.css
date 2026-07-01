@@ -469,3 +469,14 @@ html body #tarteaucitronRoot div#tarteaucitronSave {
     font-size: 13px !important;
   }
 }
+
+/* ════════════════════════════════════════════
+   MASQUER LA MODALE NATIVE TARTEAUCITRON
+   (remplacée par la custom UI cookie-modal.js)
+   Le bandeau #tarteaucitronAlertBig est conservé.
+════════════════════════════════════════════ */
+#tarteaucitron,
+#tarteaucitronBack,
+#tarteaucitronRoot > #tarteaucitron {
+  display: none !important;
+}
