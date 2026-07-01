@@ -139,6 +139,7 @@
     <div class="links">
       <a href="#">Mentions légales</a>
       <a href="#">Politique de confidentialité</a>
+      <a href="#" class="cookie-manage-link" onclick="window.cookieModal && window.cookieModal.open(); return false;">Gérer mes cookies</a>
     </div>
   </div>
 </footer>`;

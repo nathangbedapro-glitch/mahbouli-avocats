@@ -14,6 +14,48 @@
   });
   gtag('js', new Date());
 </script>
+<!-- Tarteaucitron.js - Gestion du consentement RGPD -->
+<script src="/js/tarteaucitron.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    tarteaucitron.lang.alertBig = "Le Cabinet Mahbouli utilise des outils de mesure d\'audience pour améliorer son site internet.";
+    tarteaucitron.lang.alertBigPrivacy = "Vous pouvez accepter ou refuser ces traceurs à tout moment.";
+    tarteaucitron.lang.allAllowed = "Tout accepter";
+    tarteaucitron.lang.allDenied = "Tout refuser";
+    tarteaucitron.lang.personalize = "Personnaliser";
+    tarteaucitron.lang.acceptAll = "Tout accepter";
+    tarteaucitron.lang.denyAll = "Tout refuser";
+    tarteaucitron.lang.title = "Préférences de confidentialité";
+
+    tarteaucitron.init({
+      "privacyUrl": "/politique-confidentialite.html",
+      "hashtag": "#tarteaucitron",
+      "cookieName": "tarteaucitron-mahbouli",
+      "orientation": "bottom",
+      "groupServices": false,
+      "showAlertSmall": false,
+      "cookieslist": false,
+      "showIcon": false,
+      "iconPosition": "BottomRight",
+      "adblocker": false,
+      "DenyAllCta": true,
+      "AcceptAllCta": true,
+      "highPrivacy": true,
+      "handleBrowserDNTRequest": false,
+      "removeCredit": true,
+      "moreInfoLink": false,
+      "useExternalCss": false,
+      "useExternalJs": false,
+      "readmoreLink": "/politique-confidentialite.html",
+      "mandatory": true,
+      "mandatoryCta": true
+    });
+
+    tarteaucitron.user.gtagUa = 'G-QT0XPX0PNE';
+    tarteaucitron.user.gtagMore = function () {};
+    (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+  });
+</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calculez vos droits — Cabinet MAHBOULI Paris</title>
@@ -166,6 +208,9 @@
   .step-item h4 { font-family: var(--serif); font-size: 16px; margin-bottom: 3px; }
   .step-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 </style>
+<link rel="stylesheet" href="/css/tarteaucitron-custom.css">
+<link rel="stylesheet" href="/css/cookie-modal.css">
+<script defer src="/js/cookie-modal.js"></script>
 </head>
 <body data-page="droits">
 <div data-shared="topnav"></div>

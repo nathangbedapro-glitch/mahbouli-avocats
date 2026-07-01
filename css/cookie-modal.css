@@ -1,0 +1,334 @@
+/* ===== COOKIE MODAL — CABINET MAHBOULI ===== */
+/* Modale custom qui remplace l'UI native Tarteaucitron */
+
+:root {
+  --cc-navy: #1B2A4A;
+  --cc-navy-hover: #253656;
+  --cc-gold: #C9A84C;
+  --cc-gold-hover: #B89740;
+  --cc-bg: #FAF9F5;
+  --cc-white: #FFFFFF;
+  --cc-border: #E8E4D8;
+  --cc-muted: #6B7280;
+  --cc-divider: #F0EBE0;
+  --cc-tiny: #9CA3AF;
+  --cc-bullet: #D1D5DB;
+  --cc-serif: 'Cormorant Garamond', Georgia, serif;
+  --cc-sans: 'DM Sans', system-ui, sans-serif;
+}
+
+/* ── Overlay / Backdrop ── */
+.cc-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(27, 42, 74, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.cc-backdrop.is-open {
+  display: flex;
+}
+
+/* ── Conteneur modal ── */
+.cc-modal {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: var(--cc-bg);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+.cc-modal::-webkit-scrollbar { width: 8px; }
+.cc-modal::-webkit-scrollbar-thumb { background: var(--cc-border); border-radius: 8px; }
+.cc-modal::-webkit-scrollbar-track { background: transparent; }
+
+/* ── Bouton fermeture ── */
+.cc-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--cc-border);
+  background: transparent;
+  color: var(--cc-muted);
+  font-size: 17px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  z-index: 2;
+}
+.cc-close:hover { background: var(--cc-navy); color: var(--cc-white); border-color: var(--cc-navy); }
+
+/* ── Header ── */
+.cc-header { padding: 40px 40px 24px; text-align: center; }
+.cc-eyebrow {
+  font-family: var(--cc-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cc-gold);
+  margin-bottom: 12px;
+}
+.cc-title {
+  font-family: var(--cc-serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--cc-navy);
+  line-height: 1.2;
+}
+.cc-subtitle {
+  font-family: var(--cc-sans);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--cc-muted);
+  margin-top: 8px;
+}
+
+/* ── Trait décoratif or ── */
+.cc-rule {
+  width: 40px;
+  height: 2px;
+  background: var(--cc-gold);
+  border: none;
+  margin: 24px auto;
+}
+
+/* ── Boîte info ── */
+.cc-info {
+  background: var(--cc-white);
+  border: 1px solid var(--cc-border);
+  border-radius: 8px;
+  margin: 0 40px 32px;
+  padding: 24px;
+  text-align: center;
+}
+.cc-info p {
+  font-family: var(--cc-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--cc-navy);
+}
+.cc-policy-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--cc-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cc-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.cc-policy-link:hover { color: var(--cc-gold); }
+
+/* ── Préférences globales ── */
+.cc-global {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 40px;
+  border-top: 1px solid var(--cc-divider);
+}
+.cc-global-label {
+  font-family: var(--cc-sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--cc-muted);
+}
+.cc-global-actions { display: flex; gap: 10px; flex-shrink: 0; }
+
+.cc-btn {
+  font-family: var(--cc-sans);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.cc-btn-primary {
+  background: var(--cc-navy);
+  color: var(--cc-white);
+  border: none;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.cc-btn-primary:hover { background: var(--cc-navy-hover); }
+.cc-btn-secondary {
+  background: transparent;
+  color: var(--cc-navy);
+  border: 1px solid var(--cc-border);
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.cc-btn-secondary:hover { border-color: var(--cc-navy); background: #F5F2EE; }
+
+/* ── Titre de catégorie ── */
+.cc-cat-title {
+  padding: 24px 40px 8px;
+  font-family: var(--cc-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--cc-navy);
+}
+.cc-cat-rule {
+  width: 32px;
+  height: 2px;
+  background: var(--cc-gold);
+  border: none;
+  margin: 0 0 0 40px;
+}
+
+/* ── Ligne de service ── */
+.cc-service {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--cc-white);
+  padding: 24px 40px;
+  border-top: 1px solid var(--cc-divider);
+  margin-top: 16px;
+}
+.cc-service-name {
+  font-family: var(--cc-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cc-navy);
+  margin-bottom: 4px;
+}
+.cc-service-desc {
+  font-family: var(--cc-sans);
+  font-size: 13px;
+  color: var(--cc-muted);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  max-width: 340px;
+}
+.cc-service-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cc-service-links a {
+  font-family: var(--cc-sans);
+  font-size: 12px;
+  color: var(--cc-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cc-service-links a:hover { color: var(--cc-gold); text-decoration: underline; text-underline-offset: 2px; }
+.cc-service-links .sep { color: var(--cc-bullet); }
+
+.cc-service-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+/* ── Boutons Autoriser / Interdire ── */
+.cc-toggle {
+  font-family: var(--cc-sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+/* Autoriser : actif = or, inactif (.is-off) = outline gris */
+.cc-toggle-allow {
+  background: var(--cc-gold);
+  color: var(--cc-navy);
+  border: 1px solid var(--cc-gold);
+}
+.cc-toggle-allow.is-off {
+  background: transparent;
+  color: var(--cc-muted);
+  border-color: var(--cc-border);
+}
+.cc-toggle-allow.is-off:hover { border-color: var(--cc-navy); color: var(--cc-navy); }
+/* Interdire : inactif = outline gris, actif (.is-active) = navy */
+.cc-toggle-deny {
+  background: transparent;
+  color: var(--cc-muted);
+  border: 1px solid var(--cc-border);
+}
+.cc-toggle-deny:hover { border-color: var(--cc-navy); color: var(--cc-navy); }
+.cc-toggle-deny.is-active {
+  background: var(--cc-navy);
+  color: var(--cc-white);
+  border-color: var(--cc-navy);
+}
+
+/* ── Footer / Enregistrer ── */
+.cc-footer {
+  border-top: 1px solid var(--cc-divider);
+  padding: 24px 40px 32px;
+}
+.cc-save {
+  width: 100%;
+  background: var(--cc-gold);
+  color: var(--cc-navy);
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-family: var(--cc-sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cc-save:hover { background: var(--cc-gold-hover); }
+.cc-legal {
+  font-family: var(--cc-sans);
+  font-size: 10px;
+  color: var(--cc-tiny);
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* ── Responsive mobile ── */
+@media (max-width: 640px) {
+  .cc-backdrop { padding: 12px; }
+  .cc-modal { max-height: calc(100vh - 24px); }
+  .cc-header { padding: 40px 24px 20px; }
+  .cc-title { font-size: 24px; }
+  .cc-info { margin: 0 24px 28px; }
+  .cc-global {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 24px;
+  }
+  .cc-global-actions { width: 100%; }
+  .cc-global-actions .cc-btn { flex: 1; text-align: center; }
+  .cc-cat-title { padding: 24px 24px 8px; }
+  .cc-cat-rule { margin-left: 24px; }
+  .cc-service {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+  }
+  .cc-service-desc { max-width: none; }
+  .cc-service-actions { width: 100%; }
+  .cc-service-actions .cc-toggle { flex: 1; text-align: center; }
+  .cc-footer { padding: 24px 24px 32px; }
+  .cc-close { top: 16px; right: 16px; }
+}
