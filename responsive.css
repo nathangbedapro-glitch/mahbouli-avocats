@@ -82,10 +82,13 @@ button:not(.hamburger):not(.mobile-menu-close),
   /* 3-col grids → 2 */
   .dist-grid,
   .art-grid,
+  .ap-grid,
   .sub-grid,
   .related-grid,
   .calc-3,
   .domains-9,
+  .nl-value-grid,
+  .nl-issues-grid,
   .calc-info-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Stats bar: 4 inline → 2×2 */
@@ -338,10 +341,14 @@ button:not(.hamburger):not(.mobile-menu-close),
   .domaines-grid,
   .dist-grid,
   .art-grid,
+  .ap-grid,
   .sub-grid,
   .related-grid,
   .calc-3,
   .domains-9,
+  .nl-value-grid,
+  .nl-form-inner,
+  .nl-issues-grid,
   .calc-info-grid { grid-template-columns: 1fr !important; }
 
   /* ── About: stacked ── */
@@ -441,6 +448,23 @@ button:not(.hamburger):not(.mobile-menu-close),
   .field input,
   .field textarea,
   .field select { padding: 16px 0 8px; }
+
+  /* iOS zoom prevention — font-size < 16px déclenche le zoom auto */
+  .field input,
+  .field textarea,
+  .field select,
+  .nl-field input,
+  .calc-inp { font-size: 16px !important; }
+
+  /* ── nl-inline CTA (articles page) → stacked ── */
+  .nl-inline-inner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  /* ── Touch targets — chips ── */
+  .chip { min-height: 44px; }
 
   /* ── FAQ touch targets ── */
   .faq-q { padding: 20px 16px; }
