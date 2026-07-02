@@ -330,5 +330,5 @@
   .cc-service-actions { width: 100%; }
   .cc-service-actions .cc-toggle { flex: 1; text-align: center; }
   .cc-footer { padding: 24px 24px 32px; }
-  .cc-close { top: 16px; right: 16px; }
+  .cc-close { top: 12px; right: 12px; width: 44px; height: 44px; }
 }
