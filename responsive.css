@@ -220,6 +220,7 @@ button:not(.hamburger):not(.mobile-menu-close),
     transition: transform 0.3s ease;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
   .mobile-menu-overlay.open { transform: translateX(0); }
 
@@ -240,7 +241,7 @@ button:not(.hamburger):not(.mobile-menu-close),
   }
 
   .mobile-menu-nav {
-    padding: 80px 0 0;
+    padding: 80px 0 48px;
     display: flex;
     flex-direction: column;
   }

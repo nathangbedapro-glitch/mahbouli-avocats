@@ -79,18 +79,28 @@
     document.body.appendChild(overlay);
 
     /* ── Open / Close ── */
+    /* iOS requires position:fixed on body to prevent background scroll
+       while keeping overflow-y:auto scrollable on the overlay itself. */
+    var savedScrollY = 0;
+
     function openMenu() {
       overlay.classList.add('open');
       btn.classList.add('open');
       btn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+      savedScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + savedScrollY + 'px';
+      document.body.style.width = '100%';
     }
 
     function closeMenu() {
       overlay.classList.remove('open');
       btn.classList.remove('open');
       btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, savedScrollY);
     }
 
     btn.addEventListener('click', openMenu);

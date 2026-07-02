@@ -107,7 +107,7 @@
       <ul>
         <li><a href="notre-cabinet.html">Notre cabinet</a></li>
         <li><a href="notre-cabinet.html">Maître MAHBOULI</a></li>
-        <li><a href="#">Calculez vos droits</a></li>
+        <li><a href="calculez-vos-droits.html">Calculez vos droits</a></li>
         <li><a href="articles.html">Articles juridiques</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
