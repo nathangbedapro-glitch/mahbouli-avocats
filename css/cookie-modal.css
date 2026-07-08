@@ -304,31 +304,245 @@
   line-height: 1.5;
 }
 
-/* ── Responsive mobile ── */
+/* ── Éléments mobile-only — cachés par défaut sur desktop ── */
+.cc-grip { display: none; }
+.cc-details-toggle { display: none; }
+/* Details toujours visible sur desktop */
+.cc-details { display: block; }
+
+/* ── Responsive mobile — Bottom Sheet ── */
 @media (max-width: 640px) {
-  .cc-backdrop { padding: 12px; }
-  .cc-modal { max-height: calc(100vh - 24px); }
-  .cc-header { padding: 40px 24px 20px; }
-  .cc-title { font-size: 24px; }
-  .cc-info { margin: 0 24px 28px; }
+  /* Backdrop */
+  #tarteaucitronBack, .cc-backdrop {
+    background: rgba(27, 42, 74, 0.6) !important;
+  }
+
+  /* Sheet container */
+  .cc-modal {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 85vh !important;
+    border-radius: 20px 20px 0 0 !important;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2) !important;
+    animation: sheetUp 300ms ease-out both !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  @keyframes sheetUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cc-modal { animation: none !important; }
+  }
+
+  /* Grip visible en mobile */
+  .cc-grip {
+    display: block !important;
+    width: 40px;
+    height: 4px;
+    background: #C9A84C;
+    border-radius: 2px;
+    margin: 12px auto 0;
+    flex-shrink: 0;
+  }
+
+  /* Close button */
+  .cc-close {
+    top: 20px !important;
+    right: 20px !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 20px !important;
+  }
+
+  /* Header compact */
+  .cc-header {
+    padding: 32px 24px 16px !important;
+  }
+
+  .cc-title {
+    font-size: 22px !important;
+  }
+
+  /* Sous-titre caché en mobile */
+  .cc-subtitle {
+    display: none !important;
+  }
+
+  .cc-rule {
+    width: 32px !important;
+    margin: 16px auto !important;
+  }
+
+  /* Info box compact */
+  .cc-info {
+    margin: 0 24px 20px !important;
+    padding: 16px 20px !important;
+  }
+
+  .cc-info p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  .cc-policy-link {
+    font-size: 12px !important;
+    margin-top: 10px !important;
+  }
+
+  /* Zone scrollable interne */
+  .cc-scroll {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    flex: 1 !important;
+  }
+
+  /* Global preferences stacked */
   .cc-global {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 24px;
+    padding: 16px 24px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
   }
-  .cc-global-actions { width: 100%; }
-  .cc-global-actions .cc-btn { flex: 1; text-align: center; }
-  .cc-cat-title { padding: 24px 24px 8px; }
-  .cc-cat-rule { margin-left: 24px; }
+
+  .cc-global-label {
+    font-size: 10px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .cc-global-actions {
+    display: flex !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .cc-btn {
+    flex: 1 !important;
+    padding: 14px !important;
+    font-size: 14px !important;
+    border-radius: 6px !important;
+  }
+
+  /* Details toggle visible en mobile */
+  .cc-details-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 16px 24px !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #F0EBE0 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: #1B2A4A !important;
+    text-align: left !important;
+    cursor: pointer !important;
+  }
+
+  .cc-details-toggle .chev {
+    font-size: 10px !important;
+    color: #6B7280 !important;
+    transition: transform 0.25s ease !important;
+  }
+
+  .cc-details-toggle[aria-expanded="true"] {
+    border-bottom-color: transparent !important;
+  }
+
+  .cc-details-toggle[aria-expanded="true"] .chev {
+    transform: rotate(180deg) !important;
+  }
+
+  /* Details collapse par défaut en mobile */
+  .cc-details {
+    display: none !important;
+  }
+
+  .cc-details.open {
+    display: block !important;
+  }
+
+  /* Catégorie titre compact */
+  .cc-cat-title {
+    font-size: 18px !important;
+    padding: 20px 24px 8px !important;
+  }
+
+  .cc-cat-rule {
+    width: 24px !important;
+    margin: 0 0 0 24px !important;
+  }
+
+  /* Service item mobile */
   .cc-service {
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px;
+    padding: 20px 24px !important;
+    display: block !important;
   }
-  .cc-service-desc { max-width: none; }
-  .cc-service-actions { width: 100%; }
-  .cc-service-actions .cc-toggle { flex: 1; text-align: center; }
-  .cc-footer { padding: 24px 24px 32px; }
-  .cc-close { top: 12px; right: 12px; width: 44px; height: 44px; }
+
+  .cc-service-name {
+    font-size: 15px !important;
+  }
+
+  .cc-service-desc {
+    font-size: 13px !important;
+    margin-top: 4px !important;
+    margin-bottom: 12px !important;
+    max-width: none !important;
+  }
+
+  .cc-service-links {
+    display: flex !important;
+    gap: 8px !important;
+    font-size: 12px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .cc-service-actions {
+    display: flex !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .cc-toggle {
+    flex: 1 !important;
+    padding: 12px !important;
+    font-size: 13px !important;
+    border-radius: 6px !important;
+  }
+
+  /* Footer sticky bas */
+  .cc-footer {
+    position: sticky !important;
+    bottom: 0 !important;
+    background: #FAF9F5 !important;
+    border-top: 1px solid #F0EBE0 !important;
+    padding: 16px 24px 24px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cc-save {
+    width: 100% !important;
+    padding: 14px !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+  }
+
+  .cc-legal {
+    font-size: 10px !important;
+    margin-top: 12px !important;
+  }
 }
