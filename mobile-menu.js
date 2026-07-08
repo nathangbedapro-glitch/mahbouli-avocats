@@ -91,6 +91,9 @@
       document.body.style.position = 'fixed';
       document.body.style.top = '-' + savedScrollY + 'px';
       document.body.style.width = '100%';
+      /* Hide Tarteaucitron banner so its z-index doesn't block menu links */
+      var tac = document.getElementById('tarteaucitronAlertBig');
+      if (tac) tac.style.display = 'none';
     }
 
     function closeMenu() {
@@ -101,6 +104,9 @@
       document.body.style.top = '';
       document.body.style.width = '';
       window.scrollTo(0, savedScrollY);
+      /* Restore Tarteaucitron banner */
+      var tac = document.getElementById('tarteaucitronAlertBig');
+      if (tac) tac.style.display = '';
     }
 
     btn.addEventListener('click', openMenu);

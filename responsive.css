@@ -500,11 +500,24 @@ button:not(.hamburger):not(.mobile-menu-close),
     width: fit-content;
   }
 
-  /* ── Calculator ── */
+  /* ── Calculator (sub-pages: calcul-*.html) ── */
   .calc-body { grid-template-columns: 1fr !important; }
   .calc-form { padding: 24px !important; }
   .calc-radio-row { flex-direction: column; gap: 12px; }
   .calc-result-amount { font-size: 40px; }
+
+  /* ── Calculez-vos-droits hub page ── */
+  .calc-hub-hero { min-height: auto !important; padding: 48px 24px !important; }
+  .calc-hub-hero h1 { font-size: 32px !important; }
+  .calc-hub-hero p { font-size: 14px !important; }
+  .calc-cards-row { flex-direction: column !important; padding: 0 !important; gap: 0 !important; }
+  .calc-card-nav { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; padding: 20px 24px !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; }
+  .calc-card-nav:last-child { border-bottom: none !important; }
+  .calc-section-page { padding: var(--py-sm, 48px) 24px !important; }
+  .calc-sec-inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .calc-sec-left .num { font-size: 48px !important; }
+  .calc-sec-left h2 { font-size: 26px !important; }
+  .calc-sec-right { position: static !important; }
 
   /* ── Intro cols ── */
   .intro-cols { grid-template-columns: 1fr !important; }
