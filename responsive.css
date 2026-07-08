@@ -89,7 +89,11 @@ button:not(.hamburger):not(.mobile-menu-close),
   .domains-9,
   .nl-value-grid,
   .nl-issues-grid,
-  .calc-info-grid { grid-template-columns: repeat(2, 1fr); }
+  .calc-info-grid,
+  .philo-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* 4-col grids → 2 */
+  .creds-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Stats bar: 4 inline → 2×2 */
   .stats { grid-template-columns: repeat(2, 1fr); }
@@ -349,7 +353,17 @@ button:not(.hamburger):not(.mobile-menu-close),
   .nl-value-grid,
   .nl-form-inner,
   .nl-issues-grid,
-  .calc-info-grid { grid-template-columns: 1fr !important; }
+  .calc-info-grid,
+  .philo-grid,
+  .creds-grid,
+  .team-grid { grid-template-columns: 1fr !important; }
+
+  /* ── Notre-cabinet team member card → stacked ── */
+  .member { grid-template-columns: 1fr !important; }
+  .member .m-photo { min-height: 200px; }
+  .cred-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 28px 0 !important; }
+  .cred-item:last-child { border-bottom: none !important; }
+  .cred-item:first-child { padding-left: 0 !important; }
 
   /* ── About: stacked ── */
   .about-grid { grid-template-columns: 1fr !important; gap: 0; }

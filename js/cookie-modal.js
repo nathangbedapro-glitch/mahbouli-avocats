@@ -212,10 +212,11 @@
 
   /* ── Intercepte le bouton "Personnaliser" du bandeau Tarteaucitron ── */
   function interceptPersonalizeButton() {
+    /* IDs Tarteaucitron qui ouvrent le panneau "Personnaliser" (pas "Tout accepter").
+       tarteaucitronPersonalize2 = bouton "Tout accepter" → NE PAS intercepter. */
     var PERSONALIZE_IDS = [
       'tarteaucitronCloseAlert',
-      'tarteaucitronPersonalize',
-      'tarteaucitronPersonalize2'
+      'tarteaucitronPersonalize'
     ];
 
     document.addEventListener('click', function (e) {
