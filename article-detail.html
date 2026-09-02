@@ -74,19 +74,29 @@
 <style>
 /* ── Article detail — styles spécifiques ── */
 .art-hero {
-  background: linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
+  background: #0F1F3D;
   padding: 56px 80px;
   position: relative;
   overflow: hidden;
 }
+.art-hero-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+/* Navy veil + gradient sombre derrière le texte */
 .art-hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(45deg, rgba(201,168,76,0.3) 0 1px, transparent 1px 14px);
-  opacity: 0.03;
+  background:
+    radial-gradient(ellipse 80% 70% at 40% 60%, rgba(13,25,50,0.55) 0%, transparent 70%),
+    rgba(27, 42, 74, 0.40);
+  z-index: 1;
   pointer-events: none;
 }
-.art-hero-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+.art-hero-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 2; }
 .art-badge {
   display: inline-block;
   background: rgba(201,168,76,0.18);
@@ -107,6 +117,7 @@
   line-height: 1.15;
   max-width: 760px;
   margin-bottom: 24px;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.55);
 }
 .art-meta {
   display: flex;
@@ -340,6 +351,7 @@
 
 <!-- ── HERO ── -->
 <section class="art-hero">
+  <img class="art-hero-bg" src="/images/hero-article-oqtf.jpg" alt="Illustration : OQTF, les recours possibles en 2026">
   <div class="art-hero-inner">
     <span class="art-badge">Droit des Étrangers · OQTF</span>
     <h1>OQTF : Les recours possibles en 2026</h1>
