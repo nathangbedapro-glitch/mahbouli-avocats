@@ -89,7 +89,11 @@ button:not(.hamburger):not(.mobile-menu-close),
   .domains-9,
   .nl-value-grid,
   .nl-issues-grid,
-  .calc-info-grid { grid-template-columns: repeat(2, 1fr); }
+  .calc-info-grid,
+  .philo-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* 4-col grids → 2 */
+  .creds-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Stats bar: 4 inline → 2×2 */
   .stats { grid-template-columns: repeat(2, 1fr); }
@@ -211,15 +215,15 @@ button:not(.hamburger):not(.mobile-menu-close),
   /* ── Mobile overlay ── */
   .mobile-menu-overlay {
     display: block;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    position: fixed !important;
+    inset: 0 !important;
     background: #1B2A4A;
     z-index: 9999;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
   }
   .mobile-menu-overlay.open { transform: translateX(0); }
 
@@ -240,7 +244,7 @@ button:not(.hamburger):not(.mobile-menu-close),
   }
 
   .mobile-menu-nav {
-    padding: 80px 0 0;
+    padding: 80px 0 80px;
     display: flex;
     flex-direction: column;
   }
@@ -349,7 +353,17 @@ button:not(.hamburger):not(.mobile-menu-close),
   .nl-value-grid,
   .nl-form-inner,
   .nl-issues-grid,
-  .calc-info-grid { grid-template-columns: 1fr !important; }
+  .calc-info-grid,
+  .philo-grid,
+  .creds-grid,
+  .team-grid { grid-template-columns: 1fr !important; }
+
+  /* ── Notre-cabinet team member card → stacked ── */
+  .member { grid-template-columns: 1fr !important; }
+  .member .m-photo { min-height: 200px; }
+  .cred-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 28px 0 !important; }
+  .cred-item:last-child { border-bottom: none !important; }
+  .cred-item:first-child { padding-left: 0 !important; }
 
   /* ── About: stacked ── */
   .about-grid { grid-template-columns: 1fr !important; gap: 0; }
@@ -486,11 +500,24 @@ button:not(.hamburger):not(.mobile-menu-close),
     width: fit-content;
   }
 
-  /* ── Calculator ── */
+  /* ── Calculator (sub-pages: calcul-*.html) ── */
   .calc-body { grid-template-columns: 1fr !important; }
   .calc-form { padding: 24px !important; }
   .calc-radio-row { flex-direction: column; gap: 12px; }
   .calc-result-amount { font-size: 40px; }
+
+  /* ── Calculez-vos-droits hub page ── */
+  .calc-hub-hero { min-height: auto !important; padding: 48px 24px !important; }
+  .calc-hub-hero h1 { font-size: 32px !important; }
+  .calc-hub-hero p { font-size: 14px !important; }
+  .calc-cards-row { flex-direction: column !important; padding: 0 !important; gap: 0 !important; }
+  .calc-card-nav { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; padding: 20px 24px !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; }
+  .calc-card-nav:last-child { border-bottom: none !important; }
+  .calc-section-page { padding: var(--py-sm, 48px) 24px !important; }
+  .calc-sec-inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .calc-sec-left .num { font-size: 48px !important; }
+  .calc-sec-left h2 { font-size: 26px !important; }
+  .calc-sec-right { position: static !important; }
 
   /* ── Intro cols ── */
   .intro-cols { grid-template-columns: 1fr !important; }

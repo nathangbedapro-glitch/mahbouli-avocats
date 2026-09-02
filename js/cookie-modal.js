@@ -10,11 +10,12 @@
 (function () {
   'use strict';
 
-  /* ── HTML de la modale (source de vérité : /mockups/cookie-modal.html) ── */
+  /* ── HTML de la modale ── */
   var MODAL_HTML = [
     '<div class="cc-backdrop" id="cc-backdrop" role="dialog" aria-modal="true" aria-labelledby="cc-modal-title">',
     '  <div class="cc-modal">',
 
+    '    <div class="cc-grip" aria-hidden="true"></div>',
     '    <button class="cc-close" id="cc-close-btn" aria-label="Fermer">&times;</button>',
 
     '    <div class="cc-header">',
@@ -23,43 +24,56 @@
     '      <p class="cc-subtitle">Vos données.  Votre choix.</p>',
     '    </div>',
 
-    '    <hr class="cc-rule">',
+    '    <div class="cc-scroll">',
 
-    '    <div class="cc-info">',
-    '      <p>En autorisant ces services tiers, vous acceptez le dépôt et la lecture de cookies et l’utilisation de technologies de suivi nécessaires à leur bon fonctionnement.</p>',
-    '      <a href="/politique-confidentialite.html" class="cc-policy-link">Consulter la politique de confidentialité →</a>',
-    '    </div>',
+    '      <hr class="cc-rule">',
 
-    '    <div class="cc-global">',
-    '      <span class="cc-global-label">Préférences globales</span>',
-    '      <div class="cc-global-actions">',
-    '        <button class="cc-btn cc-btn-primary" id="cc-accept-all">Tout accepter</button>',
-    '        <button class="cc-btn cc-btn-secondary" id="cc-deny-all">Tout refuser</button>',
+    '      <div class="cc-info">',
+    '        <p>En autorisant ces services tiers, vous acceptez le dépôt et la lecture de cookies et l’utilisation de technologies de suivi nécessaires à leur bon fonctionnement.</p>',
+    '        <a href="/politique-confidentialite.html" class="cc-policy-link">Consulter la politique de confidentialité →</a>',
     '      </div>',
-    '    </div>',
 
-    '    <h3 class="cc-cat-title">Mesure d’audience</h3>',
-    '    <hr class="cc-cat-rule">',
-
-    '    <div class="cc-service">',
-    '      <div class="cc-service-info">',
-    '        <div class="cc-service-name">Google Analytics 4</div>',
-    '        <p class="cc-service-desc">Mesure d’audience anonymisée pour améliorer votre expérience sur le site.</p>',
-    '        <div class="cc-service-links">',
-    '          <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener noreferrer">En savoir plus</a>',
-    '          <span class="sep">·</span>',
-    '          <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer">Site officiel ↗</a>',
+    '      <div class="cc-global">',
+    '        <span class="cc-global-label">Préférences globales</span>',
+    '        <div class="cc-global-actions">',
+    '          <button class="cc-btn cc-btn-primary" id="cc-accept-all">Tout accepter</button>',
+    '          <button class="cc-btn cc-btn-secondary" id="cc-deny-all">Tout refuser</button>',
     '        </div>',
     '      </div>',
-    '      <div class="cc-service-actions">',
-    '        <button class="cc-toggle cc-toggle-allow is-off" id="cc-gtag-allow">Autoriser</button>',
-    '        <button class="cc-toggle cc-toggle-deny" id="cc-gtag-deny">Interdire</button>',
+
+    '      <button class="cc-details-toggle" aria-expanded="false" aria-controls="cc-details">',
+    '        <span>Personnaliser par service</span>',
+    '        <span class="chev" aria-hidden="true">▼</span>',
+    '      </button>',
+
+    '      <div class="cc-details" id="cc-details">',
+
+    '        <h3 class="cc-cat-title">Mesure d’audience</h3>',
+    '        <hr class="cc-cat-rule">',
+
+    '        <div class="cc-service">',
+    '          <div class="cc-service-info">',
+    '            <div class="cc-service-name">Google Analytics 4</div>',
+    '            <p class="cc-service-desc">Mesure d’audience anonymisée pour améliorer votre expérience sur le site.</p>',
+    '            <div class="cc-service-links">',
+    '              <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener noreferrer">En savoir plus</a>',
+    '              <span class="sep">·</span>',
+    '              <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer">Site officiel ↗</a>',
+    '            </div>',
+    '          </div>',
+    '          <div class="cc-service-actions">',
+    '            <button class="cc-toggle cc-toggle-allow is-off" id="cc-gtag-allow">Autoriser</button>',
+    '            <button class="cc-toggle cc-toggle-deny" id="cc-gtag-deny">Interdire</button>',
+    '          </div>',
+    '        </div>',
+
     '      </div>',
+
     '    </div>',
 
     '    <div class="cc-footer">',
     '      <button class="cc-save" id="cc-save">Enregistrer mes préférences</button>',
-    '      <p class="cc-legal">Vos préférences seront mémorisées pendant 13 mois. Propulsé par Tarteaucitron.</p>',
+    '      <p class="cc-legal">Vos préférences seront mémorisées pendant 13 mois. Propulsé par Tarteaucitron.</p>',
     '    </div>',
 
     '  </div>',
@@ -75,7 +89,7 @@
     }
   }
 
-  /* ── Lire l'état courant de GA4 (true = autorisé, false = refusé, undefined = non choisi) ── */
+  /* ── Lire l'état courant de GA4 ── */
   function getGtagState() {
     if (typeof tarteaucitron !== 'undefined' && tarteaucitron.state) {
       return tarteaucitron.state['gtag'];
@@ -83,7 +97,7 @@
     return undefined;
   }
 
-  /* ── Synchronise les boutons Autoriser / Interdire avec l'état Tarteaucitron ── */
+  /* ── Synchronise les boutons avec l'état Tarteaucitron ── */
   function syncToggleUI() {
     var allowBtn = document.getElementById('cc-gtag-allow');
     var denyBtn  = document.getElementById('cc-gtag-deny');
@@ -91,19 +105,19 @@
 
     var state = getGtagState();
     if (state === true) {
-      /* GA4 autorisé : "Autoriser" actif (or), "Interdire" inactif */
       allowBtn.classList.remove('is-off');
       denyBtn.classList.remove('is-active');
     } else if (state === false) {
-      /* GA4 refusé : "Autoriser" inactif, "Interdire" actif (navy) */
       allowBtn.classList.add('is-off');
       denyBtn.classList.add('is-active');
     } else {
-      /* Pas encore choisi : les deux inactifs, invite à choisir */
       allowBtn.classList.add('is-off');
       denyBtn.classList.remove('is-active');
     }
   }
+
+  /* ── iOS scroll lock — position:fixed évite le scroll du body derrière la modale ── */
+  var savedScrollY = 0;
 
   /* ── API publique ── */
   window.cookieModal = {
@@ -111,9 +125,11 @@
       var backdrop = document.getElementById('cc-backdrop');
       if (!backdrop) return;
       backdrop.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
+      savedScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + savedScrollY + 'px';
+      document.body.style.width = '100%';
       syncToggleUI();
-      /* Focus trap : focus sur le premier élément interactif */
       setTimeout(function () {
         var firstBtn = backdrop.querySelector('button');
         if (firstBtn) firstBtn.focus();
@@ -123,15 +139,18 @@
       var backdrop = document.getElementById('cc-backdrop');
       if (!backdrop) return;
       backdrop.classList.remove('is-open');
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, savedScrollY);
     }
   };
 
-  /* ── Attache les événements de la modale ── */
+  /* ── Attache les événements ── */
   function bindEvents() {
     var backdrop = document.getElementById('cc-backdrop');
 
-    /* Fermer au clic sur le backdrop (mais pas sur la modale elle-même) */
+    /* Fermer au clic sur le backdrop */
     backdrop.addEventListener('click', function (e) {
       if (e.target === backdrop) window.cookieModal.close();
     });
@@ -143,69 +162,61 @@
       }
     });
 
-    /* Bouton × (fermeture) */
+    /* Bouton × */
     document.getElementById('cc-close-btn').addEventListener('click', function () {
       window.cookieModal.close();
     });
 
-    /* Tout accepter → Tarteaucitron respondAll(true) */
+    /* Tout accepter */
     document.getElementById('cc-accept-all').addEventListener('click', function () {
-      withTac(function () {
-        tarteaucitron.userInterface.respondAll(true);
-      });
+      withTac(function () { tarteaucitron.userInterface.respondAll(true); });
       window.cookieModal.close();
     });
 
-    /* Tout refuser → Tarteaucitron respondAll(false) */
+    /* Tout refuser */
     document.getElementById('cc-deny-all').addEventListener('click', function () {
-      withTac(function () {
-        tarteaucitron.userInterface.respondAll(false);
-      });
+      withTac(function () { tarteaucitron.userInterface.respondAll(false); });
       window.cookieModal.close();
     });
 
-    /* Autoriser GA4 → Tarteaucitron respond({ id: 'gtag' }, true) */
+    /* Autoriser GA4 */
     document.getElementById('cc-gtag-allow').addEventListener('click', function () {
-      withTac(function () {
-        /* respond() extrait la clé depuis el.id — on passe un objet léger */
-        tarteaucitron.userInterface.respond({ id: 'gtag' }, true);
-      });
-      /* Mise à jour visuelle immédiate, sans attendre Tarteaucitron */
+      withTac(function () { tarteaucitron.userInterface.respond({ id: 'gtag' }, true); });
       document.getElementById('cc-gtag-allow').classList.remove('is-off');
       document.getElementById('cc-gtag-deny').classList.remove('is-active');
     });
 
-    /* Interdire GA4 → Tarteaucitron respond({ id: 'gtag' }, false) */
+    /* Interdire GA4 */
     document.getElementById('cc-gtag-deny').addEventListener('click', function () {
-      withTac(function () {
-        tarteaucitron.userInterface.respond({ id: 'gtag' }, false);
-      });
-      /* Mise à jour visuelle immédiate */
+      withTac(function () { tarteaucitron.userInterface.respond({ id: 'gtag' }, false); });
       document.getElementById('cc-gtag-allow').classList.add('is-off');
       document.getElementById('cc-gtag-deny').classList.add('is-active');
     });
 
-    /* Enregistrer → ferme la modale (les choix sont déjà sauvegardés par Tarteaucitron) */
+    /* Enregistrer */
     document.getElementById('cc-save').addEventListener('click', function () {
       window.cookieModal.close();
     });
+
+    /* Toggle détails mobile (Personnaliser par service) */
+    var detailsToggle = backdrop.querySelector('.cc-details-toggle');
+    var detailsPanel  = document.getElementById('cc-details');
+    if (detailsToggle && detailsPanel) {
+      detailsToggle.addEventListener('click', function () {
+        var isExpanded = detailsToggle.getAttribute('aria-expanded') === 'true';
+        detailsToggle.setAttribute('aria-expanded', String(!isExpanded));
+        detailsPanel.classList.toggle('open', !isExpanded);
+      });
+    }
   }
 
   /* ── Intercepte le bouton "Personnaliser" du bandeau Tarteaucitron ── */
   function interceptPersonalizeButton() {
-    /*
-     * Le bandeau Tarteaucitron est injecté dynamiquement dans le DOM.
-     * On utilise un event listener en phase de capture sur document
-     * pour intercepter le clic avant que Tarteaucitron ne l'intercepte.
-     * IDs connus du bouton "Personnaliser" selon la version de Tarteaucitron :
-     *   #tarteaucitronCloseAlert  (bottom banner)
-     *   #tarteaucitronPersonalize  (popup mode)
-     *   #tarteaucitronPersonalize2 (variante)
-     */
+    /* IDs Tarteaucitron qui ouvrent le panneau "Personnaliser" (pas "Tout accepter").
+       tarteaucitronPersonalize2 = bouton "Tout accepter" → NE PAS intercepter. */
     var PERSONALIZE_IDS = [
       'tarteaucitronCloseAlert',
-      'tarteaucitronPersonalize',
-      'tarteaucitronPersonalize2'
+      'tarteaucitronPersonalize'
     ];
 
     document.addEventListener('click', function (e) {
@@ -215,12 +226,11 @@
         e.stopPropagation();
         window.cookieModal.open();
       }
-    }, true /* capture phase */);
+    }, true);
   }
 
-  /* ── Injection du HTML et initialisation ── */
+  /* ── Injection et initialisation ── */
   function init() {
-    /* Injecter la modale dans le DOM */
     var container = document.createElement('div');
     container.innerHTML = MODAL_HTML;
     document.body.appendChild(container.firstElementChild);
@@ -229,7 +239,6 @@
     interceptPersonalizeButton();
   }
 
-  /* Lance après que le DOM est prêt */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
