@@ -98,6 +98,8 @@
     object-fit: cover;
     display: block;
     z-index: 0;
+    filter: blur(1.5px);
+    transform: scale(1.01); /* compense le fondu de bord lié au blur */
   }
   /* Navy veil — léger et uni, image visible */
   .hero-right::before {
@@ -624,8 +626,6 @@
   </div>
   <div class="hero-right">
     <img class="hero-facade-img" src="/images/hero-facade.jpg" alt="Façade du Cabinet Mahbouli, Paris 7e">
-    <div class="sq1"></div>
-    <div class="sq2"></div>
     <div class="hero-monogram">
       <div class="label">Cabinet MAHBOULI</div>
       <div class="sub">PARIS 7E · DEPUIS 2010</div>
