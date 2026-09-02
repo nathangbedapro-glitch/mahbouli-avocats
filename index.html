@@ -99,13 +99,20 @@
     display: block;
     z-index: 0;
   }
-  /* Dark navy overlay so text stays readable */
+  /* Navy veil — léger et uni, image visible */
   .hero-right::before {
     content: '';
     position: absolute; inset: 0;
-    background:
-      repeating-linear-gradient(45deg, rgba(201,168,76,0.3) 0 1px, transparent 1px 14px),
-      rgba(13, 25, 50, 0.62);
+    background: rgba(27, 42, 74, 0.40);
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Gradient sombre localisé derrière le texte monogramme */
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 42%, rgba(13,25,50,0.55) 0%, transparent 75%);
     z-index: 1;
     pointer-events: none;
   }
@@ -131,6 +138,7 @@
     font-size: 34px;
     letter-spacing: 0.08em;
     font-weight: 400;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.55);
   }
   .hero-monogram .sub {
     font-family: var(--sans);
@@ -138,6 +146,7 @@
     letter-spacing: 0.32em;
     color: var(--gold);
     margin-top: 12px;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
   }
   /* Faint squares */
   .hero-right .sq1 {
@@ -618,7 +627,6 @@
     <div class="sq1"></div>
     <div class="sq2"></div>
     <div class="hero-monogram">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7l10-5 10 5-10 5-10-5zM2 12l10 5 10-5M2 17l10 5 10-5"/></svg></div>
       <div class="label">Cabinet MAHBOULI</div>
       <div class="sub">PARIS 7E · DEPUIS 2010</div>
     </div>
