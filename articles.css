@@ -67,10 +67,11 @@
 .ap-img {
   height: 240px;
   border-top: 1px solid var(--gold);
-  background:
-    repeating-linear-gradient(45deg, rgba(201,168,76,0.10) 0 1px, transparent 1px 14px),
-    linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
+  background: linear-gradient(135deg, #0F1F3D 0%, #1B2A4A 60%, #2D4A7A 100%);
   position: relative;
+  object-fit: cover;
+  width: 100%;
+  display: block;
 }
 .ap-body { padding: 24px 28px 28px; display: flex; flex-direction: column; flex: 1; }
 .ap-badge {
